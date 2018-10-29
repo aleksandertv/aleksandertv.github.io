@@ -1,26 +1,35 @@
 body{
   font-family: "Times New Roman", serif;
   font-size: 16px;
-  padding-left: 35px;
-  padding-right: 35px;
   background-color: lightgrey;
+  margin: 0;
 }
 
 header{
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: grid;
   grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
-  background-color: white;
+  background-color: black;
   margin-bottom: 5px;
 }
 
 .lenke{
   align-self: center;
+  text-align: center;
 }
 
 a{
   text-decoration: none;
-  color: #333333;
+  color: grey;
   font-weight: bold;
+}
+
+#logo>h3{
+  color: white;
+  font-family: century;
+  margin: 1px;
 }
 
 main{
@@ -28,6 +37,12 @@ main{
   grid-template-columns: repeat(3,1fr);
   grid-gap: 5px;
   grid-auto-rows: minmax(100px,auto);
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+img{
+  width: 100%;
 }
 
 .litenSak{
