@@ -1,0 +1,49 @@
+body{
+  font-family: "Times New Roman", serif;
+  font-size: 16px;
+  padding-left: 35px;
+  padding-right: 35px;
+  background-color: lightgrey;
+}
+
+header{
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.lenke{
+  align-self: center;
+}
+
+a{
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+}
+
+main{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(100px,auto);
+}
+
+.litenSak{
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: red;
+}
+
+.middelsSak{
+  grid-column: span 2;
+  grid-row: span 2;
+  background-color: green;
+}
+
+.storSak{
+  grid-column: span 3;
+  grid-row: span 3;
+  background-color: blue;
+}
