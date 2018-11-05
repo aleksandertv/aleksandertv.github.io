@@ -27,7 +27,7 @@ a{
   font-weight: bold;
 }
 
-#logo>h3{
+#logo{
   color: white;
   font-family: century;
   margin: 1px;
@@ -68,4 +68,19 @@ a{
 .bestselgere{
   grid-column: span 6;
   background-color: blue;
+}
+
+.buksersko{
+  grid-column: span 3;
+  background-color: green;
+}
+
+.herredamebarn{
+  grid-column: span 2;
+  background-color: yellow;
+}
+
+.usynlig{
+  grid-column: span 3;
+  grid-row: span 2;
 }
