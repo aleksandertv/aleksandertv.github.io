@@ -1,0 +1,71 @@
+body{
+  font-family: "Times New Roman", serif;
+  font-size: 16px;
+  background-color: lightgrey;
+  margin: 0;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
+  background-color: black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.lenke{
+  align-self: center;
+}
+
+a{
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+}
+
+#logo>h3{
+  color: white;
+  font-family: century;
+  margin: 1px;
+  font-size: 24px;
+}
+
+#herrebukser{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+#index{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.produkt{
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: red;
+}
+
+.bilde{
+  width: 100%;
+}
+
+.indexprodukt{
+  grid-column: span 2;
+  background-color: red;
+}
+
+.bestselgere{
+  grid-column: span 6;
+  background-color: blue;
+}
