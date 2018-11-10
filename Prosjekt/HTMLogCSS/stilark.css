@@ -1,36 +1,52 @@
 body{
   font-family: "Times New Roman", serif;
   font-size: 16px;
-  background-color: lightgrey;
+  background-color: #efeff5;
   margin: 0;
 }
 
-header{
-  position: fixed;
-  top: 0;
+img{
   width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
-  background-color: black;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
 }
 
-.lenke{
-  align-self: center;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border: 1px solid #e7e7e7;
+  background-color: #f3f3f3;
 }
 
-a{
+li {
+  border-right: 2px solid white;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  color: grey;
-  font-weight: bold;
+}
+
+li a:hover {
+  background-color: grey;
+}
+
+.active {
+  background-color: grey;
+}
+
+.inactive {
+  background-color: darkgrey;
 }
 
 #logo{
-  color: white;
-  font-family: century;
-  margin: 1px;
+  color: black;
   font-size: 24px;
 }
 
@@ -53,7 +69,10 @@ a{
 .produkt{
   grid-column: span 1;
   grid-row: span 1;
-  background-color: red;
+}
+
+.produktnavn, .merkenavn, .pris{
+  background-color: #ffffff;
 }
 
 .bilde{
@@ -83,4 +102,7 @@ a{
 .usynlig{
   grid-column: span 3;
   grid-row: span 2;
+}
+.produktnavn{
+  font-weight: bold;
 }
