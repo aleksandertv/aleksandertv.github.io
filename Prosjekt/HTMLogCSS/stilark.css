@@ -5,6 +5,14 @@ body{
   margin: 0;
 }
 
+header{
+  height: 200px;
+  background-color: #FF6347;
+  background-image: url("../Logo.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
 img{
   width: 100%;
 }
@@ -71,6 +79,10 @@ li a:hover {
   grid-row: span 1;
 }
 
+.mellomrom{
+  grid-column: span 1;
+}
+
 .produktnavn, .merkenavn, .pris{
   background-color: #ffffff;
 }
@@ -80,7 +92,7 @@ li a:hover {
 }
 
 .indexprodukt{
-  grid-column: span 2;
+  grid-column: span 1;
   grid-row: span 1;
 }
 
@@ -91,8 +103,15 @@ li a:hover {
 }
 
 .buksersko{
-  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column: span 2;
   background-color: green;
+}
+
+.bildebuksersko{
+  grid-column: span 2;
+  grid-row: span 1;
 }
 
 .herredamebarn{
