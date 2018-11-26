@@ -5,6 +5,10 @@ body{
   margin: 0;
 }
 
+header{
+  background-color: white;
+}
+
 #herrebukser{
   margin-left: 170px;
 }
@@ -49,16 +53,16 @@ nav {
 }
 
 .navbar_2 {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 170px;
-    background-color: #f1f1f1;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 360px;
-    overflow: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  background-color: #f1f1f1;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 185px;
+  overflow: auto;
 }
 
 .navbilder {
@@ -80,6 +84,36 @@ section {
 
 .inactive {
   background-color: darkgrey;
+}
+
+.active2{
+  font-weight: bold;
+}
+
+.liste{
+  text-decoration: none;
+  color: black;
+}
+
+#logobilde{
+  height: 40%;
+  width: 40%;
+}
+
+#logotrykk{
+  width: 1000px;
+  background-color: red;
+}
+
+.kjopdameherre {
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.kjopdameherre:hover{
+  font-style: italic;
 }
 
 #logo {
@@ -128,14 +162,13 @@ section {
 .bestselgere {
   grid-column: span 6;
   grid-row: span 1;
-  background-color: blue;
 }
 
 .buksersko {
   display: grid;
   grid-template-columns: repeat(2,1fr);
   grid-column: span 2;
-  background-color: green;
+  position: relative;
 }
 
 .bildebuksersko {
@@ -143,9 +176,20 @@ section {
   grid-row: span 1;
 }
 
+.dame{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
+
+.mann{
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
 .herredamebarn {
   grid-column: span 2;
-  background-color: yellow;
 }
 
 .usynlig {
