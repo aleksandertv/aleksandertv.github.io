@@ -52,6 +52,11 @@ nav {
   background-color: grey;
 }
 
+.indexprodukt>a, .produkt>a, .andreprodukter>a{
+  text-decoration: none;
+  color: black;
+}
+
 .navbar_2 {
   list-style-type: none;
   margin: 0;
@@ -137,6 +142,14 @@ section {
   padding-right: 35px;
 }
 
+#produktinformasjon {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
 .produkt, .indexprodukt {
   grid-column: span 1;
   grid-row: span 1;
@@ -198,5 +211,69 @@ section {
 }
 
 .produktnavn {
+  font-weight: bold;
+}
+.tilbake {
+  grid-column: span 3;
+  grid-row: span 1;
+  background-color: yellow;
+}
+.stortbilde {
+  grid-column: span 1;
+  grid-row: span 2;
+  background-color: blue;
+}
+.litebilde {
+  grid-column: span 1;
+  grid-row: span 1;
+  background-color: red;
+}
+
+.info {
+  grid-column: span 1;
+  grid-row: span 2;
+  background-color: white;
+}
+
+.lignendeprodukter {
+  grid-column: span 3;
+  grid-row: span 1;
+  background-color: purple;
+}
+
+.andreprodukter {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+select {
+  width: 95%;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+button {
+  width: 95%;
+  background-color: lightgrey;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 50px;
+}
+
+.merkelogo {
+  width: 60%;
+}
+
+.dropdown>p {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+
+.navnpåprodukt {
   font-weight: bold;
 }
