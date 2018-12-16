@@ -238,7 +238,6 @@ section {
 .lignendeprodukter {
   grid-column: span 3;
   grid-row: span 1;
-  background-color: purple;
 }
 
 .andreprodukter {
@@ -279,4 +278,8 @@ button {
 
 .navnpåprodukt {
   font-weight: bold;
+}
+
+.bestselgere, .lignendeprodukter {
+  margin-top: 3em;
 }
