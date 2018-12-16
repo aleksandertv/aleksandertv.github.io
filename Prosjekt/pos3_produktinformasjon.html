@@ -15,12 +15,13 @@
           <li style="float:left"><a class="inactive" href="#">Barn</a></li>
           <li class="navbildeboks" style="float:right"><a href="#"><img class="navbilder" src="Bilder/logginn.jpg" alt="login, alveto"></a>
           <li class="navbildeboks" style="float:right"><a href="#"><img class="navbilder" src="Bilder/onskeliste.jpg" alt="wishlist, alveto"></a>
+          <li class="navbildeboks" style="float:right"><a href="#"><img class="navbilder" src="Bilder/handlekurv.jpg" alt="shoppingcart, handlekurv, alveto"></a>
         </ul>
       </nav>
     </header>
     <main id="produktinformasjon">
       <section class="tilbake">
-        <div class=""><a href="herrebukser.html">Tilbake</a></div>
+        <div class=""><a href="herrebukser.html"><ul><li>Tilbake</li></ul></a></div>
       </section>
       <section class="stortbilde">
         <div class="">Bilde 1</div>
@@ -29,13 +30,35 @@
         <div class="">Bilde 2</div>
       </section>
       <section class="info">
-        <div class="merkelogo">Merkelogo</div>
-        <div class="navnpåprodukt">Produktnavn</div>
-        <div class="dropdown-meny_farge">Dropdown-meny: Farge</div>
-        <div class="dropdown-meny_størrelse">Dropdown-meny: Størrelse</div>
-        <div class="bestill">Bestill</div>
-        <div class="fri-frakt">Fri frakt</div>
-        <div class="sendetid">Sendetid</div>
+        <div class="merkelogo"><img src="Bilder/onlyandsons_logo.jpg"></div>
+        <div class="navnpåprodukt">HI TECH PANT - Joggebukse</div>
+        <div class="dropdown">
+          <form>
+            <p>Produktet er tilgjengelig i disse fargene</p>
+            <select name="frg" required>
+              <option value="">Farge</option>
+              <option value="black">Black</option>
+              <option value="darknavy">Dark Navy</option>
+              <option value="mediumgreymelange">Medium Grey Melange</option>
+            </select>
+            <p>Produktet er tilgjengelig i disse størrelsene</p>
+            <select name="strl" required>
+              <option value="">Størrelse</option>
+              <option value="xxs">XXS</option>
+              <option value="xs">XS</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+              <option value="xl">XL</option>
+              <option value="xxl">XXL</option>
+              <option value="xxxl">3XL</option>
+              <option value="xxxxl">4XL</option>
+            </select>
+            <button type="">Legg til i handlekurv</button>
+          </form>
+        </div>
+        <div class="fri-frakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
+        <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
       </section>
       <section class="litebilde">
         <div class="">Bilde 3</div>

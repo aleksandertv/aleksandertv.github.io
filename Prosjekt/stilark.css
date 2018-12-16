@@ -247,6 +247,7 @@ section {
 }
 
 select {
+  margin-top: 1em;
   width: 95%;
   height: 50px;
   margin-left: 10px;
@@ -257,7 +258,9 @@ select {
 
 button {
   width: 95%;
-  background-color: lightgrey;
+  margin-top: 2em;
+  background-color: darkorange;
+  color: white;
   font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
