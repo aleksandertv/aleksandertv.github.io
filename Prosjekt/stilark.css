@@ -107,7 +107,7 @@ section {
 
 #logotrykk{
   width: 1000px;
-  background-color: red;
+  background-color: white;
 }
 
 .kjopdameherre {
@@ -233,6 +233,7 @@ section {
   grid-column: span 1;
   grid-row: span 2;
   background-color: white;
+  position: relative;
 }
 
 .lignendeprodukter {
@@ -287,6 +288,9 @@ button {
 .ønskelisteikon {
   height: 35px;
   width: 35px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
 }
 
 .merkelogobilde {
@@ -297,6 +301,43 @@ button {
 .merkelogobilde2 {
   height: 58px;
   width: 246px;
+}
+
+footer, .footer_herrebukser {
+  display: grid;
+  grid-auto-columns: minmax(1px,auto);
+  grid-auto-rows: minmax(1px,auto);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin: 2em 0;
+}
+
+footer {
+  grid-template-columns: repeat(6,1fr);
+}
+
+.footer_herrebukser {
+  grid-template-columns: repeat(7,1fr);
+}
+
+.overskrifterifooter {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.overskrifterifooter, .infoifooter {
+  text-decoration: none;
+  color: black;
+}
+
+.infoifooter {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.vestre {
+  text-align: left;
 }
 
 /* Dette er til "pos2_produktinformasjon" som er en 404 (Not found) side */
