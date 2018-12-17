@@ -340,6 +340,14 @@ footer {
   text-align: left;
 }
 
+.navnpåprodukt {
+  margin-top: 1em;
+}
+
+.nedrebilde {
+  margin-top: 0;
+}
+
 /* Dette er til "pos2_produktinformasjon" som er en 404 (Not found) side */
 
 #bodynotfound {
