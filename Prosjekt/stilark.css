@@ -107,7 +107,10 @@ section {
 
 #logotrykk{
   width: 1000px;
-  background-color: white;
+}
+
+.prispåprodukt {
+  font-size: 32px;
 }
 
 .kjopdameherre {
@@ -213,20 +216,16 @@ section {
 .produktnavn {
   font-weight: bold;
 }
+
 .tilbake {
   grid-column: span 3;
   grid-row: span 1;
   background-color: yellow;
 }
+
 .stortbilde {
   grid-column: span 1;
   grid-row: span 2;
-  background-color: blue;
-}
-.litebilde {
-  grid-column: span 1;
-  grid-row: span 1;
-  background-color: red;
 }
 
 .info {
@@ -303,6 +302,19 @@ button {
   width: 246px;
 }
 
+.fri-frakt, .sendetid, .prispåprodukt {
+  padding: 0 15px;
+}
+
+.fri-frakt {
+  padding-top: 1em;
+}
+
+.tilbaketilbaketilbake {
+  text-decoration: none;
+  color: black;
+}
+
 footer, .footer_herrebukser {
   display: grid;
   grid-auto-columns: minmax(1px,auto);
@@ -348,7 +360,7 @@ footer {
   margin-top: 0;
 }
 
-/* Dette er til "pos2_produktinformasjon" som er en 404 (Not found) side */
+/* Dette er til "error1.html", "error2.html", "erro3.html", "error4.html" som er 404 (Not found) sider. Ikke skrevet selv. */
 
 #bodynotfound {
   padding: 0;
@@ -451,5 +463,3 @@ footer {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
-/* Her er koden til pos2_produktinformasjon over */
