@@ -9,18 +9,13 @@ header{
   background-color: white;
 }
 
-#herrebukser{
-  margin-left: 170px;
-}
-
-img {
+img, .bilde {
   width: 100%;
 }
 
-nav {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+#logobilde{
+  height: 40%;
+  width: 40%;
 }
 
 .navbar {
@@ -52,9 +47,21 @@ nav {
   background-color: grey;
 }
 
-.indexprodukt>a, .produkt>a, .andreprodukter>a{
-  text-decoration: none;
-  color: black;
+.navbilder {
+  height: 25px;
+  width: 25px;
+}
+
+.inactive {
+  background-color: darkgrey;
+}
+
+.active {
+  background-color: grey;
+}
+
+.active2{
+  font-weight: bold;
 }
 
 .navbar_2 {
@@ -70,71 +77,9 @@ nav {
   overflow: auto;
 }
 
-.navbilder {
-  height: 25px;
-  width: 25px;
-}
-
-header>img {
-  width: 40px;
-}
-
-section {
-  margin-top: 20px;
-}
-
-.active {
-  background-color: grey;
-}
-
-.inactive {
-  background-color: darkgrey;
-}
-
-.active2{
-  font-weight: bold;
-}
-
 .liste{
   text-decoration: none;
   color: black;
-}
-
-#logobilde{
-  height: 40%;
-  width: 40%;
-}
-
-#logotrykk{
-  width: 1000px;
-}
-
-.prispåprodukt {
-  font-size: 32px;
-}
-
-.kjopdameherre {
-  font-weight: bold;
-  font-size: 24px;
-  text-decoration: none;
-  color: black;
-}
-
-.kjopdameherre:hover{
-  font-style: italic;
-}
-
-#logo {
-  color: black;
-  font-size: 24px;
-}
-
-#herrebukser {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-gap: 5px;
-  padding-left: 35px;
-  padding-right: 35px;
 }
 
 #index {
@@ -145,6 +90,15 @@ section {
   padding-right: 35px;
 }
 
+#herrebukser {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-left: 170px;
+}
+
 #produktinformasjon {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -153,31 +107,12 @@ section {
   padding-right: 35px;
 }
 
-.produkt, .indexprodukt {
-  grid-column: span 1;
-  grid-row: span 1;
+section {
+  margin-top: 20px;
 }
 
-.mellomrom {
-  grid-column: span 1;
-}
-
-.produktnavn, .merkenavn, .pris {
-  background-color: #ffffff;
-}
-
-.bilde {
-  width: 100%;
-}
-
-.indexprodukt {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.bestselgere {
-  grid-column: span 6;
-  grid-row: span 1;
+.herredamebarn {
+  grid-column: span 2;
 }
 
 .buksersko {
@@ -204,23 +139,66 @@ section {
   left: 2%;
 }
 
-.herredamebarn {
-  grid-column: span 2;
+.kjopdameherre {
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
 }
 
-.usynlig {
-  grid-column: span 3;
-  grid-row: span 2;
+.kjopdameherre:hover{
+  font-style: italic;
+}
+
+.bestselgere {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.bestselgere, .lignendeprodukter {
+  margin-top: 3em;
+}
+
+.indexprodukt>a, .produkt>a, .andreprodukter>a{
+  text-decoration: none;
+  color: black;
+}
+
+.produkt, .indexprodukt {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.indexprodukt {
+  grid-column: span 1;
+  grid-row: span 1;
 }
 
 .produktnavn {
   font-weight: bold;
 }
 
+.produktnavn, .merkenavn, .pris {
+  background-color: #ffffff;
+}
+
 .tilbake {
   grid-column: span 3;
   grid-row: span 1;
-  background-color: yellow;
+}
+
+.tilbaketekst {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: white;
+  width: 100%;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  height: 45px;
 }
 
 .stortbilde {
@@ -235,14 +213,49 @@ section {
   position: relative;
 }
 
-.lignendeprodukter {
-  grid-column: span 3;
-  grid-row: span 1;
+.merkelogo {
+  width: 60%;
 }
 
-.andreprodukter {
-  grid-column: span 1;
-  grid-row: span 1;
+.merkelogobilde {
+  height: 58px;
+  width: 218px;
+}
+
+.merkelogobilde2 {
+  height: 58px;
+  width: 246px;
+}
+
+.ønskelisteikon {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+.navnpåprodukt {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.prispåprodukt {
+  font-size: 32px;
+}
+
+.fri-frakt {
+  padding-top: 1em;
+}
+
+.prispåprodukt, .fri-frakt, .sendetid {
+  padding: 0 15px;
+}
+
+.dropdown>p {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
 }
 
 select {
@@ -266,53 +279,14 @@ button {
   height: 50px;
 }
 
-.merkelogo {
-  width: 60%;
+.lignendeprodukter {
+  grid-column: span 3;
+  grid-row: span 1;
 }
 
-.dropdown>p {
-  padding: 0;
-  margin: 0;
-  font-size: 30px;
-}
-
-.navnpåprodukt {
-  font-weight: bold;
-}
-
-.bestselgere, .lignendeprodukter {
-  margin-top: 3em;
-}
-
-.ønskelisteikon {
-  height: 35px;
-  width: 35px;
-  position: absolute;
-  right: 5%;
-  top: 5%;
-}
-
-.merkelogobilde {
-  height: 58px;
-  width: 218px;
-}
-
-.merkelogobilde2 {
-  height: 58px;
-  width: 246px;
-}
-
-.fri-frakt, .sendetid, .prispåprodukt {
-  padding: 0 15px;
-}
-
-.fri-frakt {
-  padding-top: 1em;
-}
-
-.tilbaketilbaketilbake {
-  text-decoration: none;
-  color: black;
+.andreprodukter {
+  grid-column: span 1;
+  grid-row: span 1;
 }
 
 footer, .footer_herrebukser {
@@ -325,12 +299,20 @@ footer, .footer_herrebukser {
   margin: 2em 0;
 }
 
-footer {
+footer, .footer_herrebukser {
   grid-template-columns: repeat(6,1fr);
+  background-color: white;
+  margin-top: 6em;
+  padding-top: 0;
+  margin-bottom: 0;
 }
 
 .footer_herrebukser {
   grid-template-columns: repeat(7,1fr);
+}
+
+.venstre {
+  text-align: left;
 }
 
 .overskrifterifooter {
@@ -338,29 +320,27 @@ footer {
   font-size: 18px;
 }
 
-.overskrifterifooter, .infoifooter {
-  text-decoration: none;
-  color: black;
-}
-
 .infoifooter {
   font-style: italic;
   font-size: 16px;
 }
 
-.vestre {
-  text-align: left;
+.overskrifterifooter, .infoifooter {
+  text-decoration: none;
+  color: black;
 }
 
-.navnpåprodukt {
-  margin-top: 1em;
+.overskrifterifooter:hover, .infoifooter:hover {
+  text-decoration: underline;
 }
 
-.nedrebilde {
-  margin-top: 0;
-}
 
-/* Dette er til "error1.html", "error2.html", "erro3.html", "error4.html" som er 404 (Not found) sider. Ikke skrevet selv. */
+/* Dette er til "error1.html", "error2.html", "erro3.html", "error4.html", som er Error: 404 (Not found) sider. Ikke skrevet selv. */
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 #bodynotfound {
   padding: 0;
@@ -459,7 +439,4 @@ footer {
   }
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
+/* Her er koden til "error1.html", "error2.html", "erro3.html", "error4.html", som er Error: 404 (Not found) sider, ferdig. */
