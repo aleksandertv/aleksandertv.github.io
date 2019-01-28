@@ -25,13 +25,25 @@
       <input id="inpTelefon" type="text" name="telefon" value="" placeholder="tlf.">
       <button id="btnKnapp" type="button" name="button">Send inn</button>
     </form>
+    <form class="" method="post">
+      <label for="inpAvsender">Avsender</label>
+      <input id="inpAvsender" type="text" name="avsender" value="" placeholder="Ditt navn">
+      <label for="inpMelding">Melding</label>
+      <input id="inpMelding" type="text" name="melding" value="" placeholder="Din melding">
+      <button id="btnKnapp" type="button" name="button">Send</button>
+    </form>
     <script type="text/javascript">
 
       const db = firebase.database();
       const kontaktliste = db.ref("kontaktliste")
+      const kontaktliste = db.ref("meldinger")
 
       const inpNavn = document.querySelector("#inpNavn");
       const inpTelefon = document.querySelector("#inpTelefon");
+      const btnKnapp = document.querySelector("#btnKnapp");
+
+      const inpAvsender = document.querySelector("#inpAvsender");
+      const inpMelding = document.querySelector("#inpMelding");
       const btnKnapp = document.querySelector("#btnKnapp");
 
       btnKnapp.onclick = function(event){
@@ -46,13 +58,17 @@
         );
       }
 
-      kontaktliste.push(
-        {
-          "firstName": "Aleksander Thornes",
-          "lastName": "Vestlund",
-          "telephone": 91694994
-        }
-      );
+      btnKnapp.onclick = function(event){
+        event.preventDefault();
+        let avsender = inpAvsender.value;
+        let melding = inpMelding.value;
+        meldinger.push(
+          {
+            "sender": avsender,
+            "message": melding
+          }
+        );
+      }
     </script>
   </body>
 </html>

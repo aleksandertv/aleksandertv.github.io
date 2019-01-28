@@ -12,3 +12,16 @@
     }
   }
 }
+
+{
+  "meldinger":{
+    "1":{
+      "sender":"Aleks",
+      "message":"Hei"
+    },
+    "2":{
+      "sender":"Karri",
+      "message":"hva skjer"
+    }
+  }
+}
