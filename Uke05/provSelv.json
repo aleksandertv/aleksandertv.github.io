@@ -1,0 +1,78 @@
+{
+  "1":{
+    "svar": "En primærnøkkel er en unik nøkkel til hvert objekt i databasen som gjør at vi lettere kan søke i databasen"
+  },
+  "2":{
+    "a":{
+      "svar": "Elever på en skole: Personnummer"
+    },
+    "b":{
+      "svar": "Fritidsbåter: Identifiseringsnummer"
+    },
+    "c":{
+      "svar": "Planter: Latin navn og nummer"
+    },
+    "d":{
+      "svar": "Kontaktene dine: Telefonnummer"
+    },
+    "e":{
+      "svar": "Stjerner på himmelen: Navn"
+    }
+  },
+  "3":{
+    "svar": "Kandidatnøkler er alle alternativene som kan brukes som primærnøkkel"
+  },
+  "4":{
+    "svar": "I stedte for å lagre alle opplysninger om brukeren hver gang, lagrer man istedenfor referansen, fremmednøkkelen, sammen med den nye teksten"
+  },
+  "5":{
+    "svar": "Teknikker som blir brukt for å unngå dobbeltlagring og duplisering av data, kalles normalisering"
+  },
+  "6":{
+    "spillere":{
+      "superduperkulaaste":{
+        "highscore": 2000,
+        "sistSpilt": "21. desember",
+        "mail": "aaste.instanes@gmail.com"
+      },
+      "karrikaran":{
+        "highscore": 5000,
+        "sistSpilt": "24. desember",
+        "mail": "karan.s.01@hotmail.com"
+      }
+    },
+    "meldinger":{
+      "001":{
+        "tekst": "Hallo folkens! Smilefjees!!",
+        "brukerID": "superduperkulaaste"
+      },
+      "002":{
+        "tekst": "Drep deg seeeeeeelvvvv. Værsåsniiiiiill?! Du hadde gjort oss alle en tjeneste!! ;)",
+        "brukerID": "karrikaran"
+      }
+    }
+  },
+  "7":{
+    "3":{
+      "tittel": "Sharknado",
+      "regissoerFornavn": "Bob",
+      "regissoerEtternavn": "Stern",
+      "filmstudio": "Universal Studios",
+      "aarstall": "2004"
+    },
+    "5":{
+      "tittel": "Star Wars",
+      "regissoerFornavn": "Steven",
+      "regissoerEtternavn": "Spielberg",
+      "filmstudio": "Paramount",
+      "aarstall": "2004"
+    },
+    "8":{
+      "tittel": "E.T.",
+      "regissoerFornavn": "Steven",
+      "regissoerEtternavn": "Spielberg",
+      "filmstudio": "Paramount",
+      "aarstall": "2009"
+    }
+  }
+}
