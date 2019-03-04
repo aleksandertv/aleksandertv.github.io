@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDbd4olUQwROvOmUoMtKfNOKHt4WW010Z0",
+        authDomain: "pokemon-963fa.firebaseapp.com",
+        databaseURL: "https://pokemon-963fa.firebaseio.com",
+        projectId: "pokemon-963fa",
+        storageBucket: "pokemon-963fa.appspot.com",
+        messagingSenderId: "815589870430"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <main>
+      <button type="button" name="button" onclick="sorterNøkkel()">Pokédex-nummer</button>
+      <button type="button" name="button" onclick="sorterNavn()">Alfabetisk</button>
+      <button type="button" name="button" onclick="sorterCP1()">Høyest CP</button>
+      <button type="button" name="button" onclick="sorterCP2()">Lavest CP</button>
+      <button type="button" name="button" onclick="sorterHP1()">Høyest HP</button>
+      <button type="button" name="button" onclick="sorterHP2()">Lavest HP</button>
+      <button type="button" name="button" onclick="visGress()">Gress-Pokémon</button>
+      <section id="secPokemon">
+
+      </section>
+    </main>
+    <script type="text/javascript">
+      const db = firebase.database();
+      const pokemon = db.ref("pokemon");
+
+      const secPokemon = document.querySelector("#secPokemon");
+
+      function visPokemon1(snapshot) {
+        console.log(snapshot.val());
+        let key = snapshot.key;
+        let poke = snapshot.val();
+        let nySec = document.createElement("section");
+        nySec.innerHTML += `
+          <h1>${key}: ${poke.Name}</h1>
+          <img src="${poke["Image URL"]}">
+          <p>Typing: ${poke["Type 1"]}, ${poke["Type 2"]}</p>
+          <p>Max CP: ${poke["Max CP"]}</p>
+          <p>Max HP: ${poke["Max HP"]}</p>
+        `
+        secPokemon.insertBefore(nySec,secPokemon.childNodes[0]);
+      };
+
+      function visPokemon2(snapshot){
+        console.log(snapshot.val());
+        let key = snapshot.key;
+        let poke = snapshot.val();
+        secPokemon.innerHTML += `
+          <h1>${key}: ${poke.Name}</h1>
+          <img src="${poke["Image URL"]}">
+          <p>Typing: ${poke["Type 1"]}, ${poke["Type 2"]}</p>
+          <p>Max CP: ${poke["Max CP"]}</p>
+          <p>Max HP: ${poke["Max HP"]}</p>
+          `
+        };
+
+      function sorterCP1(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Max CP")
+          .on("child_added",visPokemon1);
+      };
+
+      function sorterCP2(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Max CP")
+          .on("child_added",visPokemon2);
+      };
+
+      function sorterHP1(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Max HP")
+          .on("child_added",visPokemon1);
+      };
+
+      function sorterHP2(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Max HP")
+          .on("child_added",visPokemon2);
+      };
+
+      function sorterNøkkel(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("key")
+          .on("child_added",visPokemon2);
+      };
+
+      function sorterNavn(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Name")
+          .on("child_added",visPokemon2);
+      };
+
+      function visGress(){
+        secPokemon.innerHTML = ``;
+        pokemon
+          .orderByChild("Type 1")
+          .equalTo("Grass")
+          .on("child_added",visPokemon1);
+        pokemon
+          .orderByChild("Type 2")
+          .equalTo("Grass")
+          .on("child_added",visPokemon1);
+      };
+
+      sorterNøkkel();
+    </script>
+  </body>
+</html>

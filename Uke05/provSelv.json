@@ -23,7 +23,7 @@
     "svar": "Kandidatnøkler er alle alternativene som kan brukes som primærnøkkel"
   },
   "4":{
-    "svar": "I stedte for å lagre alle opplysninger om brukeren hver gang, lagrer man istedenfor referansen, fremmednøkkelen, sammen med den nye teksten"
+    "svar": "I stedet for å lagre alle opplysninger om brukeren hver gang, lagrer man istedenfor referansen, fremmednøkkelen, sammen med den nye teksten"
   },
   "5":{
     "svar": "Teknikker som blir brukt for å unngå dobbeltlagring og duplisering av data, kalles normalisering"
