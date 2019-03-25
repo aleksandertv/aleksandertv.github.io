@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+    <link rel="stylesheet" href="dyreklinikk.css"> <!-- CSS-filen -->
+
+    <!-- Lim inn kode fra firebase her -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAdp4ELU_3dfiamgDbfTPouKqUHgO3YQPQ",
+        authDomain: "provedatabaser.firebaseapp.com",
+        databaseURL: "https://provedatabaser.firebaseio.com",
+        projectId: "provedatabaser",
+        storageBucket: "",
+        messagingSenderId: "653333825513"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="oppg3A()">Oppgave 3A</button> <!-- Gjør ferdig koblingene for alle knappene -->
+        <button onclick="oppg3B()">Oppgave 3B</button> <!-- Viktig med to parenteser -->
+        <button onclick="oppg3C()">Oppgave 3C</button>
+        <button onclick="oppg3D()">Oppgave 3D</button>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+
+      //Referanser til HTML-elementer
+      const main = document.querySelector("main");
+
+      //Skriv referanser til database under her:
+      const db = firebase.database();
+      const hunder = db.ref("Dyr/Hunder"); // Er nødvendig med "Dyr/" fordi "Hunder" ligger innenfor "Dyr"
+      const katter = db.ref("Dyr/Katter"); // Samme som tidligere, bare med "Katter"
+
+      // Javascript-funksjon for å generere HTML-kode for dyr
+      function genererHTML(snapshot){
+        let dyr = snapshot.val();
+        main.innerHTML += `
+            <article class="Dyr">
+              <h1><b>${dyr.Navn}</b></h1>
+              <img src="${dyr.Bilde}" alt="dyr, bilde, katt, hund">
+              <p><b>Farge:</b> ${dyr.Farge1}, ${dyr.Farge2}</p>
+              <p><b>Alder:</b> ${dyr.Alder}</p>
+            </article>
+        `;
+      }
+
+      // Funksjon som viser alle dyr
+      function visAlle(){
+        main.innerHTML = ``; // sletter innholdet i main.
+        hunder
+          .on("child_added",genererHTML);
+        katter
+          .on("child_added", genererHTML);
+      };
+
+      // Lag egne funksjoner som tilfredstiller spørringene 3A, 3B, 3C og 3D her:
+      function oppg3A(){
+        main.innerHTML = ``;
+        katter
+          .orderByChild("Navn")
+          .on("child_added",genererHTML);
+      };
+
+      function oppg3B(){
+        main.innerHTML = ``;
+        hunder
+          .orderByChild("Alder")
+          .limitToLast(3) // Henter ut de 3 siste hundene i stigende rekkefølge
+          .on("child_added",genererHTML);
+      };
+
+      function oppg3C(){
+        main.innerHTML = ``;
+        hunder
+          .orderByChild("Farge1")
+          .equalTo("Beige")
+          .on("child_added",genererHTML);
+        hunder
+          .orderByChild("Farge2")
+          .equalTo("Beige") // Må velge begge farger
+          .on("child_added",genererHTML);
+        katter // Må hente ut for både hunder og katter
+          .orderByChild("Farge1")
+          .equalTo("Beige")
+          .on("child_added",genererHTML);
+        katter
+          .orderByChild("Farge2")
+          .equalTo("Beige")
+          .on("child_added",genererHTML);
+      };
+
+      function oppg3D(){
+        main.innerHTML = ``;
+        hunder
+          .orderByChild("Navn")
+          .startAt("M")
+          .endAt("U") // Dersom man hadde skrevet T hadde ikke dyrene som begynte på T vises, bare opp til S
+          .on("child_added",genererHTML);
+        katter
+          .orderByChild("Navn")
+          .startAt("M")
+          .endAt("U")
+          .on("child_added",genererHTML);
+      };
+
+      visAlle(); // Funksjon som kjøres når siden lastes
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+{
+  "Klaer":{
+    "Sko":{
+      "Sko001":{
+        "produktnavn":"Air Max 720",
+        "pris":2045,
+        "merkenavn":["Nike","Nike Sportswear"],
+        "tilbud":false,
+        "overmateriale":["Kunststoff","Tekstil","Syntetisk materiale"],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/nike-sportswear-air-max-720-joggesko-ni112o05t-k11.html"
+      },
+      "Sko002":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/nike-sportswear-air-force-1-07-sneakers-lav-hvit-ni112b02w-002.html"
+      },
+      "Sko003":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/nike-sportswear-zoom-2k-joggesko-ni112o05m-a13.html"
+      },
+      "Sko004":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/polo-ralph-lauren-reynold-mokkasiner-po212c01h-k11.html"
+      },
+      "Sko005":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/adidas-originals-nmd_r1-joggesko-grey-fourshock-red-ad115o09j-n11.html"
+      },
+      "Sko006":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":"https://www.zalando.no/crocs-classic-slip-ins-bla-cr411b005-502.html"
+      }
+    },
+    "Bukser":{
+      "Bukse001":{
+        "produktnavn":"Bukse",
+        "pris":979,
+        "merkenavn":["Boss Casual","Hugo Boss"],
+        "tilbud":false,
+        "overmateriale":["Bomull","Elastan"],
+        "farge":["Dark Blue","Anthracite","Black","Brown","Dark Grey","Dark Red","Light Brown","Open White"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@8.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@9.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@7.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/boss-orange-chinos-dark-blue-bo122e028-k11.html"
+      },
+      "Bukse002":{
+        "produktnavn":"Slim Ferry",
+        "pris":979,
+        "merkenavn":["Tommy Hilfiger","Tommy Jeans"],
+        "tilbud":false,
+        "overmateriale":["Bomull"],
+        "farge":["Beige","Navy Blazer"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/TO/B2/2E/00/9B/11/TOB22E009-B11@10.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/TO/B2/2E/00/9B/11/TOB22E009-B11@11.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/TO/B2/2E/00/9B/11/TOB22E009-B11@9.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/tommy-jeans-slim-ferry-chinos-beige-tob22e009-b11.html"
+      },
+      "Bukse003":{
+        "produktnavn":"Todman",
+        "pris":1495,
+        "merkenavn":["Tiger of Sweden"],
+        "tilbud":false,
+        "overmateriale":["Bomull","Elastan"],
+        "farge":["Anthracite","Dark Green","Navy"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/TI/52/2E/02/7Q/11/TI522E027-Q11@4.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/TI/52/2E/02/7Q/11/TI522E027-Q11@7.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/TI/52/2E/02/7Q/11/TI522E027-Q11@5.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/boss-casual-schino-chinos-anthracite-bo122e028-q13.html"
+      },
+      "Bukse004":{
+        "produktnavn":"Chinos",
+        "pris":949,
+        "merkenavn":["Hugo Boss","Boss Casual"],
+        "tilbud":false,
+        "overmateriale":["Bomull","Elastan"],
+        "farge":["Light Blue","Beige","Black","Dark Blue","Dark Grey","Green","Open Beige","Open Blue"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/7K/14/BO122E027-K14@6.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/7K/14/BO122E027-K14@7.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/7K/14/BO122E027-K14@5.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/boss-casual-bukse-lightpastel-blue-bo122e027-k14.html"
+      },
+      "Bukse005":{
+        "produktnavn":"Bukse",
+        "pris":949,
+        "merkenavn":["Hugo Boss","Boss Casual"],
+        "tilbud":false,
+        "overmateriale":["Bomull","Elastan"],
+        "farge":["Pastel Purple","Blau","Blue","Dark Green","Khaki","Open Beige"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/01/TK/15/BO122E01T-K15@7.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/BO/12/2E/01/TK/15/BO122E01T-K15@3.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/01/TK/15/BO122E01T-K15@8.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/boss-casual-schino-bukser-bo122e01t-k15.html"
+      },
+      "Bukse006":{
+        "produktnavn":"Chinos",
+        "pris":1745,
+        "merkenavn":["Emporio Armani"],
+        "tilbud":false,
+        "overmateriale":["Bomull","Elastan"],
+        "farge":["Black","Dark Blue","Grey"],
+        "stoerrelse":["Extra Small","Small","Medium","Large","Extra Large"],
+        "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/EA/82/2E/00/IQ/11/EA822E00I-Q11@7.jpg",
+        "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/EA/82/2E/00/IQ/11/EA822E00I-Q11@3.jpg",
+        "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/EA/82/2E/00/IQ/11/EA822E00I-Q11@8.jpg",
+        "linkIkkeNodvendig":"https://www.zalando.no/emporio-armani-chinos-black-ea822e00i-q11.html"
+      }
+    },
+    "Gensere":{
+      "Genser001":{
+        "produktnavn":"",
+        "pris":,
+        "merkenavn":[""],
+        "tilbud":,
+        "overmateriale":[""],
+        "farge":[""],
+        "stoerrelse":[""],
+        "bilde1":"",
+        "bilde2":"",
+        "bilde3":"",
+        "linkIkkeNodvendig":""
+      },
+      "Genser002":{
+
+      }
+    },
+    "Tskjorter":{
+
+    },
+    "Tilbehoer":{
+
+    },
+    "Skjorter":{
+
+    },
+    "Jakker":{
+
+    },
+    "Undertoey":{
+
+    }
+  }
+}
