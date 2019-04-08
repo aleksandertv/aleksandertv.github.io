@@ -19,6 +19,114 @@
     </script>
   </head>
   <body>
+    <header>
+      <nav>
+        <a href="forside.html"><img src="Bilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
+        <ul>
+          <li style="float:left"><a href="produkter.html">Klær</a></li>
+          <li style="float:left"><a href="produkter.html">Nylig lagt til</a></li>
+          <li style="float:left"><a href="#">Salg</a></li>
+          <li style="float:right"><a href="handlekurv.html">Handlekurv</a></li>
+          <li style="float:right"><a href="#">Ønskeliste</a></li>
+          <li style="float:right"><a href="#">Logg inn</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <ul id="tilbake">
+        <li><a href=""> < Tilbake </a></li>
+      </ul>
+      <section id="mellomrom">
 
+      </section>
+      <section id="stortbilde">
+
+      </section>
+      <section class="litebilde">
+
+      </section>
+      <section class="litebilde">
+
+      </section>
+      <section class="secProduktinfo">
+
+      </section>
+      <p>Andre har også kjøpt</p>
+      <section class="secProduktinformasjon">
+
+      </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript">
+      const db = firebase.database();
+      const klaer = db.ref("Klaer");
+      const sko = db.ref("Klaer/Sko");
+      const bukser = db.ref("Klaer/Bukser");
+      const gensere = db.ref("Klaer/Gensere");
+      const tskjorter = db.ref("Klaer/Tskjorter");
+      const tilbehoer = db.ref("Klaer/Tilbehoer");
+      const skjorter = db.ref("Klaer/Skjorter");
+      const jakker = db.ref("Klaer/Jakker");
+      const undertoey = db.ref("Klaer/Undertoey");
+
+      const ulKategorier = document.querySelector("#ulKategorier");
+      const secKlaer = document.querySelector("#secKlaer");
+
+      function visKlaer1(snapshot){
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        secKlaer.innerHTML += `
+          <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+          <div class="produktnavn">${klesplagg.produktnavn}</div>
+          <div class="merkenavn">${klesplagg.merkenavn}</div>
+          <div class="pris">${klesplagg.pris} kr</div>
+          <div class="tilbud">${klesplagg.tilbud}</div>
+          `;
+        };
+
+      function visKlaer2(snapshot) {
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        let nySec = document.createElement("section");
+        nySec.innerHTML += `
+          <div class="bilde"><img src="${klesplagg["bilde1"]}"></div>
+          <div class="produktnavn">${klesplagg.produktnavn}</div>
+          <div class="merkenavn">${klesplagg.merkenavn}</div>
+          <div class="pris">${klesplagg.pris} kr</div>
+          <div class="tilbud">${klesplagg.tilbud}</div>
+        `;
+        secKlaer.insertBefore(nySec,secKlaer.childNodes[0]);
+      };
+
+      function visProduktinformasjon(){
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        secKlaer.innerHTML += `
+          <div class="prisprodukt">${klesplagg.pris} kr</div>
+          <div class="tilbudprodukt">${klesplagg.tilbud}%</div>
+          <div class="navprodukt">${klesplagg.produktnavn}</div>
+          <div class="merkeprodukt">${klesplagg.merkenavn}</div>
+          <div class="dropdown">
+            <form>
+              <p>Produktet er tilgjengelig i disse fargene</p>
+              <select name="farge" required>
+                <option value="">Farge</option>
+                <option value="${klesplagg.farge}">${klesplagg.farge}</option>
+              </select>
+              <p>Produktet er tilgjengelig i disse størrelsene</p>
+              <select name="storrelse" required>
+                <option value="">Størrelse</option>
+                <option value="${klesplagg.stoerrelse}">${klesplagg.stoerrelse}</option>
+              </select>
+              <button>Legg til i handlekurv</button>
+            </form>
+          </div>
+          <div class="fri-frakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
+          <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
+        `;
+      };
+    </script>
   </body>
 </html>

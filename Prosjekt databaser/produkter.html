@@ -21,25 +21,26 @@
   <body>
     <header>
       <nav>
+        <a href="forside.html"><img src="Bilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul>
-          <li style="float:left"><a href="">Klær</a></li>
-          <li style="float:left"><a href="">Nylig lagt til</a></li>
-          <li style="float:left"><a href="">Salg</a></li>
-          <li style="float:right"><a href="">Handlekurv</a></li>
-          <li style="float:right"><a href="">Ønskeliste</a></li>
-          <li style="float:right"><a href="">Logg inn</a></li>
+          <li style="float:left"><a href="produkter.html">Klær</a></li>
+          <li style="float:left"><a href="produkter.html">Nylig lagt til</a></li>
+          <li style="float:left"><a href="#">Salg</a></li>
+          <li style="float:right"><a href="handlekurv.html">Handlekurv</a></li>
+          <li style="float:right"><a href="#">Ønskeliste</a></li>
+          <li style="float:right"><a href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
     <aside>
-      <ul id="ulKategorier">
+      <ul class="ulKategorier">
 
       </ul>
     </aside>
     <main>
       <button type="button" name="button" onclick="pris1()">Pris (Lav til høy)</button>
       <button type="button" name="button" onclick="pris2()">Pris (Høy til lav)</button>
-      <section id="secKlaer">
+      <section class="secKlaer">
 
       </section>
     </main>
@@ -58,14 +59,14 @@
       const jakker = db.ref("Klaer/Jakker");
       const undertoey = db.ref("Klaer/Undertoey");
 
-      const ulKategorier = document.querySelector("#ulKategorier");
+      const ulKategorier = document.querySelector(".ulKategorier");
       const secKlaer = document.querySelector("#secKlaer");
 
       function visKategorier(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
         ulKategorier.innerHTML += `
-          <div class="kategori">${klesplagg.klaer}</div>
+          <li class="kategori">${klesplagg.klaer}</li>
           `
         };
 
@@ -78,7 +79,7 @@
           <div class="merkenavn">${klesplagg.merkenavn}</div>
           <div class="pris">${klesplagg.pris} kr</div>
           <div class="tilbud">${klesplagg.tilbud}</div>
-          `
+          `;
         };
 
         function visKlaer2(snapshot) {
@@ -91,7 +92,7 @@
             <div class="merkenavn">${klesplagg.merkenavn}</div>
             <div class="pris">${klesplagg.pris} kr</div>
             <div class="tilbud">${klesplagg.tilbud}</div>
-          `
+          `;
           secKlaer.insertBefore(nySec,secKlaer.childNodes[0]);
         };
 
@@ -172,7 +173,6 @@
         };
 
         function alleKategorier(){
-          secKlaer.innerHTML = ``;
           klaer
             .orderByChild("Produktnavn")
             .on("child_added",visKategorier);
@@ -180,14 +180,6 @@
 
         alleKategorier();
         visAlle();
-
-/*
-  Bare få "tilbud" til å vises hvis den er "true" ?
-  Hvordan få alt sortert på en gang ?
-  Hvordan hente ut "Sko","Bukser"... ?
-  Hvordan få mellomrom mellom arrays ?
-  Hvordan få tilbud til å ganges med 100 ?
-*/
     </script>
   </body>
 </html>

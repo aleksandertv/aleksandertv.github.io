@@ -82,13 +82,13 @@
     },
     "Bukser":{
       "Bukse001":{
-        "produktnavn":"Bukse",
+        "produktnavn":"Regular Schino",
         "pris":979,
         "merkenavn":["Boss Casual","Hugo Boss"],
         "tilbud":false,
         "overmateriale":["Bomull","Elastan"],
         "farge":["Dark Blue","Anthracite","Black","Brown","Dark Grey","Dark Red","Light Pastel/Brown","Open White"],
-        "stoerrelse":["XS","S","L","L","XL"],
+        "stoerrelse":["XS","S","M","L","XL"],
         "bilde1":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@8.jpg",
         "bilde2":"https://mosaic04.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@9.jpg",
         "bilde3":"https://mosaic03.ztat.net/vgs/media/pdp-thumb/BO/12/2E/02/8K/11/BO122E028-K11@7.jpg",
@@ -121,7 +121,7 @@
         "linkZalando":"https://www.zalando.no/boss-casual-schino-chinos-anthracite-bo122e028-q13.html"
       },
       "Bukse004":{
-        "produktnavn":"Chinos",
+        "produktnavn":"Slim Schino",
         "pris":949,
         "merkenavn":["Hugo Boss","Boss Casual"],
         "tilbud":false,
@@ -134,7 +134,7 @@
         "linkZalando":"https://www.zalando.no/boss-casual-bukse-lightpastel-blue-bo122e027-k14.html"
       },
       "Bukse005":{
-        "produktnavn":"Bukse",
+        "produktnavn":"Regular Style Schino",
         "pris":949,
         "merkenavn":["Hugo Boss","Boss Casual"],
         "tilbud":false,
@@ -147,7 +147,7 @@
         "linkZalando":"https://www.zalando.no/boss-casual-schino-bukser-bo122e01t-k15.html"
       },
       "Bukse006":{
-        "produktnavn":"Chinos",
+        "produktnavn":"Jacquard Seersucker",
         "pris":1745,
         "merkenavn":["Emporio Armani"],
         "tilbud":false,
@@ -175,7 +175,7 @@
         "linkZalando":"https://www.zalando.no/abercrombie-and-fitch-print-logo-fullzip-sitebuster-treningsjakke-white-a0f22s01o-a11.html"
       },
       "Genser002":{
-        "produktnavn":"Hettejakke",
+        "produktnavn":"Hibiscus Zip",
         "pris":1845,
         "merkenavn":["Versace","Versace Jeans"],
         "tilbud":false,
@@ -214,7 +214,7 @@
         "linkZalando":"https://www.zalando.no/les-deux-french-hoodie-genser-lep22s004-k11.html"
       },
       "Genser005":{
-        "produktnavn":"Strikkegenser",
+        "produktnavn":"Cableknit Knitwear",
         "pris":1495,
         "merkenavn":["Ralph Lauren","Polo Ralph Lauren"],
         "tilbud":[true,0.30],
@@ -227,7 +227,7 @@
         "linkZalando":"https://www.zalando.no/polo-ralph-lauren-jumper-hunter-navy-po222s036-k11.html"
       },
       "Genser006":{
-        "produktnavn":"Sweatshirt",
+        "produktnavn":"Luxury Jersey Pullover",
         "pris":1595,
         "merkenavn":["Ralph Lauren","Polo Ralph Lauren"],
         "tilbud":false,
@@ -242,7 +242,7 @@
     },
     "T-skjorter":{
       "Tskjorte001":{
-        "produktnavn":"Slim Fit",
+        "produktnavn":"Slim Fit Polo Bear",
         "pris":699,
         "merkenavn":["Ralph Lauren", "Polo Ralph Lauren"],
         "tilbud":false,
@@ -255,7 +255,7 @@
         "linkZalando":"https://www.zalando.no/polo-ralph-lauren-t-shirts-med-print-white-po222o065-a11.html"
       },
       "Tskjorte002":{
-        "produktnavn":"Basic",
+        "produktnavn":"Basic Polo V-Neck",
         "pris":1345,
         "merkenavn":["Ralph Lauren","Polo Ralph Lauren"],
         "tilbud":false,
@@ -268,7 +268,7 @@
         "linkZalando":"https://www.zalando.no/polo-ralph-lauren-basic-slim-fit-poloskjorter-po222p0a4-q11.html"
       },
       "Tskjorte003":{
-        "produktnavn":"T-shirts med print",
+        "produktnavn":"Borgonuovo",
         "pris":499,
         "merkenavn":["Armani","Armani Exchange"],
         "tilbud":false,
@@ -307,7 +307,7 @@
         "linkZalando":"https://www.zalando.no/hugo-dolive-t-shirts-med-print-hu722o02x-a12.html"
       },
       "Tskjorte006":{
-        "produktnavn":"Basic",
+        "produktnavn":"Basic Tee",
         "pris":299,
         "merkenavn":["Alpha Industries"],
         "tilbud":[true,0.15],
@@ -335,7 +335,7 @@
         "linkZalando":"https://www.zalando.no/hackett-london-ledbury-holdall-reiseveske-ht652h01d-k11.html"
       },
       "Tilbehoer002":{
-        "produktnavn":"Cap",
+        "produktnavn":"Polo Cap",
         "pris":399,
         "merkenavn":["Ralph Lauren","Polo Ralph Lauren"],
         "tilbud":false,
@@ -387,7 +387,7 @@
         "linkZalando":"https://www.zalando.no/gant-park-hill-klokke-ga352m00s-q13.html"
       },
       "Tilbehoer006":{
-        "produktnavn":"Solbriller",
+        "produktnavn":"Shades",
         "pris":129,
         "merkenavn":["Yourturn"],
         "tilbud":false,
@@ -454,7 +454,7 @@
         "linkZalando":"https://www.zalando.no/gant-finskjorte-evening-blue-ga322d05l-k11.html"
       },
       "Skjorte005":{
-        "produktnavn":"Slim Fit",
+        "produktnavn":"Slim Fit Dress-Shirt",
         "pris":1295,
         "merkenavn":["Eton"],
         "tilbud":false,
@@ -482,7 +482,7 @@
     },
     "Jakker":{
       "Jakke001":{
-        "produktnavn":"Hooded",
+        "produktnavn":"Hooded Jacket",
         "pris":2095,
         "merkenavn":["Alpha Industries"],
         "tilbud":false,
@@ -534,7 +534,7 @@
         "linkZalando":"https://www.zalando.no/polo-ralph-lauren-light-weight-packable-vest-vest-french-navy-po222t02d-k11.html"
       },
       "Jakke005":{
-        "produktnavn":"Bombejakke",
+        "produktnavn":"Versace Bomber",
         "pris":3145,
         "merkenavn":["Versace","Versace Jeans"],
         "tilbud":false,
@@ -562,7 +562,7 @@
     },
     "Undertøy":{
       "Undertoey001":{
-        "produktnavn":"Pouch Trunks 3 Pack",
+        "produktnavn":"Pouch Trunks 3-Pack",
         "pris":399,
         "merkenavn":["Ralph Lauren","Polo Ralph Lauren"],
         "tilbud":[true,0.15],
@@ -575,7 +575,7 @@
         "linkZalando":"https://www.zalando.no/polo-ralph-lauren-pouch-3-pack-underbukse-po252k006-k11.html"
       },
       "Undertoey002":{
-        "produktnavn":"Trunk 3 Pack",
+        "produktnavn":"Trunk 3-Pack",
         "pris":399,
         "merkenavn":["Emporio Armani","Armani"],
         "tilbud":false,
@@ -588,7 +588,7 @@
         "linkZalando":"https://www.zalando.no/emporio-armani-3-pack-underbukse-ea882o007-q11.html"
       },
       "Undertoey003":{
-        "produktnavn":"Underbukse",
+        "produktnavn":"Underwear 3-Pack",
         "pris":399,
         "merkenavn":["Gant"],
         "tilbud":[true,0.20],
@@ -601,7 +601,7 @@
         "linkZalando":"https://www.zalando.no/gant-3-pack-underbukse-flerfarget-ga322k005-053.html"
       },
       "Undertoey004":{
-        "produktnavn":"Premium Essential Low Rise Hip Trunk 3 Pack",
+        "produktnavn":"Premium Essential Low Rise Hip Trunk 3-Pack",
         "pris":449,
         "merkenavn":["Tommy Hilfiger"],
         "tilbud":[true,0.15],
@@ -614,7 +614,7 @@
         "linkZalando":"https://www.zalando.no/tommy-hilfiger-premium-essential-3-pack-underbukse-to182a022-k11.html"
       },
       "Undertoey005":{
-        "produktnavn":"Trunk Print",
+        "produktnavn":"Trunk Print 3-Pack",
         "pris":239,
         "merkenavn":["Boss","Hugo Boss"],
         "tilbud":false,
@@ -627,7 +627,7 @@
         "linkZalando":"https://www.zalando.no/boss-trunk-print-underbukse-navy-bb182o029-k11.html"
       },
       "Undertoey006":{
-        "produktnavn":"Parigamba Basso Intimo Uomo Pack 2",
+        "produktnavn":"Parigamba Basso Intimo Uomo 2-Pack",
         "pris":879,
         "merkenavn":["Versace"],
         "tilbud":false,
