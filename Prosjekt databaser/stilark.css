@@ -7,3 +7,85 @@
 img {
   width: 100%;
 }
+
+#mainprodukter {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+iframe {
+  text-align: center;
+}
+
+.secKlaer {
+  grid-column: span 1;
+  grid-row: span 1;
+  display: block;
+  display: grid;
+  grid-template-columns: repeat(8,1fr)
+}
+
+.bilde {
+  grid-column: span 8;
+  grid-row: span 1;
+  text-align: center;
+}
+
+.produktnavn {
+  grid-column: span 8;
+  grid-row: span 1;
+  text-align: left;
+}
+
+.merkenavn {
+  grid-column: span 8;
+  grid-row: span 1;
+  text-align: left;
+}
+
+.originalpris {
+  grid-column: span 2;
+  grid-row: span 1;
+  text-align: left;
+}
+
+.tilbud {
+  grid-column: span 1;
+  grid-row: span 1;
+  text-align: left;
+}
+
+.tilbudspris {
+  grid-column: span 5;
+  grid-row: span 1;
+  text-align: right;
+  color: red;
+}
+
+#navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+  width: 100%;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  height: 45px;
+}
+
+#navbar>li {
+  border-right: 2px solid white;
+}
+
+#navbar>li>a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}

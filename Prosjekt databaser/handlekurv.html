@@ -47,45 +47,7 @@
 
     </footer>
     <script type="text/javascript">
-      const db = firebase.database();
-      const klaer = db.ref("Klaer");
-      const sko = db.ref("Klaer/Sko");
-      const bukser = db.ref("Klaer/Bukser");
-      const gensere = db.ref("Klaer/Gensere");
-      const tskjorter = db.ref("Klaer/Tskjorter");
-      const tilbehoer = db.ref("Klaer/Tilbehoer");
-      const skjorter = db.ref("Klaer/Skjorter");
-      const jakker = db.ref("Klaer/Jakker");
-      const undertoey = db.ref("Klaer/Undertoey");
-
-      const ulKategorier = document.querySelector("#ulKategorier");
-      const secKlaer = document.querySelector("#secKlaer");
-
-      function visKlaer1(snapshot){
-        console.log(snapshot.val());
-        let klesplagg = snapshot.val();
-        secKlaer.innerHTML += `
-          <div class="bilde"><img src="${klesplagg.bilde1}"></div>
-          <div class="produktnavn">${klesplagg.produktnavn}</div>
-          <div class="merkenavn">${klesplagg.merkenavn}</div>
-          <div class="pris">${klesplagg.pris} kr</div>
-          <div class="tilbud">${klesplagg.tilbud}</div>
-          `;
-        };
-
-      function visKlaer2(snapshot) {
-        console.log(snapshot.val());
-        let klesplagg = snapshot.val();
-        let nySec = document.createElement("section");
-        nySec.innerHTML += `
-          <div class="bilde"><img src="${klesplagg["bilde1"]}"></div>
-          <div class="produktnavn">${klesplagg.produktnavn}</div>
-          <div class="merkenavn">${klesplagg.merkenavn}</div>
-          <div class="pris">${klesplagg.pris} kr</div>
-          <div class="tilbud">${klesplagg.tilbud}</div>
-        `;
-        secKlaer.insertBefore(nySec,secKlaer.childNodes[0]);
-      };
+    
     </script>
   </body>
 </html>
