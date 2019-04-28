@@ -19,50 +19,156 @@
     </script>
   </head>
   <body>
-    <header>
+    <header id="headerprodukter">
       <nav>
-        <a href="forside.html"><img src="Bilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
+        <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
-          <li style="float:left"><a href="produkter.html">Klær</a></li>
-          <li style="float:left"><a href="produkter.html">Nylig lagt til</a></li>
-          <li style="float:left"><a href="produkter.html?id=salg">Salg</a></li>
-          <li style="float:right"><a href="handlekurv.html">Handlekurv</a></li>
-          <li style="float:right"><a href="#">Ønskeliste</a></li>
-          <li style="float:right"><a href="#">Logg inn</a></li>
+          <li><a id="navKlaer" class="navProduktHref" href="produkter.html">Klær</a></li>
+          <li><a id="navNyligLagtTil" class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
+          <li><a id="navSalg" class="navProduktHref" href="#" onclick="visSalg()">Salg</a></li>
+          <li><a id="navHandlekurv" class="navEkstraHref" href="handlekurv.html">Handlekurv</a></li>
+          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
+          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
-    <aside>
+    <aside id="sidenav">
       <ul class="ulKategorier">
 
       </ul>
     </aside>
+    <article id="articleprodukter">
+      <div class="dropdown">
+        <button class="dropbtn">Sorter</button>
+        <div class="dropdown-content">
+          <a onclick="pris1()">Pris (Lav til høy)</a>
+          <a onclick="pris2()">Pris (Høy til lav)</a>
+          <a onclick="alfabetisk1()">A-Z</a>
+          <a onclick="alfabetisk2()">Z-A</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Merke</button>
+        <div class="dropdown-content">
+          <a onclick="hentAbercrombieFitch()">Abercrombie & Fitch</button>
+          <a onclick="hentAdidas()">Adidas</button>
+          <a onclick="hentAlphaIndustries()">Alpha Industries</button>
+          <a onclick="hentHugoBoss()">Hugo Boss</button>
+          <a onclick="hentCrocs()">Crocs</button>
+          <a onclick="hentEmporioArmani()">Emporio Armani</button>
+          <a onclick="hentCalvinKlein()">Calvin Klein</button>
+          <a onclick="hentEton()">Eton</button>
+          <a onclick="hentGant()">Gant</button>
+          <a onclick="hentHackettLondon()">Hackett London</button>
+          <a onclick="hentLesDeux()">Les Deux</button>
+          <a onclick="hentNike()">Nike</button>
+          <a onclick="hentPoloRalphLauren()">Polo Ralph Lauren</button>
+          <a onclick="hentTigerofSweden()">Tiger of Sweden</button>
+          <a onclick="hentTommyHilfiger()">Tommy Hilfiger</button>
+          <a onclick="hentVans()">Vans</button>
+          <a onclick="hentVersace()">Versace</button>
+          <a onclick="hentYourturn()">Yourturn</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Overmateriale</button>
+        <div class="dropdown-content">
+          <a onclick="hentBomull()">Bomull</a>
+          <a onclick="hentDun()">Dun</a>
+          <a onclick="hentElastan()">Elastan</a>
+          <a onclick="hentFjaer()">Fjær</a>
+          <a onclick="hentImitertSkinn()">Imitert skinn</a>
+          <a onclick="hentKunststoff()">Kunststoff</a>
+          <a onclick="hentLaer()">Lær</a>
+          <a onclick="hentNylon()">Nylon</a>
+          <a onclick="hentPlastikk()">Plastikk</a>
+          <a onclick="hentPolyamid()">Polyamid</a>
+          <a onclick="hentPolyester()">Polyester</a>
+          <a onclick="hentPolyuretan()">Polyuretan</a>
+          <a onclick="hentRustfrittStaal()">Rustfritt stål</a>
+          <a onclick="hentSkinn()">Skinn</a>
+          <a onclick="hentSuede()">Suede</a>
+          <a onclick="hentSyntetiskMateriale()">Syntetisk materiale</a>
+          <a onclick="hentTekstil()">Tekstil</a>
+          <a onclick="hentViskose()">Viskose</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Farge</button>
+        <div class="dropdown-content">
+          <a onclick="hentBlaa()">Blå</a>
+          <a onclick="hentBrun()">Brun</a>
+          <a onclick="hentGroenn()">Grønn</a>
+          <a onclick="hentGraa()">Grå</a>
+          <a onclick="hentGul()">Gul</a>
+          <a onclick="hentGull()">Gull</a>
+          <a onclick="hentHvit()">Hvit</a>
+          <a onclick="hentLilla()">Lilla</a>
+          <a onclick="hentOransje()">Oransje</a>
+          <a onclick="hentRosa()">Rosa</a>
+          <a onclick="hentRoed()">Rød</a>
+          <a onclick="hentSvart()">Svart</a>
+          <a onclick="hentSoelv()">Sølv</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Størrelse (Klær)</button>
+        <div class="dropdown-content">
+          <a onclick="hentOnesize()">Onesize</a>
+          <a onclick="hentXS()">XS</a>
+          <a onclick="hentS()">S</a>
+          <a onclick="hentM()">M</a>
+          <a onclick="hentL()">L</a>
+          <a onclick="hentXL()">XL</a>
+          <a onclick="hentXXL()">XXL</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Størrelse (Sko)</button>
+        <div class="dropdown-content">
+          <a onclick="hent36()">36</a>
+          <a onclick="hent37()">37</a>
+          <a onclick="hent38()">38</a>
+          <a onclick="hent39()">39</a>
+          <a onclick="hent40()">40</a>
+          <a onclick="hent41()">41</a>
+          <a onclick="hent42()">42</a>
+          <a onclick="hent43()">43</a>
+          <a onclick="hent44()">44</a>
+          <a onclick="hent45()">45</a>
+          <a onclick="hent46()">46</a>
+          <a onclick="hent47()">47</a>
+          <a onclick="hent48()">48</a>
+          <a onclick="hent49()">49</a>
+          <a onclick="hent50()">50</a>
+          <a onclick="hent51()">51</a>
+          <a onclick="hent52()">52</a>
+          <a onclick="hent53()">53</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Pris</button>
+        <div class="dropdown-content">
+          <a onclick="pris99()">≥99</a>
+          <a onclick="pris100_199()">100-199</a>
+          <a onclick="pris200_299()">200-299</a>
+          <a onclick="pris300_399()">300-399</a>
+          <a onclick="pris400_499()">400-499</a>
+          <a onclick="pris500_599()">500-599</a>
+          <a onclick="pris600_699()">600-699</a>
+          <a onclick="pris700_799()">700-799</a>
+          <a onclick="pris800_899()">800-899</a>
+          <a onclick="pris900_999()">900-999</a>
+          <a onclick="pris1000()">1000≤</a>
+        </div>
+      </div>
+    </article>
     <main id="mainprodukter">
-      <button type="button" name="button" onclick="pris1()">Pris (Lav til høy)</button>
-      <button type="button" name="button" onclick="pris2()">Pris (Høy til lav)</button>
-      <button type="button" name="button" onclick="alfabetisk1()">A-Z</button>
-      <button type="button" name="button" onclick="alfabetisk2()">Z-A</button>
-      <button type="button" name="button" onclick="hentAbercrombieFitch()">Abercrombie & Fitch</button>
-      <button type="button" name="button" onclick="hentAdidas()">Adidas</button>
-      <button type="button" name="button" onclick="hentAlphaIndustries()">Alpha Industries</button>
-      <button type="button" name="button" onclick="hentHugoBoss()">Hugo Boss</button>
-      <button type="button" name="button" onclick="hentCrocs()">Crocs</button>
-      <button type="button" name="button" onclick="hentEmporioArmani()">Emporio Armani</button>
-      <button type="button" name="button" onclick="hentCalvinKlein()">Calvin Klein</button>
-      <button type="button" name="button" onclick="hentEton()">Eton</button>
-      <button type="button" name="button" onclick="hentGant()">Gant</button>
-      <button type="button" name="button" onclick="hentHackettLondon()">Hackett London</button>
-      <button type="button" name="button" onclick="hentLesDeux()">Les Deux</button>
-      <button type="button" name="button" onclick="hentNike()">Nike</button>
-      <button type="button" name="button" onclick="hentPoloRalphLauren()">Polo Ralph Lauren</button>
-      <button type="button" name="button" onclick="hentTigerofSweden()">Tiger of Sweden</button>
-      <button type="button" name="button" onclick="hentTommyHilfiger()">Tommy Hilfiger</button>
-      <button type="button" name="button" onclick="hentVans()">Vans</button>
       <section class="secKlaer">
 
       </section>
     </main>
-    <footer>
+    <footer id="footerprodukter">
 
     </footer>
     <script type="text/javascript">
@@ -90,7 +196,7 @@
         let key = snapshot.key;
         let klesplagg = snapshot.val();
         ulKategorier.innerHTML += `
-          <li class="kategori" href="#" onclick="vis${key}()">${key}</li>
+          <li><a class="kategori" href="#" onclick="vis${key}()">${key}</a></li>
           `;
         };
 
@@ -122,7 +228,7 @@
             <div class="bilde"><img src="${klesplagg.bilde1}"></div>
             <div class="merkenavn">${klesplagg.merkenavn.join(", ")}</div>
             <div class="produktnavn">${klesplagg.produktnavn}</div>
-            <div class="originalpris">${pris.toFixed(2)} kr</div>
+            <div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>
             <div class="tilbud">${tilbud}</div>
             <div class="tilbudspris">${pris.toFixed(2)} kr</div>
           ` + secKlaer.innerHTML;
@@ -161,31 +267,31 @@
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("tilbud")
-            .startAt(true)
+            .equalTo(true)
             .on("child_added",visKlaer1);
         };
 
@@ -569,31 +675,31 @@
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Eton")
             .on("child_added",visKlaer1);
         };
 
@@ -601,35 +707,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Gant")
             .on("child_added",visKlaer1);
         };
 
@@ -637,35 +743,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Hackett London")
             .on("child_added",visKlaer1);
         };
 
@@ -673,35 +779,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Les Deux")
             .on("child_added",visKlaer1);
         };
 
@@ -709,35 +815,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Nike","Nike Sportswear")
             .on("child_added",visKlaer1);
         };
 
@@ -745,35 +851,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
             .on("child_added",visKlaer1);
         };
 
@@ -781,35 +887,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tiger of Sweden")
             .on("child_added",visKlaer1);
         };
 
@@ -817,35 +923,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
             .on("child_added",visKlaer1);
         };
 
@@ -853,35 +959,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Vans")
             .on("child_added",visKlaer1);
         };
 
@@ -889,35 +995,35 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Versace","Versace Jeans","Versace Collection")
             .on("child_added",visKlaer1);
         };
 
@@ -925,35 +1031,2095 @@
           secKlaer.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           bukser
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           gensere
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           tskjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           tilbehoer
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           skjorter
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           jakker
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
             .on("child_added",visKlaer1);
           undertoey
             .orderByChild("merkenavn")
-            .equalTo("")
+            .equalTo("Yourturn")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentBomull(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Bomull")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentDun(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Dun")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentElastan(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Elastan")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentFjaer(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Fjær")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentImitertSkinn(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Imitert skinn")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentKunststoff(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Kunststoff")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentLaer(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Lær")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentNylon(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Nylon")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentPlastikk(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Plastikk")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentPolyamid(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Polyamid")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentPolyester(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Polyester")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentPolyuretan(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Polyuretan")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentRustfrittStaal(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Rustfritt stål")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentSkinn(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Skinn")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentSuede(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Suede")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentSyntetiskMateriale(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Syntetisk materiale")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentTekstil(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Tekstil")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentViskose(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("overmateriale")
+            .equalTo("Viskose")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentPoloRalphLauren(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("merkenavn")
+            .equalTo("Polo Ralph Lauren","Ralph Lauren")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentTigerofSweden(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("merkenavn")
+            .equalTo("Tiger of Sweden")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentTommyHilfiger(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("merkenavn")
+            .equalTo("Tommy Hilfiger","Tommy Jeans")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentBlaa(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Aviator Navy","Bermuda Blue","Black/Blue","Blau","Blue","Blue Jeans","Blue Tones","Blue/White","Capri Blue","Cruise Navy","Dark Blue","Dark Blue/Blue/Light Blue","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Deep Blue Heather","Deep Royal Blue/Hyper Jade/Black","Deep Royal Blue/Orange Peel/White","Evening Blue","French Navy","Hammond Blue","Hunter Navy","Lapies Blue/Flame Orange","Light Blue","Light/Pastel Blue","Navy","Navy Blazer","Navy Heather","Navy/Chalk","New Navy","Newport Navy","Open Blue","Orange/Hellgrün/Hellblau","Peacoat","Rep Blue","Weiss/Blau/Rot","White/Blue","White/Heather Gray/Navy Blue","White/Multicoloured","White/Red/Blue")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentBrun(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Beige","Boating Khaki","Brown","Brown/Gold","Chocolate","Khaki","Light/Pastel Brown","Open Beige","Snuff","White/Multicoloured")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentGroenn(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Army Green","Black/Green","Dark Green","Dark Oliv","Deep Lichen Green","Deep Royal Blue/Hyper Jade/Black","Evergreen","Fawn Green","Grass Green","Green","Oil Green","Olive","Orange/Hellgrün/Hellblau","Petrol","Scotch Pine Heath","Supply Olive","Trace Cargo/Solar Yellow")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentGraa(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Andover Heather","Anthracite","Anthracite/Black/Metallic Silver","Anthrazit","Black/Anthracite","Black/Grey","Dark Grey","Fawn Grey Heather","Grey","Grey Four/Shock Red","Grey Heather","Light Grey Melange","Open Grey","Slate Grey","White/Infrared 23/Wolf Grey/Black")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentGul(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Fall Yellow","Oatmeal Heather","Trace Cargo/Solar Yellow","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentGull(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Brown/Gold","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentHvit(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Black/White","Blue/White","Bright White","Dark Blue/White/Red","Deep Royal Blue/Orange Peel/White","Eggshell","Grau/Weiss/Schwarz","Grey Heather/White","Navy/Chalk","Nero/Bianco","Offwhite/Obsidian/University Red","Open White","Sail/White/Black","Snow Melange","Weiss","Weiss/Blau/Rot","White","White/Black","White/Blue","White/Heather Gray/Navy Blue","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentLilla(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Pastel Purple")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentOransje(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Alpha Orange","Deep Royal Blue/Orange Peel/White","Lapies Blue/Flame Orange","Orange/Hellgrün/Hellblau","Sailing Orange","Team Orange/University Gold/Black","Wheat/Black/Club Gold")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentRosa(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Light Pink","Pink","Rose","Silver/Pink","Taylor Orange")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentRoed(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Black/Red","Burgundy","Dark Blue/Bordeaux","Dark Blue/Red","Dark Blue/White/Red","Dark Red","Deep Maroon","Garnet","Grey Four/Shock Red","Martin Red","Offwhite/Obsidian/University Red","Red","Weiss/Blau/Rot","White/Infrared 23/Wolf Grey/Black","White/Multicoloured","White/Red/Black","White/Red/Blue")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentSvart(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Andover Heather/Black/White","Anthracite/Black/Metallic Silver","Black","Black Camo","Black Copper","Black/Anthracite","Black/Black","Black/Blue","Black/Green","Black/Grey","Black/Red","Black/Silver","Black/White","CK Black","Deep Royal Blue/Hyper Jade/Black","Grau/Weiss/Schwarz","Grey/Black","Nero/Bianco","Nero/Oro","Night Sky","Offwhite/Obsidian/University Red","Sail/White/Black","Schwarz","Team Orange/University Gold/Black","Wheat/Black/Club Gold","White/Black","White/Heather/Black","White/Infrared 23/Wolf Grey/Black","White/Red/Black")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentSoelv(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("farge")
+            .equalTo("Anthracite/Black/Metallic Silver","Black/Silver","Silver/Pink")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentOnesize(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("Onesize")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentXS(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("XS")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentS(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("S")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentM(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("M")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentL(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("L")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentXL(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("XL")
+            .on("child_added",visKlaer1);
+        };
+
+        function hentXXL(){
+          secKlaer.innerHTML = ``;
+          bukser
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("stoerrelse")
+            .equalTo("XXL")
+            .on("child_added",visKlaer1);
+        };
+
+        function hent36(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(36)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent37(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(37)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent38(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(38)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent39(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(39)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent40(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(40)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent41(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(41)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent42(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(42)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent43(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(43)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent44(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(44)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent45(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(45)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent46(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(46)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent47(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(47)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent48(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(48)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent49(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(49)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent50(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(50)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent51(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(51)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent52(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(52)
+            .on("child_added",visKlaer1);
+        };
+
+        function hent53(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("stoerrelse")
+            .equalTo(53)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris99(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .endAt(100)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris100_199(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(199)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(100)
+            .endAt(200)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris200_299(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(300)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris300_399(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(300)
+            .endAt(400)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris400_499(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(400)
+            .endAt(500)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris500_599(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(500)
+            .endAt(600)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris600_699(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(600)
+            .endAt(700)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris700_799(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(700)
+            .endAt(800)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris800_899(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(800)
+            .endAt(900)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris900_999(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(900)
+            .endAt(1000)
+            .on("child_added",visKlaer1);
+        };
+
+        function pris1000(){
+          secKlaer.innerHTML = ``;
+          sko
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          bukser
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          gensere
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          tskjorter
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          tilbehoer
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          skjorter
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          jakker
+            .orderByChild("pris")
+            .startAt(1000)
+            .on("child_added",visKlaer1);
+          undertoey
+            .orderByChild("pris")
+            .startAt(1000)
             .on("child_added",visKlaer1);
         };
 

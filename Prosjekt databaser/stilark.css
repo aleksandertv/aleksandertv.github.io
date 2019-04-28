@@ -1,43 +1,91 @@
+/* Gjelder for hele alle elementer */
 * {
   padding: 0;
   margin: 0;
   color: black;
 }
 
+/* Alle bilder dekker nå 100% av sitt angitte område, med mindre noe annet er spesifisert */
 img {
   width: 100%;
 }
 
+/* Dette er for at alt innholdet på "produkter.html" skal forskyves */
+#headerprodukter, #articleprodukter, #mainprodukter, #footerprodukter {
+  margin-left: 170px; /* De tidligere 160px, i tillegg til 10px ekstra for å få litt ekstra rom */
+  margin-right: 10px; /* Må gjøres på både venstre- og høyresiden */
+}
+
+/* Dette er for sidebaren på "produkter.html"-siden */
+#sidenav {
+  height: 100%; /* Dekker hele høyden av skjermen */
+  width: 160px;
+  position: fixed;
+  z-index: 1; /* For at den skal holde seg på toppen */
+  top: 0; /* Ingen avstand fra toppen */
+  left: 0; /* Ingen avstand fra venstre */
+  background-color: white; /* Hvit bakgrunnsfarge */
+  border-right: 1px solid black; /* For å ha en svak skillevegg mellom sidebaren og resten av innholdet */
+  overflow-x: hidden; /* For å deaktivere horisontal scrolling */
+  padding-top: 20px;
+}
+
+#sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none; /* Ikke understreket, eller noen andre "dekorasjoner" */
+  font-size: 20px; /* Skriftstørrelse 20 */
+  color: black; /* Skriften er svart */
+  display: block;
+}
+
+#sidenav a:hover {
+  font-weight: bold; /* Når musepekeren er over et av elementene på sidebaren, blir den fet */
+}
+
+/* Gjelder for elementene i navbaren */
+.navProduktHref {
+  float: left; /* Flyter mot venstre */
+}
+
+.navEkstraHref {
+  float: right; /* Flyter mot høyre */
+}
+
+/* For at alle salgsvarer, i tillegg til knappen som viser salgsvarer er rød */
+#navSalg, .tilbudspris {
+  color: red;
+}
+
 #mainprodukter {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4,1fr); /* Samme som om man skriver: grid-template-columns: 1fr 1fr 1fr 1fr; */
   grid-gap: 5px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 iframe {
-  text-align: center;
+  text-align: center; /* For at videoen på "forside.html" skal midtstilles */
 }
 
 .secKlaer {
-  grid-column: span 1;
+  grid-column: span 1; /* Liker å skrive "span 1" selv om det ikke er nødvendig, for å ha oversikt */
   grid-row: span 1;
   display: block;
   display: grid;
-  grid-template-columns: repeat(8,1fr)
+  grid-template-columns: repeat(8,1fr); /* Velger å dele den i 8 for å ha mer frihet i tillegg til at tilbudet skal være nærme originalprisen */
 }
 
 .bilde {
   grid-column: span 8;
   grid-row: span 1;
-  text-align: center;
+  text-align: center; /* Midtstilles */
 }
 
 .produktnavn {
   grid-column: span 8;
   grid-row: span 1;
-  text-align: left;
+  text-align: left; /* Liker også å skrive "text-align: left;" for å ha oversikt */
 }
 
 .merkenavn {
@@ -61,10 +109,66 @@ iframe {
 .tilbudspris {
   grid-column: span 5;
   grid-row: span 1;
-  text-align: right;
-  color: red;
+  text-align: right; /* Høyrestilt */
 }
 
+/* For logoen på toppen, på alle undersidene */
+#logobilde {
+  height: 150px; /* Logoen er egentlig 200px*1000px, så dette er 75% av originalstørrelse */
+  width: 750px;
+}
+
+/* For at området hvor dropdown-menyene befinner seg skal se litt annerledes ut enn navbaren */
+#articleprodukter {
+  margin-left: 180px; /* Navbaren sin margin er på 170px */
+  margin-right: 20px; /* Navbaren sin margin er på 10px */
+}
+
+/* For dropdown-menyene på "produkter.html"-siden */
+.dropbtn {
+  background-color: grey; /* Grå bakgrunnsfarge */
+  color: white; /* Hvit skrift */
+  padding: 16px;
+  font-size: 16px; /* Skriftstørrelse 16 */
+  border: none;
+  cursor: pointer; /* For at musepekeren ikke skal endre seg */
+  margin: 10px 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block; /* Dropdownene står ved siden av hverandre */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px; /* Innholdet i dropdown-menyen tar minst 160px */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px; /* Oppe og nede er det 12px, mens til venstre og høyre er det 16px */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* For at innholdet i dropdown-menyene skal vises når musepekeren er over */
+}
+
+.dropdown:hover .dropbtn {
+  background-color: lightgrey; /* Lysegrå bakgrunnsfarge etter at musepekeren har vært over */
+}
+
+/* For navbaren, som er på alle undersidene */
 #navbar {
   list-style-type: none;
   margin: 0;
@@ -72,7 +176,7 @@ iframe {
   overflow: hidden;
   border: 1px solid #e7e7e7;
   background-color: #ffffff;
-  width: 100%;
+  width: 100%; /* Dekker 100% av skjermen, minus de tidligere 160px, pluss 10 ekstra piksler på hver side */
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
   height: 45px;
