@@ -12,7 +12,7 @@ img {
 
 /* Dette er for at alt innholdet på "produkter.html" skal forskyves */
 #headerprodukter, #articleprodukter, #mainprodukter, #footerprodukter {
-  margin-left: 11em; /* De tidligere 16em, i tillegg til 1em ekstra for å få litt ekstra rom */
+  margin-left: 11em; /* De tidligere 10em, i tillegg til 1em ekstra for å få litt ekstra rom */
   margin-right: 1em; /* Må gjøres på både venstre- og høyresiden */
 }
 
@@ -135,6 +135,12 @@ footer {
   grid-row: span 1;
   display: grid;
   grid-template-columns: repeat(6,1fr);
+  grid-column-gap: 0.5em;
+}
+
+.secProduktLignende {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .secForsideElement {
@@ -150,6 +156,7 @@ footer {
 
 .secKlaer {
   display: grid;
+  text-decoration: none;
   grid-template-columns: repeat(6,1fr);
 }
 

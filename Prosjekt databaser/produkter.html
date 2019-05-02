@@ -183,7 +183,7 @@
           originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
         };
         mainprodukter.innerHTML += `
-          <a href="produktinformasjon.html?id=${key}&parentId=${parent}" class="secKlaer">
+          <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="merkenavn">${klesplagg.merkenavn}</div>
             <div class="produktnavn">${klesplagg.produktnavn}</div>

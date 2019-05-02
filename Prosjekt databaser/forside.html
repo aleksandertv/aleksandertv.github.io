@@ -143,7 +143,7 @@
       let url = new URL(url_string);
       let id = url.searchParams.get("id");
 
-      function genererHTML1(snapshot){
+      function genererHTML_SecForside(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
         let key = snapshot.key;
@@ -163,7 +163,7 @@
         secForside.innerHTML += `
           <section class="secForsideElement">
             <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
               <div class="merkenavn">${klesplagg.merkenavn}</div>
               <div class="produktnavn">${klesplagg.produktnavn}</div>
               ${originalPris}
@@ -172,10 +172,29 @@
             </a>
           </section>
         `;
+      };
+
+      function genererHTML_SecSalgForside(snapshot){
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        if(klesplagg.omTilbud === true){
+          pris = klesplagg.pris*(1-klesplagg.tilbud);
+          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        }
+        else{
+          pris = klesplagg.pris;
+          tilbud = ``;
+          tilbudPris = ``;
+          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        };
         secSalgForside.innerHTML += `
           <section class="secForsideElement">
             <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
               <div class="merkenavn">${klesplagg.merkenavn}</div>
               <div class="produktnavn">${klesplagg.produktnavn}</div>
               ${originalPris}
@@ -191,23 +210,23 @@
         sko
           .orderByChild("pris")
           .limitToFirst(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecForside);
         gensere
           .orderByChild("pris")
           .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecForside);
         skjorter
           .orderByChild("pris")
           .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecForside);
         sko
           .orderByChild("pris")
           .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecForside);
         undertoey
           .orderByChild("pris")
           .limitToLast(2)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecForside);
       };
 
       function besteSalg(){
@@ -215,33 +234,26 @@
         sko
           .orderByChild("omTilbud")
           .equalTo(true)
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
-        tskjorter
-          .orderByChild("omTilbud")
-          .equalTo(true)
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
-        gensere
-          .orderByChild("omTilbud")
-          .equalTo(true)
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",genererHTML_SecSalgForside);
         undertoey
           .orderByChild("omTilbud")
           .equalTo(true)
           .limitToLast(1)
-          .on("child_added",genererHTML1);
-        jakker
+          .on("child_added",genererHTML_SecSalgForside);
+        tskjorter
           .orderByChild("omTilbud")
           .equalTo(true)
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
-        tilbehoer
+          .on("child_added",genererHTML_SecSalgForside);
+        gensere
           .orderByChild("omTilbud")
           .equalTo(true)
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .limitToLast(2)
+          .on("child_added",genererHTML_SecSalgForside);
+        undertoey
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToFirst(1)
+          .on("child_added",genererHTML_SecSalgForside);
         };
 
         populaereProdukter();

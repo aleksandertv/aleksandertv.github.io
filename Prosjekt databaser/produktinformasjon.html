@@ -107,10 +107,10 @@
 
       let url_string = window.location.href;
       let url = new URL(url_string);
-      let id = url.searchParams.get("id");
       let parentId = url.searchParams.get("parent");
+      let id = url.searchParams.get("id");
 
-      const valgtProdukt = db.ref("Klaer/"+ id + "/" + parentId );
+      const valgtProdukt = db.ref("Klaer/"+ parentId + "/" + id );
       valgtProdukt.on("value",genererProduktinfo);
 
       function genererProduktinfo(snapshot){
@@ -138,10 +138,10 @@
         };
         secProduktinfo.innerHTML += `
           <section class="stortBildeProduktinfo">
-            <img src"${klesplagg.bilde1}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde1}">
           </section>
           <section class="liteBildeProduktinfo">
-            <img src"${klesplagg.bilde2}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde2}">
           </section>
           <section class="infoProduktinfo">
             ${originalPris}
@@ -162,18 +162,17 @@
                   ${stoerrelser}
                 </select>
                 <p>Hvor mange ønsker du å kjøpe?</p>
-                <select name="antall" required>
-                  <option value=""><textarea></option>
-                  ${stoerrelser}
-                </select>
-                <button>Legg til i handlekurv</button>
+                <form name="antall" required>
+                  <input type="text"></input>
+                </form>
+                <button type="submit">Legg til i handlekurv</button>
               </form>
             </div>
             <div class="friFrakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
             <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
           </section>
           <section class="liteBildeProduktinfo">
-            <img src="${klesplagg.bilde3}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde3}">
           </section>
         `;
       };
@@ -198,7 +197,7 @@
         secProduktLignende.innerHTML += `
           <section class="secForsideElement">
             <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
               <div class="merkenavn">${klesplagg.merkenavn}</div>
               <div class="produktnavn">${klesplagg.produktnavn}</div>
               ${originalPris}
