@@ -19,7 +19,7 @@
     </script>
   </head>
   <body>
-    <header>
+    <header id="headerproduktinformasjon">
       <nav>
         <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
@@ -211,17 +211,13 @@
       function lignendeProdukter(){
         sko
           .orderByChild("pris")
-          .limitToFirst(1)
+          .limitToFirst(2)
           .on("child_added",genererHTML1);
         gensere
           .orderByChild("pris")
           .limitToLast(1)
           .on("child_added",genererHTML1);
         skjorter
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",genererHTML1);
-        sko
           .orderByChild("pris")
           .limitToLast(1)
           .on("child_added",genererHTML1);
