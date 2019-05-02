@@ -21,72 +21,218 @@
   <body>
     <header>
       <nav>
-        <a href="forside.html"><img src="Bilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
-        <ul>
-          <li style="float:left"><a href="produkter.html">Klær</a></li>
-          <li style="float:left"><a href="produkter.html">Nylig lagt til</a></li>
-          <li style="float:left"><a href="#">Salg</a></li>
-          <li style="float:right"><a href="handlekurv.html">Handlekurv</a></li>
-          <li style="float:right"><a href="#">Ønskeliste</a></li>
-          <li style="float:right"><a href="#">Logg inn</a></li>
+        <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
+        <ul id="navbar">
+          <li><a id="navKlaer" class="navProduktHref" href="produkter.html">Klær</a></li>
+          <li><a id="navNyligLagtTil" class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
+          <li><a id="navSalg" class="navProduktHref" href="produkter.html?id=salg">Salg</a></li>
+          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li>
+          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
+          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main id="mainproduktinformasjon">
       <ul id="tilbake">
-        <li><a href=""> < Tilbake </a></li>
+        <li><a href="produkter.html"> < Tilbake </a></li>
       </ul>
-      <section id="mellomrom">
-
-      </section>
-      <section id="stortbilde">
-
-      </section>
-      <section class="litebilde">
-
-      </section>
-      <section class="litebilde">
-
-      </section>
       <section class="secProduktinfo">
 
       </section>
-      <p>Andre har også kjøpt</p>
-      <section class="secProduktinformasjon">
+      <section class="overskrift">
+        <p>Andre har også kjøpt</p>
+      </section>
+      <section class="secProduktLignende">
 
       </section>
     </main>
     <footer>
-
+      <section>
+        <div><a class="footerOverskrift" href="#">Om Alveto</a></div>
+        <div><a class="footerInnhold" href="#">Firmainformasjon</a></div>
+        <div><a class="footerInnhold" href="#">Historikk</a></div>
+        <div><a class="footerInnhold" href="#">Søk jobb hos oss</a></div>
+        <div><a class="footerInnhold" href="#">Ansatte</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Sosialt</a></div>
+        <div><a class="footerInnhold" href="#">Snapchat: @alvetoclothing</a></div>
+        <div><a class="footerInnhold" href="#">Facebook: Alveto AS</a></div>
+        <div><a class="footerInnhold" href="#">Nyhetsbrev</a></div>
+        <div><a class="footerInnhold" href="#">Alveto's blogg</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Informasjon</a></div>
+        <div><a class="footerInnhold" href="#">Butikker</a></div>
+        <div><a class="footerInnhold" href="#">Verdensbasis</a></div>
+        <div><a class="footerInnhold" href="#">Utbredning</a></div>
+        <div><a class="footerInnhold" href="#">Annet</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Ressurser</a></div>
+        <div><a class="footerInnhold" href="#">Nettside</a></div>
+        <div><a class="footerInnhold" href="#">Oppsett</a></div>
+        <div><a class="footerInnhold" href="#">Bilder</a></div>
+        <div><a class="footerInnhold" href="#">Produkter</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Invester</a></div>
+        <div><a class="footerInnhold" href="#">Aksjer</a></div>
+        <div><a class="footerInnhold" href="#">Eiere</a></div>
+        <div><a class="footerInnhold" href="#">Investorer</a></div>
+        <div><a class="footerInnhold" href="#">Annen info</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Kontakt oss</a></div>
+        <div><a class="footerInnhold" href="#">Returnere produkter</a></div>
+        <div><a class="footerInnhold" href="#">Tilbud</a></div>
+        <div><a class="footerInnhold" href="#">Frakt</a></div>
+        <div><a class="footerInnhold" href="#">Annet</a></div>
+      </section>
     </footer>
     <script type="text/javascript">
-      function visProduktinformasjon(){
+      const db = firebase.database();
+      const klaer = db.ref("Klaer");
+      const sko = db.ref("Klaer/Sko");
+      const bukser = db.ref("Klaer/Bukser");
+      const gensere = db.ref("Klaer/Gensere");
+      const tskjorter = db.ref("Klaer/Tskjorter");
+      const tilbehoer = db.ref("Klaer/Tilbehør");
+      const skjorter = db.ref("Klaer/Skjorter");
+      const jakker = db.ref("Klaer/Jakker");
+      const undertoey = db.ref("Klaer/Undertøy");
+
+      const secProduktinfo = document.querySelector(".secProduktinfo");
+      const secProduktLignende = document.querySelector(".secProduktLignende");
+
+      let url_string = window.location.href;
+      let url = new URL(url_string);
+      let id = url.searchParams.get("id");
+      let parentId = url.searchParams.get("parent");
+
+      const valgtProdukt = db.ref("Klaer/"+ id + "/" + parentId );
+      valgtProdukt.on("value",genererProduktinfo);
+
+      function genererProduktinfo(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
-        secKlaer.innerHTML += `
-          <div class="prisprodukt">${klesplagg.pris} kr</div>
-          <div class="tilbudprodukt">${klesplagg.tilbud}%</div>
-          <div class="navprodukt">${klesplagg.produktnavn}</div>
-          <div class="merkeprodukt">${klesplagg.merkenavn}</div>
-          <div class="dropdown">
-            <form>
-              <p>Produktet er tilgjengelig i disse fargene</p>
-              <select name="farge" required>
-                <option value="">Farge</option>
-                <option value="${klesplagg.farge}">${klesplagg.farge}</option>
-              </select>
-              <p>Produktet er tilgjengelig i disse størrelsene</p>
-              <select name="storrelse" required>
-                <option value="">Størrelse</option>
-                <option value="${klesplagg.stoerrelse}">${klesplagg.stoerrelse}</option>
-              </select>
-              <button>Legg til i handlekurv</button>
-            </form>
-          </div>
-          <div class="fri-frakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
-          <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
+        let stoerrelser = ``;
+        let farger = ``;
+        for (let stoerrelse of klesplagg.stoerrelse) {
+          stoerrelser += `<option value="${stoerrelse}">${stoerrelse}</option>`
+        };
+        for (let farge of klesplagg.farge) {
+          farger += `<option value="${farge}">${farge}</option>`
+        };
+        if (klesplagg.omTilbud === true) {
+          pris = klesplagg.pris*(1-klesplagg.tilbud);
+          tilbud = `<div class="tilbudProduktinfo">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudsprisProduktinfo">${pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalprisProduktinfo">${klesplagg.pris.toFixed(2)} kr</div>`;
+        }
+        else {
+          pris = klesplagg.pris;
+          tilbud = ``;
+          tilbudPris = ``;
+          originalPris = `<div class="originalprisProduktinfo">${klesplagg.pris.toFixed(2)} kr</div>`;
+        };
+        secProduktinfo.innerHTML += `
+          <section class="stortBildeProduktinfo">
+            <img src"${klesplagg.bilde1}">
+          </section>
+          <section class="liteBildeProduktinfo">
+            <img src"${klesplagg.bilde2}">
+          </section>
+          <section class="infoProduktinfo">
+            ${originalPris}
+            ${tilbud}
+            ${tilbudPris}
+            <div class="produktnavnProduktinfo">${klesplagg.produktnavn}</div>
+            <div class="merkenavnProduktinfo">${klesplagg.merkenavn}</div>
+            <div class="dropdown">
+              <form>
+                <p>Produktet er tilgjengelig i disse fargene:</p>
+                <select name="farge" required>
+                  <option value="">Farge</option>
+                  ${farger}
+                </select>
+                <p>Produktet er tilgjengelig i disse størrelsene:</p>
+                <select name="stoerrelse" required>
+                  <option value="">Størrelse</option>
+                  ${stoerrelser}
+                </select>
+                <p>Hvor mange ønsker du å kjøpe?</p>
+                <select name="antall" required>
+                  <option value=""><textarea></option>
+                  ${stoerrelser}
+                </select>
+                <button>Legg til i handlekurv</button>
+              </form>
+            </div>
+            <div class="friFrakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
+            <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
+          </section>
+          <section class="liteBildeProduktinfo">
+            <img src="${klesplagg.bilde3}">
+          </section>
         `;
       };
+
+      function genererHTML1(snapshot){
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        if(klesplagg.omTilbud === true){
+          pris = klesplagg.pris*(1-klesplagg.tilbud);
+          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        }
+        else{
+          pris = klesplagg.pris;
+          tilbud = ``;
+          tilbudPris = ``;
+          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        };
+        secProduktLignende.innerHTML += `
+          <section class="secForsideElement">
+            <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="merkenavn">${klesplagg.merkenavn}</div>
+              <div class="produktnavn">${klesplagg.produktnavn}</div>
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </a>
+          </section>
+        `;
+      };
+
+      function lignendeProdukter(){
+        sko
+          .orderByChild("pris")
+          .limitToFirst(1)
+          .on("child_added",genererHTML1);
+        gensere
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        skjorter
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        sko
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        undertoey
+          .orderByChild("pris")
+          .limitToLast(2)
+          .on("child_added",genererHTML1);
+      };
+
+      lignendeProdukter();
     </script>
   </body>
 </html>

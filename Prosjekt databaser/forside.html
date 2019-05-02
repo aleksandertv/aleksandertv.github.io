@@ -19,73 +19,238 @@
     </script>
   </head>
   <body>
-    <header>
+    <header id="headerforside">
       <nav>
-        <a href="forside.html"><img src="Bilder/Logo.png" alt="logo alveto" id="logobilde"></a>
-        <ul>
-          <li style="float:left"><a href="produkter.html">Klær</a></li>
-          <li style="float:left"><a href="produkter.html">Nylig lagt til</a></li>
-          <li style="float:left"><a href="produkter.html?id=salg">Salg</a></li>
-          <li style="float:right"><a href="handlekurv.html">Handlekurv</a></li>
-          <li style="float:right"><a href="#">Ønskeliste</a></li>
-          <li style="float:right"><a href="#">Logg inn</a></li>
+        <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
+        <ul id="navbar">
+          <li><a id="navKlaer" class="navProduktHref" href="produkter.html">Klær</a></li>
+          <li><a id="navNyligLagtTil" class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
+          <li><a id="navSalg" class="navProduktHref" href="produkter.html?id=salg">Salg</a></li>
+          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li>
+          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
+          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dII-yd7p1as" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <p>Alveto, veien til en bedre hverdag</p>
-      <p>Populære produkter</p>
+    <main id="mainforside">
+      <section id="videoforside">
+        <iframe width="700px" height="393.75px" src="https://www.youtube.com/embed/dII-yd7p1as" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p id="videoInfo">Alveto, veien til en bedre hverdag</p>
+      </section>
+      <section class="overskrift">
+        <p>Populære produkter</p>
+      </section>
       <section class="secForside">
 
       </section>
-      <section id="genserbuksersko">
-        <div><img src="Bilder/Generellebilder/Gensere.jpeg" href="produkter.html?id=gensere" alt="gensere genser sweater sweaters alveto"></div>
+      <section class="stortBilde">
+        <div><a href="produkter.html?id=gensere"><img src="Bilder/Generellebilder/Genser.jpeg" href="produkter.html?id=gensere" alt="gensere genser sweater sweaters alveto"></a></div>
         <div><a style="float:left" href="produkter.html?id=gensere">Alle gensere</a></div>
         <div><a style="float:right" href="produkter.html?id=genseresalg">Bare tilbud</a></div>
       </section>
-      <section>
-        <div><img src="Bilder/Generellebilder/Tskjorter.jpeg" href="produkter.html?id=tskjorter" alt="tshirt tskjorte tshirts tskjorter alveto"></div>
+      <section class="stortBilde">
+        <div><a href="produkter.html?id=tskjorter"><img src="Bilder/Generellebilder/Tskjorte.jpg" href="produkter.html?id=tskjorter" alt="tshirt tskjorte tshirts tskjorter alveto"></a></div>
         <div><a style="float:left" href="produkter.html?id=tskjorter">Alle t-skjorter</a></div>
         <div><a style="float:right" href="produkter.html?id=tskjortersalg">Bare tilbud</a></div>
       </section>
-      <section>
-        <div><img src="Bilder/Generellebilder/Undertoey.jpeg" href="produkter.html?id=undertoey" alt="undertoey underwear alveto"></div>
+      <section class="stortBilde">
+        <div><a href="produkter.html?id=undertoey"><img src="Bilder/Generellebilder/Undertoey.jpg" href="produkter.html?id=undertoey" alt="undertoey underwear alveto"></a></div>
         <div><a style="float:left" href="produkter.html?id=undertoey">Alt undertøy</a></div>
         <div><a style="float:right" href="produkter.html?id=undertoeysalg">Bare tilbud</a></div>
       </section>
-      <p>Våre beste salg</p>
+      <section class="overskrift">
+        <p>Våre beste salg</p>
+      </section>
       <section class="secSalgForside">
 
       </section>
-      <p>Nytt antrekk til anledningen?</p>
-      <section id="antrekkTilAnledningen">
+      <section class="overskrift">
+        <p>Nytt antrekk til anledningen?</p>
+      </section>
+      <section class="stortBilde"><a href="produkter.html?id=skjorter">
         <div><img src="Bilder/Generellebilder/Jobbintervju.jpg" alt="jobbintervju jobinterview alveto"></div>
         <div><a href="produkter.html"></a>Jobbintervju...</div>
-      </section>
-      <section>
+      </a></section>
+      <section class="stortBilde"><a href="produkter.html?id=tskjorter">
         <div><img src="Bilder/Generellebilder/Sommer.jpeg" alt="summer sommer finally endelig finallysummer endeligsommer alveto"></div>
         <div><a href="produkter.html"></a>Endelig sommer!</div>
-      </section>
-      <section>
+      </a></section>
+      <section class="stortBilde"><a href="produkter.html?id=tilbehoer">
         <div><img src="Bilder/Generellebilder/Formeltkledd.jpg" alt="dressed to impress dressedtoimpress alveto"></div>
         <div><a href="produkter.html"></a>Dressed to impress</div>
-      </section>
+      </a></section>
     </main>
-    <footer>
-
+    <footer id="footerforside">
+      <section>
+        <div><a class="footerOverskrift" href="#">Om Alveto</a></div>
+        <div><a class="footerInnhold" href="#">Firmainformasjon</a></div>
+        <div><a class="footerInnhold" href="#">Historikk</a></div>
+        <div><a class="footerInnhold" href="#">Søk jobb hos oss</a></div>
+        <div><a class="footerInnhold" href="#">Ansatte</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Sosialt</a></div>
+        <div><a class="footerInnhold" href="#">Snapchat: @alvetoclothing</a></div>
+        <div><a class="footerInnhold" href="#">Facebook: Alveto AS</a></div>
+        <div><a class="footerInnhold" href="#">Nyhetsbrev</a></div>
+        <div><a class="footerInnhold" href="#">Alveto's blogg</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Informasjon</a></div>
+        <div><a class="footerInnhold" href="#">Butikker</a></div>
+        <div><a class="footerInnhold" href="#">Verdensbasis</a></div>
+        <div><a class="footerInnhold" href="#">Utbredning</a></div>
+        <div><a class="footerInnhold" href="#">Annet</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Ressurser</a></div>
+        <div><a class="footerInnhold" href="#">Nettside</a></div>
+        <div><a class="footerInnhold" href="#">Oppsett</a></div>
+        <div><a class="footerInnhold" href="#">Bilder</a></div>
+        <div><a class="footerInnhold" href="#">Produkter</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Invester</a></div>
+        <div><a class="footerInnhold" href="#">Aksjer</a></div>
+        <div><a class="footerInnhold" href="#">Eiere</a></div>
+        <div><a class="footerInnhold" href="#">Investorer</a></div>
+        <div><a class="footerInnhold" href="#">Annen info</a></div>
+      </section>
+      <section>
+        <div><a class="footerOverskrift" href="#">Kontakt oss</a></div>
+        <div><a class="footerInnhold" href="#">Returnere produkter</a></div>
+        <div><a class="footerInnhold" href="#">Tilbud</a></div>
+        <div><a class="footerInnhold" href="#">Frakt</a></div>
+        <div><a class="footerInnhold" href="#">Annet</a></div>
+      </section>
     </footer>
     <script type="text/javascript">
+      const db = firebase.database();
+      const klaer = db.ref("Klaer");
+      const sko = db.ref("Klaer/Sko");
+      const bukser = db.ref("Klaer/Bukser");
+      const gensere = db.ref("Klaer/Gensere");
+      const tskjorter = db.ref("Klaer/Tskjorter");
+      const tilbehoer = db.ref("Klaer/Tilbehør");
+      const skjorter = db.ref("Klaer/Skjorter");
+      const jakker = db.ref("Klaer/Jakker");
+      const undertoey = db.ref("Klaer/Undertøy");
+
+      const secForside = document.querySelector(".secForside");
+      const secSalgForside = document.querySelector(".secSalgForside");
+
+      let url_string = window.location.href;
+      let url = new URL(url_string);
+      let id = url.searchParams.get("id");
+
+      function genererHTML1(snapshot){
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        if(klesplagg.omTilbud === true){
+          pris = klesplagg.pris*(1-klesplagg.tilbud);
+          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        }
+        else{
+          pris = klesplagg.pris;
+          tilbud = ``;
+          tilbudPris = ``;
+          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+        };
+        secForside.innerHTML += `
+          <section class="secForsideElement">
+            <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="merkenavn">${klesplagg.merkenavn}</div>
+              <div class="produktnavn">${klesplagg.produktnavn}</div>
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </a>
+          </section>
+        `;
+        secSalgForside.innerHTML += `
+          <section class="secForsideElement">
+            <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+              <div class="bilde"><img src="${klesplagg.bilde1}"></div>
+              <div class="merkenavn">${klesplagg.merkenavn}</div>
+              <div class="produktnavn">${klesplagg.produktnavn}</div>
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </a>
+          </section>
+        `;
+      };
+
+      function populaereProdukter(){
+        secForside.innerHTML = ``;
+        sko
+          .orderByChild("pris")
+          .limitToFirst(1)
+          .on("child_added",genererHTML1);
+        gensere
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        skjorter
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        sko
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        undertoey
+          .orderByChild("pris")
+          .limitToLast(2)
+          .on("child_added",genererHTML1);
+      };
+
+      function besteSalg(){
+        secSalgForside.innerHTML = ``;
+        sko
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        tskjorter
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        gensere
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        undertoey
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        jakker
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        tilbehoer
+          .orderByChild("omTilbud")
+          .equalTo(true)
+          .limitToLast(1)
+          .on("child_added",genererHTML1);
+        };
+
+        populaereProdukter();
+        besteSalg();
+
         /*
-          Hvordan få alt sortert på en gang ?
-          Hvordan få tilbudspris til å være tom hvis det ikke er tilbud ?
-          Hvordan fikk man "parent" igjen ?
-          Hvordan ha CSS hvis javascript-krav er oppfylt ?
-          Hvis ikke eualTo, hva bruker man istedenfor ?
-          Hvorfor blir ikke "Salg" rød ?
-          Hvordan få komma istedenfor punktum ?
-          Hvordan sortere tall etter størrelse, ikke alfabetisk ?
-          Hvordan få visT-skjorter funksjon til å funke (på grunn av bindestrek (-)) ?
+          Prøvde å få class i "genererHTML" til å bli automatisk, men hvorfor funket det ikke ?
+          Hvorfor blir det 10 objekter på forsiden ?
+          Hva er galt for at produktinformasjonssiden ikke fungerer ?
         */
     </script>
   </body>
