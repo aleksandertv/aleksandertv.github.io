@@ -2,7 +2,7 @@
 <html lang="nb" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Alveto - Forside</title>
+    <title class="titleProduktinformasjon"></title>
     <link rel="stylesheet" href="stilark.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script>
@@ -104,6 +104,7 @@
 
       const secProduktinfo = document.querySelector(".secProduktinfo");
       const secProduktLignende = document.querySelector(".secProduktLignende");
+      const titleProduktinformasjon = document.querySelector(".titleProduktinformasjon")
 
       let url_string = window.location.href;
       let url = new URL(url_string);
@@ -149,7 +150,7 @@
             ${tilbudPris}
             <div class="produktnavnProduktinfo">${klesplagg.produktnavn}</div>
             <div class="merkenavnProduktinfo">${klesplagg.merkenavn}</div>
-            <div class="dropdown">
+            <div class="skjema">
               <form>
                 <p>Produktet er tilgjengelig i disse fargene:</p>
                 <select name="farge" required>
@@ -162,10 +163,8 @@
                   ${stoerrelser}
                 </select>
                 <p>Hvor mange ønsker du å kjøpe?</p>
-                <form name="antall" required>
-                  <input type="text"></input>
-                </form>
-                <button type="submit">Legg til i handlekurv</button>
+                <input type="number" autocomplete="off" min="0" name="antall" required>
+                <button type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
               </form>
             </div>
             <div class="friFrakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
@@ -177,7 +176,7 @@
         `;
       };
 
-      function genererHTML1(snapshot){
+      function generer_LignendeProdukter(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
         let key = snapshot.key;
@@ -208,23 +207,41 @@
         `;
       };
 
+      function genererTitleProduktinformasjon(snapshot) {
+        console.log(snapshot.val());
+        let klesplagg = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        titleProduktinformasjon.innerHTML += `
+          <div>${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parent} - Alveto</div>
+        `;
+      };
+
       function lignendeProdukter(){
         sko
           .orderByChild("pris")
-          .limitToFirst(2)
-          .on("child_added",genererHTML1);
+          .limitToFirst(1)
+          .on("child_added",generer_LignendeProdukter);
         gensere
           .orderByChild("pris")
           .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",generer_LignendeProdukter);
         skjorter
           .orderByChild("pris")
           .limitToLast(1)
-          .on("child_added",genererHTML1);
+          .on("child_added",generer_LignendeProdukter);
         undertoey
           .orderByChild("pris")
-          .limitToLast(2)
-          .on("child_added",genererHTML1);
+          .limitToLast(1)
+          .on("child_added",generer_LignendeProdukter);
+        jakker
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",generer_LignendeProdukter);
+        tilbehoer
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added",generer_LignendeProdukter);
       };
 
       lignendeProdukter();

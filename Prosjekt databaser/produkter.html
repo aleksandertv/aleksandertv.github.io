@@ -2,7 +2,7 @@
 <html lang="nb" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Alveto - Forside</title>
+    <title>Produkter - Alveto</title>
     <link rel="stylesheet" href="stilark.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script>
@@ -172,7 +172,7 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
           tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
           originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
         }
@@ -201,7 +201,7 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
           tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
           originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
         }

@@ -258,10 +258,11 @@ footer {
   grid-column: span 6;
   display: grid;
   grid-template-columns: repeat(5,1fr);
-  grid-auto-rows: minmax(1px,auto);
-  grid-gap: 0.5em;
-  margin-left: 3em;
-  margin-right: 3em;
+  grid-auto-rows: minmax(0,auto);
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.45em;
+  margin-left: 13em;
+  margin-right: 13em;
 }
 
 .stortBildeProduktinfo {
@@ -274,10 +275,27 @@ footer {
   grid-row: span 1;
 }
 
+.liteBildeProduktinfo>img {
+  height: 100%;
+}
+
 .infoProduktinfo {
   grid-column: span 2;
   grid-row: span 2;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-row-gap: 0;
+  grid-auto-rows: minmax(0,auto);
+}
 
+.tilbudProduktinfo, .tilbudsprisProduktinfo, .originalprisProduktinfo {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.produktnavnProduktinfo, .merkenavnProduktinfo, .skjema, .friFrakt, .sendetid {
+  grid-column: span 3;
+  grid-row: span 1;
 }
 
 /* For navbaren, som er på alle undersidene */
