@@ -36,13 +36,13 @@
       <ul id="tilbake">
         <li><a href="produkter.html"> < Tilbake </a></li>
       </ul>
-      <section class="secProduktinfo">
+      <section class="secProduktinfo"> <!-- Her settes produktinfoen inn -->
 
       </section>
       <section class="overskrift">
         <p>Andre har også kjøpt</p>
       </section>
-      <section class="secProduktLignende">
+      <section class="secProduktLignende"> <!-- Her settes lignende produkter inn -->
 
       </section>
     </main>
@@ -92,7 +92,7 @@
     </footer>
     <script type="text/javascript">
       const db = firebase.database();
-      const klaer = db.ref("Klaer");
+      const klaer = db.ref("Klaer"); // Ikke nødvendig her
       const sko = db.ref("Klaer/Sko");
       const bukser = db.ref("Klaer/Bukser");
       const gensere = db.ref("Klaer/Gensere");
@@ -102,90 +102,126 @@
       const jakker = db.ref("Klaer/Jakker");
       const undertoey = db.ref("Klaer/Undertøy");
 
-      const secProduktinfo = document.querySelector(".secProduktinfo");
+      const secProduktinfo = document.querySelector(".secProduktinfo"); // Alle disse er en class, ikke en id
       const secProduktLignende = document.querySelector(".secProduktLignende");
       const titleProduktinformasjon = document.querySelector(".titleProduktinformasjon")
 
-      let url_string = window.location.href;
+      let url_string = window.location.href; // url_string, url og id er lik som på de andre sidene
       let url = new URL(url_string);
-      let parentId = url.searchParams.get("parent");
+      let parentId = url.searchParams.get("parent"); // På denne siden trenger man også en parentId, for å først velge hvilken parent man skal inn på, så hvilken primærnøkkel. Den er ikke nødvendig på noen av de andre sidene
       let id = url.searchParams.get("id");
 
-      const valgtProdukt = db.ref("Klaer/"+ parentId + "/" + id );
-      valgtProdukt.on("value",genererProduktinfo);
+      const valgtProdukt = db.ref("Klaer/"+ parentId + "/" + id ); // Først Klaer, så /, så parentId-en (som er parent), deretter en ny /, så til slutt primærnøkkelen
+      valgtProdukt.on("value",genererProduktinfo); // Skal kjøre genererProduktinfo-funksjonen med de tidligere spesifiserte parentId og id-en
 
       function genererProduktinfo(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
-        let stoerrelser = ``;
-        let farger = ``;
-        var parentIdStr = `${parentId}`;
-        var str = `${id}`;
-        for (let stoerrelse of klesplagg.stoerrelse) {
-          stoerrelser += `<option value="${stoerrelse}">${stoerrelse}</option>`
+        let stoerrelser = ``; // stoerrelser må først defineres
+        let farger = ``; // farger må først defineres
+        var parentIdStr = `${parentId}`; //parentIdStr (parentId-stringen) skal være lik parentId-en
+        var str = `${id}`; // str (string) skal være lik id-en
+        for (let stoerrelse of klesplagg.stoerrelse) { // La hver størrelse innenfor "stoerrelse" i JSON-filen lagres som et nytt objekt
+          stoerrelser += `<option value="${stoerrelse}">${stoerrelse}</option>` // For at alle de forskjellige størrelsene skal få hver sin "option"
         };
-        for (let farge of klesplagg.farge) {
-          farger += `<option value="${farge}">${farge}</option>`
+        for (let farge of klesplagg.farge) { // Samme som med Størrelser
+          farger += `<option value="${farge}">${farge}</option>` // Samme som med Størrelser
         };
-        if (klesplagg.omTilbud === true) {
+        if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbudProduktinfo">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudsprisProduktinfo">${pris.toFixed(2)} kr</div>`;
-          originalPris = `<div style="text-decoration:line-through" class="originalprisProduktinfo">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
         }
-        else {
+        else{
           pris = klesplagg.pris;
-          tilbud = ``;
-          tilbudPris = ``;
-          originalPris = `<div class="originalprisProduktinfo">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div></div>`;
+          tilbudPris = `<div></a></div>`;
         };
-        if (klesplagg.overmateriale[1].length > 2 ) {
-          overmateriale = `Overmaterialer: `;
+        if (klesplagg.merkenavn == `Abercrombie & Fitch`) {
+          merkenavn = `AbercrombieFitch`;
+        }
+        else if (klesplagg.merkenavn == `Alpha Industries`) {
+          merkenavn = `AlphaIndustries`;
+        }
+        else if (klesplagg.merkenavn == `Hugo Boss`) {
+          merkenavn = `HugoBoss`;
+        }
+        else if (klesplagg.merkenavn == `Emporio Armani`) {
+          merkenavn = `EmporioArmani`;
+        }
+        else if (klesplagg.merkenavn == `Calvin Klein`) {
+          merkenavn = `CalvinKlein`;
+        }
+        else if (klesplagg.merkenavn == `Hackett London`) {
+          merkenavn = `HackettLondon`;
+        }
+        else if (klesplagg.merkenavn == `Les Deux`) {
+          merkenavn = `LesDeux`;
+        }
+        else if (klesplagg.merkenavn == `Polo Ralph Lauren`) {
+          merkenavn = `PoloRalphLauren`;
+        }
+        else if (klesplagg.merkenavn == `Tiger of Sweden`) {
+          merkenavn = `TigerofSweden`;
+        }
+        else if (klesplagg.merkenavn == `Tommy Hilfiger`) {
+          merkenavn = `TommyHilfiger`;
         }
         else {
-          overmateriale = `Overmateriale: `;
+          merkenavn = `${klesplagg.merkenavn}`;
+        };
+        if (klesplagg.overmateriale.length == 0 ) {
+          overmateriale = ``; // Hvis objektet ikke har noen overmarerialer, skal overmateriale være tom. Kunne også ha laget hele div-boksen, men det hadde tatt mer lagringsplass (som blir relevant på større nettsider), i tillegg til at det tar lenger tid
+        }
+        else if (klesplagg.overmateriale.length == 1 ) {
+          overmateriale = `Overmateriale: `; // Hvis lengden på arrayen er lik 1, skal overmateriale være lik "Overmateriale: "
+        }
+        else {
+          overmateriale = `Overmaterialer: `; // Hvis lengden arrayen er større enn 1, skal overmateriale være lik "Overmaterialer: "
         };
         if (parentIdStr === `Bukser`) {
-          var res = str.substr(0,5);
+          var res = str.substr(0,5); // Hvis parentIdStr er lik `Bukser`, skal res være lik de 5 første bokstavene av key-en (Sko001, Sko002, osv.), som er "Bukse"
         }
         else if (parentIdStr === `Gensere`) {
-          var res = str.substr(0,6);
+          var res = str.substr(0,6); // Samme prinsipp som med Bukser, bare at her står det "Genser"
         }
         else if (parentIdStr === `Jakker`) {
-          var res = str.substr(0,5);
+          var res = str.substr(0,5); // Jakke
         }
         else if (parentIdStr === `Skjorter`) {
-          var res = str.substr(0,7);
+          var res = str.substr(0,7); // Skjorte
         }
         else if (parentIdStr === `Sko`) {
-          var res = str.substr(0,3);
+          var res = str.substr(0,3); // Sko. Kunne bare skrevet "Sko", men denne løsningen fungere like bra, og trenger ikke å være redd for skrivefeil
         }
         else if (parentIdStr === `Tilbehør`) {
-          var res = `Tilbehør`;
+          var res = `Tilbehør`; // For at det ikke skal stå "Tilbehoer", men "Tilbehør"
         }
         else if (parentIdStr === `Tskjorter`) {
-          var res = `T-skjorte`;
+          var res = `T-skjorte`; // For at det skal stå "T-skjorte" istedenfor "Tskjorte"
         }
-        else {
-          var res = `Undertøy`;
+        else { // Siden det bare er 8 ulike parentId-er, så må parentId være lik Undertøy hvis den ikke er lik noen av de tidligere parentId-ene
+          var res = `Undertøy`; // Samme som med Tilbehør
         };
         secProduktinfo.innerHTML += `
           <section class="stortBildeProduktinfo">
-            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde1}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde1}"> <!-- Kunne stått: <img src="Bilder/Bilder${parent}/${id}_1.jpg">, og da hadde jeg ikke trengt å skrive inn bildene i JSON-filen. Da hadde "_1" etter "${id}" måtte endres til "_2" også videre, men hadde fortsatt vært mye enklere -->
           </section>
           <section class="liteBildeProduktinfo">
-            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde2}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde2}"> <!-- Kunne stått: <img src="Bilder/Bilder${parent}/${id}_2.jpg"> -->
           </section>
           <section class="infoProduktinfo">
-            <div class="produktnavnProduktinfo" id="navn">${klesplagg.produktnavn} - ${res}</div>
+            <div class="produktnavnProduktinfo" id="navn">${klesplagg.produktnavn} - ${res}</div> <!-- For at det skal stå "Produktnavn - Produkttype" -->
             <section class="priserInfoProduktinfo">
               ${originalPris}
               ${tilbud}
               ${tilbudPris}
             </section>
-            <div class="merkenavnProduktinfo">${klesplagg.merkenavn}</div>
+            <div class="merkenavnProduktinfo"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="overmaterialeProduktinfo">${overmateriale}${klesplagg.overmateriale.join(", ")}</div>
             <div class="skjema">
               <form>
@@ -200,7 +236,7 @@
                   ${stoerrelser}
                 </select>
                 <p class="formOverskrift">Hvor mange ønsker du å kjøpe?</p>
-                <input type="number" autocomplete="off" min="0" name="antall" required>
+                <input type="number" autocomplete="off" min="0" name="antall" required> <!-- Bokstaver skal ikke aksepteres, bare tall. Autocomplete skal være av, for det er det ikke noe bruk av her. Verdien må være på minst 0, sånn at man ikke kan ha en negativ mengde produkter -->
                 <button id="handlekurv" type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
               </form>
             </div>
@@ -208,7 +244,7 @@
             <div class="sendetid">Vår sendetid er på 3-5 virkedager.</div>
           </section>
           <section class="liteBildeProduktinfo">
-            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde3}">
+            <img src="Bilder/Bilder${parentId}/${klesplagg.bilde3}"> <!-- Kunne stått: <img src="Bilder/Bilder${parent}/${id}_3.jpg"> -->
           </section>
         `;
       };
@@ -220,26 +256,59 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
-          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          tilbud = ``;
-          tilbudPris = ``;
-          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div></div>`;
+          tilbudPris = `<div></a></div>`;
+        };
+        if (klesplagg.merkenavn == `Abercrombie & Fitch`) {
+          merkenavn = `AbercrombieFitch`;
+        }
+        else if (klesplagg.merkenavn == `Alpha Industries`) {
+          merkenavn = `AlphaIndustries`;
+        }
+        else if (klesplagg.merkenavn == `Hugo Boss`) {
+          merkenavn = `HugoBoss`;
+        }
+        else if (klesplagg.merkenavn == `Emporio Armani`) {
+          merkenavn = `EmporioArmani`;
+        }
+        else if (klesplagg.merkenavn == `Calvin Klein`) {
+          merkenavn = `CalvinKlein`;
+        }
+        else if (klesplagg.merkenavn == `Hackett London`) {
+          merkenavn = `HackettLondon`;
+        }
+        else if (klesplagg.merkenavn == `Les Deux`) {
+          merkenavn = `LesDeux`;
+        }
+        else if (klesplagg.merkenavn == `Polo Ralph Lauren`) {
+          merkenavn = `PoloRalphLauren`;
+        }
+        else if (klesplagg.merkenavn == `Tiger of Sweden`) {
+          merkenavn = `TigerofSweden`;
+        }
+        else if (klesplagg.merkenavn == `Tommy Hilfiger`) {
+          merkenavn = `TommyHilfiger`;
+        }
+        else {
+          merkenavn = `${klesplagg.merkenavn}`;
         };
         secProduktLignende.innerHTML += `
           <section class="secForsideElement">
-            <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+            <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
               <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
-              <div class="merkenavn">${klesplagg.merkenavn}</div>
-              <div class="produktnavn">${klesplagg.produktnavn}</div>
-              ${originalPris}
+              <div class="produktnavn">${klesplagg.produktnavn}</div></a>
+              <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+              <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris}
               ${tilbud}
-              ${tilbudPris}
-            </a>
+              ${tilbudPris}</a>
+            </section>
           </section>
         `;
       };
@@ -249,10 +318,12 @@
         let klesplagg = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
-        titleProduktinformasjon.innerHTML += `${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto`;
+        titleProduktinformasjon.innerHTML += `
+          ${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto <!-- For at det skal stå "Produktnavn - Merke - Produkttype - Alveto" i tittelen -->
+        `;
       };
 
-      function lignendeProdukter(){
+      function lignendeProdukter() {
         gensere
           .orderByChild("pris")
           .limitToLast(1)
@@ -275,7 +346,7 @@
           .on("child_added",generer_LignendeProdukter);
       };
 
-      lignendeProdukter();
+      lignendeProdukter(); // Skal kjøres uansett
     </script>
   </body>
 </html>

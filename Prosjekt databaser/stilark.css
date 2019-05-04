@@ -144,6 +144,7 @@ footer {
 
 .secForsideElement {
   grid-column: span 1;
+  grid-row: span 1;
 }
 
 .stortBilde {
@@ -196,12 +197,17 @@ footer {
   grid-column: span 6;
   grid-row: span 1;
   text-align: left; /* Liker også å skrive "text-align: left;" for å ha oversikt */
+  font-weight: bold;
 }
 
 .merkenavn {
   grid-column: span 6;
   grid-row: span 1;
   text-align: left;
+}
+
+.merkenavn:hover {
+  text-decoration: underline;
 }
 
 .originalpris {
@@ -323,7 +329,11 @@ footer {
 }
 
 #navn {
-  font-size: 24px;
+  font-size: 23px;
+}
+
+#merke:hover {
+  text-decoration: underline;
 }
 
 .priserInfoProduktinfo {

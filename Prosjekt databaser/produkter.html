@@ -23,17 +23,17 @@
       <nav>
         <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
-          <li><a id="navKlaer" class="navProduktHref" href="#" onclick="alleProdukter()">Klær</a></li>
-          <li><a id="navNyligLagtTil" class="navProduktHref" href="#" onclick="alleProdukter()">Nylig lagt til</a></li>
-          <li><a id="navSalg" class="navProduktHref" href="#" onclick="visSalg()">Salg</a></li>
-          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li>
-          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
-          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
+          <li><a id="navKlaer" class="navProduktHref" href="#" onclick="alleProdukter()">Klær</a></li> <!-- På forsiden og produktinformasjonssiden er dette en href, men her er det onclick. Dette er for at siden ikke skal måtte refreshes hver gang denne trykkes på -->
+          <li><a id="navNyligLagtTil" class="navProduktHref" href="#" onclick="alleProdukter()">Nylig lagt til</a></li> <!-- Denne onclick-en er lik den forrige, for JSON-filen inkluderer ikke datoen objektet er lagt til -->
+          <li><a id="navSalg" class="navProduktHref" href="#" onclick="visSalg()">Salg</a></li> <!-- Denne viser alle salg -->
+          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li> <!-- For å ha muligheten til å legge til en handlekurv senere -->
+          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li> <!-- Samme, bare med ønskeliste -->
+          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li> <!-- Samme, bare med innloggingsside -->
         </ul>
       </nav>
     </header>
-    <aside id="sidenav">
-      <ul class="ulKategorier">
+    <aside id="sidenav"> <!-- Denne er plassert på venstresiden av hele nettsiden -->
+      <ul class="ulKategorier"> <!-- Sidenav-en inneholder alle kategoriene -->
 
       </ul>
     </aside>
@@ -54,13 +54,13 @@
           <a onclick="hentAbercrombieFitch()">Abercrombie & Fitch</button>
           <a onclick="hentAdidas()">Adidas</button>
           <a onclick="hentAlphaIndustries()">Alpha Industries</button>
-          <a onclick="hentHugoBoss()">Hugo Boss</button>
+          <a onclick="hentCalvinKlein()">Calvin Klein</button>
           <a onclick="hentCrocs()">Crocs</button>
           <a onclick="hentEmporioArmani()">Emporio Armani</button>
-          <a onclick="hentCalvinKlein()">Calvin Klein</button>
           <a onclick="hentEton()">Eton</button>
           <a onclick="hentGant()">Gant</button>
           <a onclick="hentHackettLondon()">Hackett London</button>
+          <a onclick="hentHugoBoss()">Hugo Boss</button>
           <a onclick="hentLesDeux()">Les Deux</button>
           <a onclick="hentNike()">Nike</button>
           <a onclick="hentPoloRalphLauren()">Polo Ralph Lauren</button>
@@ -75,7 +75,7 @@
         <button class="dropbtn">Pris</button>
         <div class="dropdown-content">
           <a onclick="pris199()">≥199</a> <!-- Mindre eller lik 199 -->
-          <a onclick="pris200_399()">200-399</a>
+          <a onclick="pris200_399()">200-399</a> <!-- 200-kroners intervaller -->
           <a onclick="pris400_599()">400-599</a>
           <a onclick="pris600_799()">600-799</a>
           <a onclick="pris800_999()">800-999</a>
@@ -84,13 +84,13 @@
           <a onclick="pris1400_1599()">1400-1599</a>
           <a onclick="pris1600_1799()">1600-1799</a>
           <a onclick="pris1800_1999()">1800-1999</a>
-          <a onclick="pris2000_2499()">2000-2499</a>
+          <a onclick="pris2000_2499()">2000-2499</a> <!-- 500-kroners intervaller -->
           <a onclick="pris2500_2999()">2500-2999</a>
           <a onclick="pris3000()">3000≤</a> <!-- Større eller lik 3000 -->
         </div>
       </div>
     </article>
-    <main id="mainprodukter"> <!-- Hele main skal inneholde klesplaggene -->
+    <main id="mainprodukter"> <!-- Hele main-en skal inneholde klesplaggene -->
 
     </main>
     <footer id="footerprodukter">
@@ -149,22 +149,23 @@
       const jakker = db.ref("Klaer/Jakker");
       const undertoey = db.ref("Klaer/Undertøy");
 
-      const ulKategorier = document.querySelector(".ulKategorier");
-      const mainprodukter = document.querySelector("#mainprodukter");
+      const ulKategorier = document.querySelector(".ulKategorier"); // Dette er en class
+      const mainprodukter = document.querySelector("#mainprodukter"); // Dette er en id
 
       let url_string = window.location.href;
       let url = new URL(url_string);
-      let id = url.searchParams.get("id"); // Man skal fortsatt skrive id hvis man skal gi denne en verdi, fordi den sier "get("id")"
+      let id = url.searchParams.get("id"); // Man skal fortsatt skrive "id" (og "parent" istedenfor "parentId" senere, når det blir relevant) hvis man skal gi denne en verdi, fordi den sier "get("id")"
 
       function visKategorier(snapshot){
         console.log(snapshot.val());
-        let key = snapshot.key;
+        let key = snapshot.key; // Primærnøkkelen, som i dette tilfellet er (Sko, Bukser, osv.), mens i alle andre tilfeller er (Sko001, Sko002, osv.)
+        // Vanligvis hadde det vært en "parent" her, men den trenger ikke å være her, siden parent-en til kategoriene er Klaer, som er det øverste nivået i hele databasen, og trenger ikke å hentes ut i noen tilfeller
         let klesplagg = snapshot.val();
         if (key === `Tskjorter`) {
-          kategoriNavn = `T-skjorter`; // Hvis key er lik Tskjorter, skal det stå "T-skjorter" istedenfor "Tskjorter"
+          kategoriNavn = `T-skjorter`; // Hvis key-en er lik "Tskjorter", skal det stå "T-skjorter" istedenfor "Tskjorter"
         }
         else {
-          kategoriNavn = `${key}`;
+          kategoriNavn = `${key}`; // I alle andre tilfeller skal det bare stå primærnøkkelen
         };
         ulKategorier.innerHTML += `
           <li><a class="kategori" href="#" onclick="vis${key}()">${kategoriNavn}</a></li> <!-- I Tskjorter tilfellet, gjør denne linjen funksjonen "visTskjorter", men i tekstfeltet står det "Tskjorter" -->
@@ -174,29 +175,62 @@
       function genererHTML1(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
-        let key = snapshot.key;
-        let parent = snapshot.ref.parent.key;
+        let key = snapshot.key; // Primærnøkkelen, som her er (Sko001, Sko002, osv.)
+        let parent = snapshot.ref.parent.key; // Parent er nivået over primærnøkkelen, som her er (Sko, Bukser, osv.). I kategori-eksempelet, hadde parent vært lik "Klaer"
         if(klesplagg.omTilbud === true){ // Hvis "omTilbud" i JSON-filen er lik true, skal dette utføres
-          pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`; // Dette skal være et nummer
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`; // Hvis dette hadde blitt spesifisert som et nummer, hadde ikke toFixed(2) fungert
+          pris = klesplagg.pris*(1-klesplagg.tilbud); // Prisen skal være lik "originalprisen ganget med (1 - tilbudet)". Eksempelvis, hvis prisen er 1000 og tilbudet er 0.10 (10%), ser det slik ut: "1000 * (1 - 0.10) = 1000 * 0.9 = 900"
           originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`; // Originalprisen skal gjennomstrekes
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`; // Dette skal være et nummer, som er tilbudet ganget med 100. Hvis tilbudet er 0.10 (10%), skal nummeret være lik 10, etterfulgt at et prosent-tegn
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`; // Hvis dette hadde blitt spesifisert som et nummer, hadde ikke toFixed(2) fungert
         }
         else{ // Hvis "omTilbud" ikke er lik true, skal dette utføres
-          pris = klesplagg.pris;
-          tilbud = ``; // ${tilbud} skal være tom
-          tilbudPris = ``; // ${tilbudPris} skal være tom
+          pris = klesplagg.pris; // "pris" skal være helt normal
           originalPris = `<div class="originalpris">${pris.toFixed(2)} kr</div>`; // Originalprisen skal være helt normal
+          tilbud = `<div></div>`; // ${tilbud} skal være en tom div-boks
+          tilbudPris = `<div></a></div>`; // ${tilbudPris} skal være en tom div-boks, annet enn at den skal ende a-taggen
+        };
+        if (klesplagg.merkenavn == `Abercrombie & Fitch`) {
+          merkenavn = `AbercrombieFitch`; // Hvis merkenavnet er Abercrombie & Fitch, så skal det fylles inn AbercrombieFitch, fordi funksjonen til Abercrombie & Fitch heter hentAbercrombieFitch
+        }
+        else if (klesplagg.merkenavn == `Alpha Industries`) {
+          merkenavn = `AlphaIndustries`; // Samme som med Abercrombie & Fitch
+        }
+        else if (klesplagg.merkenavn == `Hugo Boss`) {
+          merkenavn = `HugoBoss`; // Osv.
+        }
+        else if (klesplagg.merkenavn == `Emporio Armani`) {
+          merkenavn = `EmporioArmani`;
+        }
+        else if (klesplagg.merkenavn == `Calvin Klein`) {
+          merkenavn = `CalvinKlein`;
+        }
+        else if (klesplagg.merkenavn == `Hackett London`) {
+          merkenavn = `HackettLondon`;
+        }
+        else if (klesplagg.merkenavn == `Les Deux`) {
+          merkenavn = `LesDeux`;
+        }
+        else if (klesplagg.merkenavn == `Polo Ralph Lauren`) {
+          merkenavn = `PoloRalphLauren`;
+        }
+        else if (klesplagg.merkenavn == `Tiger of Sweden`) {
+          merkenavn = `TigerofSweden`;
+        }
+        else if (klesplagg.merkenavn == `Tommy Hilfiger`) {
+          merkenavn = `TommyHilfiger`;
+        }
+        else {
+          merkenavn = `${klesplagg.merkenavn}`; // Hvis merkenavnet bare har ett ord, skal den være uendret
         };
         mainprodukter.innerHTML += `
-          <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+          <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer"> <!-- Må stå "parent=${parent}" og ikke "parentId=${parent}", fordi på den tidligere kommandoen står det "get("parent")" -->
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
-            <div class="merkenavn">${klesplagg.merkenavn}</div>
-            <div class="produktnavn">${klesplagg.produktnavn}</div>
-            ${originalPris}
-            ${tilbud}
-            ${tilbudPris}
-          </a>
+            <div class="produktnavn">${klesplagg.produktnavn}</div></a> <!-- Her ender href-en til produktet -->
+            <div class="merkenavn"><a href="#" onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div> <!-- Hvis man trykker på merkenavnet, så vises alle plagg av det merket. Har en href="#" for at det fortsatt skal se ut som at musepekeren kan trykke på funksjonen. Trenger bare å gjøre det på genererHTML1-funksjonen på produkter.html-siden, for det er bare der det er relevant -->
+            <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris} <!-- originalPris settes inn her, som hele tiden er lik, utenom at den av og til er gjennomstreket. Her fortsetter også href-en til produktet -->
+            ${tilbud} <!-- tilbud settes inn her, som ofte er helt tom -->
+            ${tilbudPris}</a> <!-- tilbudPris settes inn her, som enten er røde tall eller er helt tom. Her ender href-en igjen -->
+          </section>
         `;
       };
 
@@ -207,57 +241,87 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
-          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          tilbud = ``;
-          tilbudPris = ``;
-          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div></div>`;
+          tilbudPris = `<div></a></div>`;
+        };
+        if (klesplagg.merkenavn == `Abercrombie & Fitch`) {
+          merkenavn = `AbercrombieFitch`;
+        }
+        else if (klesplagg.merkenavn == `Alpha Industries`) {
+          merkenavn = `AlphaIndustries`;
+        }
+        else if (klesplagg.merkenavn == `Hugo Boss`) {
+          merkenavn = `HugoBoss`;
+        }
+        else if (klesplagg.merkenavn == `Emporio Armani`) {
+          merkenavn = `EmporioArmani`;
+        }
+        else if (klesplagg.merkenavn == `Calvin Klein`) {
+          merkenavn = `CalvinKlein`;
+        }
+        else if (klesplagg.merkenavn == `Hackett London`) {
+          merkenavn = `HackettLondon`;
+        }
+        else if (klesplagg.merkenavn == `Les Deux`) {
+          merkenavn = `LesDeux`;
+        }
+        else if (klesplagg.merkenavn == `Polo Ralph Lauren`) {
+          merkenavn = `PoloRalphLauren`;
+        }
+        else if (klesplagg.merkenavn == `Tiger of Sweden`) {
+          merkenavn = `TigerofSweden`;
+        }
+        else if (klesplagg.merkenavn == `Tommy Hilfiger`) {
+          merkenavn = `TommyHilfiger`;
+        }
+        else {
+          merkenavn = `${klesplagg.merkenavn}`;
         };
         mainprodukter.innerHTML = `
-          <section class="secForsideElement">
-            <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
-              <div class="merkenavn">${klesplagg.merkenavn}</div>
-              <div class="produktnavn">${klesplagg.produktnavn}</div>
-              ${originalPris}
-              ${tilbud}
-              ${tilbudPris}
-            </a>
+          <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+            <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
+            <div class="produktnavn">${klesplagg.produktnavn}</div></a>
+            <div class="merkenavn"><a onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div>
+            <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris}
+            ${tilbud}
+            ${tilbudPris}</a>
           </section>
         ` + mainprodukter.innerHTML; // Her legger man til verdiene etterpå, så hele funksjonen snus
       };
 
-      function alleProdukter(){
-        mainprodukter.innerHTML = ``;
-        sko
-          .on("child_added",genererHTML1);
-        bukser
-          .on("child_added",genererHTML1);
-        gensere
-          .on("child_added",genererHTML1);
-        tskjorter
-          .on("child_added",genererHTML1);
-        tilbehoer
-          .on("child_added",genererHTML1);
-        skjorter
-          .on("child_added",genererHTML1);
-        jakker
-          .on("child_added",genererHTML1);
-        undertoey
-          .on("child_added",genererHTML1);
-      };
-
-      function alleKategorier(){
+      function alleKategorier() {
         klaer
-          .orderByChild("produktnavn")
           .on("child_added",visKategorier);
       };
 
-      function visSalg(){
+      function alleProdukter() {
+        mainprodukter.innerHTML = ``;
+        sko
+          .on("child_added",genererHTML1);
+        bukser
+          .on("child_added",genererHTML1);
+        gensere
+          .on("child_added",genererHTML1);
+        tskjorter
+          .on("child_added",genererHTML1);
+        tilbehoer
+          .on("child_added",genererHTML1);
+        skjorter
+          .on("child_added",genererHTML1);
+        jakker
+          .on("child_added",genererHTML1);
+        undertoey
+          .on("child_added",genererHTML1);
+      };
+
+      function visSalg() {
         mainprodukter.innerHTML = ``;
         sko
           .orderByChild("omTilbud")
@@ -293,7 +357,7 @@
           .on("child_added",genererHTML1);
       };
 
-      function pris1(){
+      function pris1() {
         mainprodukter.innerHTML = ``;
         sko
           .orderByChild("pris")
@@ -321,7 +385,7 @@
           .on("child_added",genererHTML1);
       };
 
-        function pris2(){
+        function pris2() { // pris1-funksjonen, bare snudd
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -349,7 +413,7 @@
             .on("child_added",genererHTML2);
         };
 
-        function alfabetisk1(){
+        function alfabetisk1() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("produktnavn")
@@ -377,7 +441,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function alfabetisk2(){
+        function alfabetisk2() { // alfabetisk1-funksjonen, bare snudd
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("produktnavn")
@@ -405,7 +469,7 @@
             .on("child_added",genererHTML2);
         };
 
-        function hentAbercrombieFitch(){
+        function hentAbercrombieFitch() { // Alle Abercrombie & Fitch-klesplaggene
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -441,7 +505,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentAdidas(){
+        function hentAdidas() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -477,7 +541,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentAlphaIndustries(){
+        function hentAlphaIndustries() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -513,7 +577,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentHugoBoss(){
+        function hentHugoBoss() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -549,7 +613,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentCrocs(){
+        function hentCrocs() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -585,7 +649,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentEmporioArmani(){
+        function hentEmporioArmani() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -621,7 +685,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentCalvinKlein(){
+        function hentCalvinKlein() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -657,7 +721,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentEton(){
+        function hentEton() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -693,7 +757,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentGant(){
+        function hentGant() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -729,7 +793,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentHackettLondon(){
+        function hentHackettLondon() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -765,7 +829,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentLesDeux(){
+        function hentLesDeux() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -801,7 +865,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentNike(){
+        function hentNike() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -837,7 +901,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentPoloRalphLauren(){
+        function hentPoloRalphLauren() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -873,7 +937,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentTigerofSweden(){
+        function hentTigerofSweden() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -909,7 +973,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentTommyHilfiger(){
+        function hentTommyHilfiger() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -945,7 +1009,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentVans(){
+        function hentVans() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -981,7 +1045,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentVersace(){
+        function hentVersace() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -1017,7 +1081,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function hentYourturn(){
+        function hentYourturn() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("merkenavn")
@@ -1053,15 +1117,15 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris199(){
+        function pris199() { // Prisene fra 0 til 199
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
-            .endAt(200) /* Trenger ikke å skrive når den skal slutte */
+            .endAt(200) /* Trenger ikke å skrive når den skal starte */
             .on("child_added",genererHTML1);
           bukser
             .orderByChild("pris")
-            .endAt(200) /* Hvis jeg hadde skrevet 99 hadde den ikke tatt med 99 så det hadde vært opp til 98 */
+            .endAt(200) /* Hvis jeg hadde skrevet 199, hadde den ikke tatt med 199, så det hadde vært opp til 198 */
             .on("child_added",genererHTML1);
           gensere
             .orderByChild("pris")
@@ -1089,23 +1153,23 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris200_399(){
+        function pris200_399() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
             .startAt(200)
-            .endAt(400) /* Samme her; nå går den fra 100 til 199 */
+            .endAt(400) /* Samme her; nå går den fra 200 til 399 */
             .on("child_added",genererHTML1);
           bukser
-            .orderByChild("pris")
-            .startAt(200)
-            .endAt(400)
-            .on("child_added",genererHTML1);
-          gensere
             .orderByChild("pris")
             .startAt(200)
             .endAt(400)
             .on("child_added",genererHTML1);
+          gensere
+            .orderByChild("pris")
+            .startAt(200)
+            .endAt(400)
+            .on("child_added",genererHTML1);
           tskjorter
             .orderByChild("pris")
             .startAt(200)
@@ -1133,7 +1197,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris400_599(){
+        function pris400_599() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1177,7 +1241,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris600_799(){
+        function pris600_799() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1221,7 +1285,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris800_999(){
+        function pris800_999() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1265,7 +1329,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris1000_1199(){
+        function pris1000_1199() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1309,7 +1373,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris1200_1399(){
+        function pris1200_1399() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1353,7 +1417,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris1400_1599(){
+        function pris1400_1599() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1397,7 +1461,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris1600_1799(){
+        function pris1600_1799() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1441,7 +1505,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris1800_1999(){
+        function pris1800_1999() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1485,7 +1549,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris2000_2499(){
+        function pris2000_2499() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1529,7 +1593,7 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris2500_2999(){
+        function pris2500_2999() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
@@ -1573,11 +1637,11 @@
             .on("child_added",genererHTML1);
         };
 
-        function pris3000(){
+        function pris3000() {
           mainprodukter.innerHTML = ``;
           sko
             .orderByChild("pris")
-            .startAt(3000)
+            .startAt(3000) // Trenger ikke å skrive når den skal slutte
             .on("child_added",genererHTML1);
           bukser
             .orderByChild("pris")
@@ -1609,88 +1673,88 @@
             .on("child_added",genererHTML1);
         };
 
-        function visBukser(){
+        function visBukser() { // Alle bukser. De neste funksjonene aktiviseres når man trykker på de ulike kategoriene i sidenav-en, i tillegg til noen lenker på forsiden
           mainprodukter.innerHTML = ``;
           bukser
             .on("child_added",genererHTML1);
         };
 
-        function visGensere(){
+        function visGensere() {
           mainprodukter.innerHTML = ``;
           gensere
             .on("child_added",genererHTML1);
         };
 
-        function visGensereSalg(){
+        function visGensereSalg() {
           mainprodukter.innerHTML = ``;
           gensere
             .orderByChild("omTilbud")
             .equalTo(true)
-            .on("child_added",genererHTML2);
+            .on("child_added",genererHTML2); // Størst salg først
         };
 
-        function visJakker(){
+        function visJakker() {
           mainprodukter.innerHTML = ``;
           jakker
             .on("child_added",genererHTML1);
         };
 
-        function visSkjorter(){
+        function visSkjorter() {
           mainprodukter.innerHTML = ``;
           skjorter
             .on("child_added",genererHTML1);
         };
 
-        function visSko(){
+        function visSko() {
           mainprodukter.innerHTML = ``;
           sko
             .on("child_added",genererHTML1);
         };
 
-        function visTskjorter(){
+        function visTskjorter() {
           mainprodukter.innerHTML = ``;
           tskjorter
             .on("child_added",genererHTML1);
         };
 
-        function visTskjorterSalg(){
+        function visTskjorterSalg() {
           mainprodukter.innerHTML = ``;
           tskjorter
             .orderByChild("omTilbud")
             .equalTo(true)
-            .on("child_added",genererHTML2);
+            .on("child_added",genererHTML2); // Størst salg først
         };
 
-        function visTilbehør(){
+        function visTilbehør() {
           mainprodukter.innerHTML = ``;
           tilbehoer
             .on("child_added",genererHTML1);
         };
 
-        function visUndertøy(){
+        function visUndertøy() {
           mainprodukter.innerHTML = ``;
           undertoey
             .on("child_added",genererHTML1);
         };
 
-        function visUndertøySalg(){
+        function visUndertøySalg() {
           mainprodukter.innerHTML = ``;
           undertoey
             .orderByChild("omTilbud")
             .equalTo(true)
-            .on("child_added",genererHTML2);
+            .on("child_added",genererHTML2); // Størst salg først
         };
 
-        alleKategorier();
+        alleKategorier(); // alleKategorier skal aktiviseres uansett
 
         if(id === "salg"){
-          visSalg();
+          visSalg(); // Hvis id-en er lik "salg", skal visSalg-funksjonen aktiviseres
         }
         else if(id === "tskjorter"){
-          visTskjorter();
+          visTskjorter(); // Samme, bare med visTskjorter
         }
         else if(id === "tskjortersalg"){
-          visTskjorterSalg();
+          visTskjorterSalg(); // Osv.
         }
         else if(id === "gensere"){
           visGensere();
@@ -1710,8 +1774,62 @@
         else if(id === "tilbehoer"){
           visTilbehør();
         }
+        else if (id === `AbercrombieFitch`) {
+          hentAbercrombieFitch();
+        }
+        else if (id === `AlphaIndustries`) {
+          hentAlphaIndustries();
+        }
+        else if (id === `HugoBoss`) {
+          hentHugoBoss();
+        }
+        else if (id === `EmporioArmani`) {
+          hentEmporioArmani();
+        }
+        else if (id === `CalvinKlein`) {
+          hentCalvinKlein();
+        }
+        else if (id === `HackettLondon`) {
+          hentHackettLondon();
+        }
+        else if (id === `LesDeux`) {
+          hentLesDeux();
+        }
+        else if (id === `PoloRalphLauren`) {
+          hentPoloRalphLauren();
+        }
+        else if (id === `TigerofSweden`) {
+          hentTigerofSweden();
+        }
+        else if (id === `TommyHilfiger`) {
+          hentTommyHilfiger();
+        }
+        else if (id === `Adidas`) {
+          hentAdidas();
+        }
+        else if (id === `Crocs`) {
+          hentCrocs();
+        }
+        else if (id === `Eton`) {
+          hentEton();
+        }
+        else if (id === `Gant`) {
+          hentGant();
+        }
+        else if (id === `Nike`) {
+          hentNike();
+        }
+        else if (id === `Vans`) {
+          hentVans();
+        }
+        else if (id === `Versace`) {
+          hentVersace();
+        }
+        else if (id === `Yourturn`) {
+          hentYourturn();
+        }
         else{
-          alleProdukter();
+          alleProdukter(); // Hvis det ikke er noen id, skal bare alleProdukter-funksjonen aktiviseres
         };
     </script>
   </body>
