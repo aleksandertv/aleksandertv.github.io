@@ -74,7 +74,7 @@
       <div class="dropdown">
         <button class="dropbtn">Pris</button>
         <div class="dropdown-content">
-          <a onclick="pris199()">≥199</a>
+          <a onclick="pris199()">≥199</a> <!-- Mindre eller lik 199 -->
           <a onclick="pris200_399()">200-399</a>
           <a onclick="pris400_599()">400-599</a>
           <a onclick="pris600_799()">600-799</a>
@@ -86,11 +86,11 @@
           <a onclick="pris1800_1999()">1800-1999</a>
           <a onclick="pris2000_2499()">2000-2499</a>
           <a onclick="pris2500_2999()">2500-2999</a>
-          <a onclick="pris3000()">3000≤</a>
+          <a onclick="pris3000()">3000≤</a> <!-- Større eller lik 3000 -->
         </div>
       </div>
     </article>
-    <main id="mainprodukter">
+    <main id="mainprodukter"> <!-- Hele main skal inneholde klesplaggene -->
 
     </main>
     <footer id="footerprodukter">
@@ -139,7 +139,7 @@
     </footer>
     <script type="text/javascript">
       const db = firebase.database();
-      const klaer = db.ref("Klaer");
+      const klaer = db.ref("Klaer"); // Blir brukt i "alleKategorier"-funksjonen
       const sko = db.ref("Klaer/Sko");
       const bukser = db.ref("Klaer/Bukser");
       const gensere = db.ref("Klaer/Gensere");
@@ -154,14 +154,20 @@
 
       let url_string = window.location.href;
       let url = new URL(url_string);
-      let id = url.searchParams.get("id");
+      let id = url.searchParams.get("id"); // Man skal fortsatt skrive id hvis man skal gi denne en verdi, fordi den sier "get("id")"
 
       function visKategorier(snapshot){
         console.log(snapshot.val());
         let key = snapshot.key;
         let klesplagg = snapshot.val();
+        if (key === `Tskjorter`) {
+          kategoriNavn = `T-skjorter`; // Hvis key er lik Tskjorter, skal det stå "T-skjorter" istedenfor "Tskjorter"
+        }
+        else {
+          kategoriNavn = `${key}`;
+        };
         ulKategorier.innerHTML += `
-          <li><a class="kategori" href="#" onclick="vis${key}()">${key}</a></li>
+          <li><a class="kategori" href="#" onclick="vis${key}()">${kategoriNavn}</a></li> <!-- I Tskjorter tilfellet, gjør denne linjen funksjonen "visTskjorter", men i tekstfeltet står det "Tskjorter" -->
         `;
       };
 
@@ -170,17 +176,17 @@
         let klesplagg = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
-        if(klesplagg.omTilbud === true){
+        if(klesplagg.omTilbud === true){ // Hvis "omTilbud" i JSON-filen er lik true, skal dette utføres
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`;
-          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`; // Dette skal være et nummer
+          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`; // Hvis dette hadde blitt spesifisert som et nummer, hadde ikke toFixed(2) fungert
+          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`; // Originalprisen skal gjennomstrekes
         }
-        else{
+        else{ // Hvis "omTilbud" ikke er lik true, skal dette utføres
           pris = klesplagg.pris;
-          tilbud = ``;
-          tilbudPris = ``;
-          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = ``; // ${tilbud} skal være tom
+          tilbudPris = ``; // ${tilbudPris} skal være tom
+          originalPris = `<div class="originalpris">${pris.toFixed(2)} kr</div>`; // Originalprisen skal være helt normal
         };
         mainprodukter.innerHTML += `
           <a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
@@ -222,7 +228,7 @@
               ${tilbudPris}
             </a>
           </section>
-        ` + mainprodukter.innerHTML;
+        ` + mainprodukter.innerHTML; // Her legger man til verdiene etterpå, så hele funksjonen snus
       };
 
       function alleProdukter(){

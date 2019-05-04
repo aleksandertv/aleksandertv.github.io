@@ -42,18 +42,11 @@ img {
 
 footer {
   display: grid;
-  grid-gap: 0.35em;
-  padding-left: 2em;
-  padding-right: 2em;
-  margin: 2em 0;
-}
-
-footer {
   grid-template-columns: repeat(6,1fr);
+  grid-gap: 0.35em;
+  padding: 0 2em;
+  margin: 6em 0 2em; /* 6em på toppen, 0 på venstre og høyre, og 2em på bunnen */
   background-color: white;
-  margin-top: 6em;
-  padding-top: 0;
-  margin-bottom: 1em;
 }
 
 /* Dette er for sidebaren på "produkter.html"-siden */
@@ -126,7 +119,10 @@ footer {
   grid-row: span 1;
   text-align: center;
   font-size: 1.5em;
-  margin-top: 1em;
+}
+
+.overskrift, .stortBilde {
+  margin-top: 3em;
 }
 
 .secForside, .secSalgForside, .secProduktLignende {
@@ -135,6 +131,10 @@ footer {
   display: grid;
   grid-template-columns: repeat(6,1fr);
   grid-column-gap: 0.5em;
+}
+
+.secForside {
+  margin-bottom: 3em;
 }
 
 .secProduktLignende {
@@ -151,6 +151,34 @@ footer {
   grid-row: span 1;
   margin-top: 1em;
   margin-bottom: 0.5em;
+}
+
+.venstre, .hoyre {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.alle {
+  float: left;
+}
+
+.bareTilbud {
+  float: right;
+}
+
+.alle, .bareTilbud, .anledninger {
+  font-size: 24px;
+  color: black;
+}
+
+.alle:hover, .bareTilbud:hover {
+  font-style: italic;
+}
+
+.anledninger {
+  grid-column: span 2;
+  grid-row: span 1;
+  text-align: center;
 }
 
 .secKlaer {
@@ -261,8 +289,7 @@ footer {
   grid-auto-rows: minmax(0,auto);
   grid-column-gap: 0.5em;
   grid-row-gap: 0.45em;
-  margin-left: 13em;
-  margin-right: 13em;
+  margin: 0 13em;
 }
 
 .stortBildeProduktinfo {
@@ -275,17 +302,34 @@ footer {
   grid-row: span 1;
 }
 
-.liteBildeProduktinfo>img {
+.stortBildeProduktinfo>img {
   height: 100%;
+}
+
+.liteBildeProduktinfo>img {
+  height: 98.8%;
 }
 
 .infoProduktinfo {
   grid-column: span 2;
   grid-row: span 2;
+  font-size: 20px;
+  padding-left: 0.5em;
+}
+
+/* Alle elementene i infoProduktinfo unntatt .produktnavnProduktinfo og .sendetid */
+.priserInfoProduktinfo, .merkenavnProduktinfo, .overmaterialeProduktinfo, .formOverskrift, #handlekurv, .friFrakt {
+  margin-top: 1em;
+}
+
+#navn {
+  font-size: 24px;
+}
+
+.priserInfoProduktinfo {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-row-gap: 0;
-  grid-auto-rows: minmax(0,auto);
+  grid-column-gap: 1em;
 }
 
 .tilbudProduktinfo, .tilbudsprisProduktinfo, .originalprisProduktinfo {
@@ -293,9 +337,21 @@ footer {
   grid-row: span 1;
 }
 
-.produktnavnProduktinfo, .merkenavnProduktinfo, .skjema, .friFrakt, .sendetid {
-  grid-column: span 3;
-  grid-row: span 1;
+.produktnavnProduktinfo {
+  font-weight: bold;
+}
+
+ .tilbudsprisProduktinfo {
+   color: red;
+   float: right;
+ }
+
+ .friFrakt {
+   margin-top: 2em;
+ }
+
+ .friFrakt, .sendetid {
+   font-size: 14px;
 }
 
 /* For navbaren, som er på alle undersidene */
@@ -320,4 +376,24 @@ footer {
   display: block;
   text-align: center;
   padding: 0.8em 1em;
+}
+
+#handlekurv {
+  width: 95%;
+  background-color: darkorange;
+  color: white;
+  font-weight: bold;
+  height: 50px;
+  font-size: 0.6em;
+}
+
+select, input {
+  width: 95%;
+  height: 48px;
+  background-color: white;
+  font-size: 14px;
+}
+
+input {
+  font-size: 0.8em;
 }

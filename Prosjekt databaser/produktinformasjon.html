@@ -117,8 +117,12 @@
       function genererProduktinfo(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
         let stoerrelser = ``;
         let farger = ``;
+        var parentIdStr = `${parentId}`;
+        var str = `${id}`;
         for (let stoerrelse of klesplagg.stoerrelse) {
           stoerrelser += `<option value="${stoerrelse}">${stoerrelse}</option>`
         };
@@ -137,6 +141,36 @@
           tilbudPris = ``;
           originalPris = `<div class="originalprisProduktinfo">${klesplagg.pris.toFixed(2)} kr</div>`;
         };
+        if (klesplagg.overmateriale[1].length > 2 ) {
+          overmateriale = `Overmaterialer: `;
+        }
+        else {
+          overmateriale = `Overmateriale: `;
+        };
+        if (parentIdStr === `Bukser`) {
+          var res = str.substr(0,5);
+        }
+        else if (parentIdStr === `Gensere`) {
+          var res = str.substr(0,6);
+        }
+        else if (parentIdStr === `Jakker`) {
+          var res = str.substr(0,5);
+        }
+        else if (parentIdStr === `Skjorter`) {
+          var res = str.substr(0,7);
+        }
+        else if (parentIdStr === `Sko`) {
+          var res = str.substr(0,3);
+        }
+        else if (parentIdStr === `Tilbehør`) {
+          var res = `Tilbehør`;
+        }
+        else if (parentIdStr === `Tskjorter`) {
+          var res = `T-skjorte`;
+        }
+        else {
+          var res = `Undertøy`;
+        };
         secProduktinfo.innerHTML += `
           <section class="stortBildeProduktinfo">
             <img src="Bilder/Bilder${parentId}/${klesplagg.bilde1}">
@@ -145,30 +179,33 @@
             <img src="Bilder/Bilder${parentId}/${klesplagg.bilde2}">
           </section>
           <section class="infoProduktinfo">
-            ${originalPris}
-            ${tilbud}
-            ${tilbudPris}
-            <div class="produktnavnProduktinfo">${klesplagg.produktnavn}</div>
+            <div class="produktnavnProduktinfo" id="navn">${klesplagg.produktnavn} - ${res}</div>
+            <section class="priserInfoProduktinfo">
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </section>
             <div class="merkenavnProduktinfo">${klesplagg.merkenavn}</div>
+            <div class="overmaterialeProduktinfo">${overmateriale}${klesplagg.overmateriale.join(", ")}</div>
             <div class="skjema">
               <form>
-                <p>Produktet er tilgjengelig i disse fargene:</p>
+                <p class="formOverskrift">Produktet er tilgjengelig i disse fargene:</p>
                 <select name="farge" required>
                   <option value="">Farge</option>
                   ${farger}
                 </select>
-                <p>Produktet er tilgjengelig i disse størrelsene:</p>
+                <p class="formOverskrift">Produktet er tilgjengelig i disse størrelsene:</p>
                 <select name="stoerrelse" required>
                   <option value="">Størrelse</option>
                   ${stoerrelser}
                 </select>
-                <p>Hvor mange ønsker du å kjøpe?</p>
+                <p class="formOverskrift">Hvor mange ønsker du å kjøpe?</p>
                 <input type="number" autocomplete="off" min="0" name="antall" required>
-                <button type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
+                <button id="handlekurv" type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
               </form>
             </div>
             <div class="friFrakt">Dersom ordren din havner på over 1 700 kr, blir frakten din gratis.</div>
-            <div class="sendetid">Vår sendetid er på 3-5 dager.</div>
+            <div class="sendetid">Vår sendetid er på 3-5 virkedager.</div>
           </section>
           <section class="liteBildeProduktinfo">
             <img src="Bilder/Bilder${parentId}/${klesplagg.bilde3}">
@@ -212,16 +249,10 @@
         let klesplagg = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
-        titleProduktinformasjon.innerHTML += `
-          <div>${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parent} - Alveto</div>
-        `;
+        titleProduktinformasjon.innerHTML += `${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto`;
       };
 
       function lignendeProdukter(){
-        sko
-          .orderByChild("pris")
-          .limitToFirst(1)
-          .on("child_added",generer_LignendeProdukter);
         gensere
           .orderByChild("pris")
           .limitToLast(1)

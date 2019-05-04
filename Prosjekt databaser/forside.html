@@ -45,18 +45,18 @@
       </section>
       <section class="stortBilde">
         <div><a href="produkter.html?id=gensere"><img src="Bilder/Generellebilder/Genser.jpeg" href="produkter.html?id=gensere" alt="gensere genser sweater sweaters alveto"></a></div>
-        <div><a style="float:left" href="produkter.html?id=gensere">Alle gensere</a></div>
-        <div><a style="float:right" href="produkter.html?id=genseresalg">Bare tilbud</a></div>
+        <div><a class="alle" href="produkter.html?id=gensere">Alle gensere</a></div>
+        <div><a class="bareTilbud" href="produkter.html?id=genseresalg">Bare tilbud</a></div>
       </section>
       <section class="stortBilde">
         <div><a href="produkter.html?id=tskjorter"><img src="Bilder/Generellebilder/Tskjorte.jpg" href="produkter.html?id=tskjorter" alt="tshirt tskjorte tshirts tskjorter alveto"></a></div>
-        <div><a style="float:left" href="produkter.html?id=tskjorter">Alle t-skjorter</a></div>
-        <div><a style="float:right" href="produkter.html?id=tskjortersalg">Bare tilbud</a></div>
+        <div><a class="alle" href="produkter.html?id=tskjorter">Alle t-skjorter</a></div>
+        <div><a class="bareTilbud" href="produkter.html?id=tskjortersalg">Bare tilbud</a></div>
       </section>
       <section class="stortBilde">
         <div><a href="produkter.html?id=undertoey"><img src="Bilder/Generellebilder/Undertoey.jpg" href="produkter.html?id=undertoey" alt="undertoey underwear alveto"></a></div>
-        <div><a style="float:left" href="produkter.html?id=undertoey">Alt undertøy</a></div>
-        <div><a style="float:right" href="produkter.html?id=undertoeysalg">Bare tilbud</a></div>
+        <div><a class="alle" href="produkter.html?id=undertoey">Alt undertøy</a></div>
+        <div><a class="bareTilbud" href="produkter.html?id=undertoeysalg">Bare tilbud</a></div>
       </section>
       <section class="overskrift">
         <p>Våre beste salg</p>
@@ -69,15 +69,15 @@
       </section>
       <section class="stortBilde"><a href="produkter.html?id=skjorter">
         <div><img src="Bilder/Generellebilder/Jobbintervju.jpg" alt="jobbintervju jobinterview alveto"></div>
-        <div><a href="produkter.html"></a>Jobbintervju...</div>
+        <div><a class="anledninger" href="produkter.html">Jobbintervju...</a></div>
       </a></section>
       <section class="stortBilde"><a href="produkter.html?id=tskjorter">
         <div><img src="Bilder/Generellebilder/Sommer.jpeg" alt="summer sommer finally endelig finallysummer endeligsommer alveto"></div>
-        <div><a href="produkter.html"></a>Endelig sommer!</div>
+        <div><a class="anledninger" href="produkter.html">Endelig sommer!</a></div>
       </a></section>
       <section class="stortBilde"><a href="produkter.html?id=tilbehoer">
         <div><img src="Bilder/Generellebilder/Formeltkledd.jpg" alt="dressed to impress dressedtoimpress alveto"></div>
-        <div><a href="produkter.html"></a>Dressed to impress</div>
+        <div><a class="anledninger" href="produkter.html">Dressed to impress</a></div>
       </a></section>
     </main>
     <footer id="footerforside">
@@ -158,7 +158,7 @@
           pris = klesplagg.pris;
           tilbud = ``;
           tilbudPris = ``;
-          originalPris = `<div class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris">${pris.toFixed(2)} kr</div>`;
         };
         secForside.innerHTML += `
           <section class="secForsideElement">
@@ -260,8 +260,9 @@
         besteSalg();
 
         /*
-          Prøvde å få class i "genererHTML" til å bli automatisk, men hvorfor funket det ikke ?
-          Hvorfor kommer av og til produktet som er på produktinformasjonssiden opp som første objekt i lignendeProdukter-funksjonen?
+          Hvordan får man class i "genererHTML" til å bli automatisk ?
+          Hvordan få antall objekter til å vises ?
+          Hvorfor kommer produktet som er på produktinformasjonssiden opp som første objekt i "lignendeProdukter"-funksjonen ?
         */
     </script>
   </body>
