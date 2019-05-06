@@ -179,13 +179,13 @@
         let parent = snapshot.ref.parent.key; // Parent er nivået over primærnøkkelen, som her er (Sko, Bukser, osv.). I kategori-eksempelet, hadde parent vært lik "Klaer"
         if(klesplagg.omTilbud === true){ // Hvis "omTilbud" i JSON-filen er lik true, skal dette utføres
           pris = klesplagg.pris*(1-klesplagg.tilbud); // Prisen skal være lik "originalprisen ganget med (1 - tilbudet)". Eksempelvis, hvis prisen er 1000 og tilbudet er 0.10 (10%), ser det slik ut: "1000 * (1 - 0.10) = 1000 * 0.9 = 900"
-          originalPris = `<div style="text-decoration:line-through" class="originalpris">${klesplagg.pris.toFixed(2)} kr</div>`; // Originalprisen skal gjennomstrekes
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`; // Originalprisen skal gjennomstrekes og referere til produktet
           tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`; // Dette skal være et nummer, som er tilbudet ganget med 100. Hvis tilbudet er 0.10 (10%), skal nummeret være lik 10, etterfulgt at et prosent-tegn
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</div>`; // Hvis dette hadde blitt spesifisert som et nummer, hadde ikke toFixed(2) fungert
+          tilbudPris = `<div class="tilbudspris"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`; // Hvis dette hadde blitt spesifisert som et nummer, hadde ikke toFixed(2) fungert
         }
         else{ // Hvis "omTilbud" ikke er lik true, skal dette utføres
           pris = klesplagg.pris; // "pris" skal være helt normal
-          originalPris = `<div class="originalpris">${pris.toFixed(2)} kr</div>`; // Originalprisen skal være helt normal
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`; // Originalprisen skal være helt normal
           tilbud = `<div></div>`; // ${tilbud} skal være en tom div-boks
           tilbudPris = `<div></a></div>`; // ${tilbudPris} skal være en tom div-boks, annet enn at den skal ende a-taggen
         };
@@ -223,13 +223,15 @@
           merkenavn = `${klesplagg.merkenavn}`; // Hvis merkenavnet bare har ett ord, skal den være uendret
         };
         mainprodukter.innerHTML += `
-          <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer"> <!-- Må stå "parent=${parent}" og ikke "parentId=${parent}", fordi på den tidligere kommandoen står det "get("parent")" -->
+          <section><a href="produktinformasjon.html?parent=${parent}&id=${key}"> <!-- Må stå "parent=${parent}" og ikke "parentId=${parent}", fordi på den tidligere kommandoen står det "get("parent")" -->
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a> <!-- Her ender href-en til produktet -->
             <div class="merkenavn"><a href="#" onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div> <!-- Hvis man trykker på merkenavnet, så vises alle plagg av det merket. Har en href="#" for at det fortsatt skal se ut som at musepekeren kan trykke på funksjonen. Trenger bare å gjøre det på genererHTML1-funksjonen på produkter.html-siden, for det er bare der det er relevant -->
-            <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris} <!-- originalPris settes inn her, som hele tiden er lik, utenom at den av og til er gjennomstreket. Her fortsetter også href-en til produktet -->
-            ${tilbud} <!-- tilbud settes inn her, som ofte er helt tom -->
-            ${tilbudPris}</a> <!-- tilbudPris settes inn her, som enten er røde tall eller er helt tom. Her ender href-en igjen -->
+            <div class="secKlaer">
+              ${originalPris} <!-- originalPris settes inn her, som hele tiden er lik, utenom at den av og til er gjennomstreket. Her fortsetter også href-en til produktet -->
+              ${tilbud} <!-- tilbud settes inn her, som ofte er helt tom -->
+              ${tilbudPris} <!-- tilbudPris settes inn her, som enten er røde tall eller er helt tom. Her ender href-en igjen -->
+            </div>
           </section>
         `;
       };
@@ -241,13 +243,13 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
+          tilbudPris = `<div class="tilbudspris"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div></div>`;
           tilbudPris = `<div></a></div>`;
         };
@@ -285,13 +287,15 @@
           merkenavn = `${klesplagg.merkenavn}`;
         };
         mainprodukter.innerHTML = `
-          <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+          <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <div class="merkenavn"><a onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div>
-            <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris}
-            ${tilbud}
-            ${tilbudPris}</a>
+            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="secKlaer">
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </div>
           </section>
         ` + mainprodukter.innerHTML; // Her legger man til verdiene etterpå, så hele funksjonen snus
       };

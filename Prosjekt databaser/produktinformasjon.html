@@ -131,13 +131,13 @@
         };
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalprisProduktinfo"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbudProduktinfo">${Number(klesplagg.tilbud*100)}%</div>`;
+          tilbudPris = `<div class="tilbudsprisProduktinfo"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalprisProduktinfo"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div></div>`;
           tilbudPris = `<div></a></div>`;
         };
@@ -207,6 +207,9 @@
         else { // Siden det bare er 8 ulike parentId-er, så må parentId være lik Undertøy hvis den ikke er lik noen av de tidligere parentId-ene
           var res = `Undertøy`; // Samme som med Tilbehør
         };
+        titleProduktinformasjon.innerHTML += `
+          ${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto
+        `; // For at det skal stå "Produktnavn - Merke - Produkttype - Alveto" i tittelen
         secProduktinfo.innerHTML += `
           <section class="stortBildeProduktinfo">
             <img src="Bilder/Bilder${parentId}/${klesplagg.bilde1}"> <!-- Kunne stått: <img src="Bilder/Bilder${parent}/${id}_1.jpg">, og da hadde jeg ikke trengt å skrive inn bildene i JSON-filen. Da hadde "_1" etter "${id}" måtte endres til "_2" også videre, men hadde fortsatt vært mye enklere -->
@@ -249,6 +252,37 @@
         `;
       };
 
+      /*
+      <section class="andreFarger">
+
+      </section>
+
+
+      andreFarger.innerHTML += `
+        <section>
+
+        </section>
+      `;
+
+
+      valgtProdukt.on("value",produkterAndreFarger);
+
+
+      function produkterAndreFarger() {
+        if (${varer.produktnavn === ""}) {
+          gensere
+            .orderByChild("produktnavn")
+            .equalTo("")
+        }
+        else if (${varer.produktnavn} === "") {
+
+        }
+        else {
+
+        };
+      };
+      */
+
       function generer_LignendeProdukter(snapshot){
         console.log(snapshot.val());
         let klesplagg = snapshot.val();
@@ -256,13 +290,13 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
+          tilbudPris = `<div class="tilbudspris"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div></div>`;
           tilbudPris = `<div></a></div>`;
         };
@@ -300,50 +334,202 @@
           merkenavn = `${klesplagg.merkenavn}`;
         };
         secProduktLignende.innerHTML += `
-          <section class="secForsideElement">
-            <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
-              <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-              <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
-              <a href="produktinformasjon.html?id=${key}&parent=${parent}">${originalPris}
+          <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
+            <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
+            <div class="produktnavn">${klesplagg.produktnavn}</div></a>
+            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="secKlaer">
+              ${originalPris}
               ${tilbud}
-              ${tilbudPris}</a>
-            </section>
+              ${tilbudPris}
+            </div>
           </section>
         `;
       };
 
-      function genererTitleProduktinformasjon(snapshot) {
-        console.log(snapshot.val());
-        let klesplagg = snapshot.val();
-        let key = snapshot.key;
-        let parent = snapshot.ref.parent.key;
-        titleProduktinformasjon.innerHTML += `
-          ${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto <!-- For at det skal stå "Produktnavn - Merke - Produkttype - Alveto" i tittelen -->
-        `;
-      };
-
       function lignendeProdukter() {
-        gensere
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",generer_LignendeProdukter);
-        skjorter
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",generer_LignendeProdukter);
-        undertoey
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",generer_LignendeProdukter);
-        jakker
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",generer_LignendeProdukter);
-        tilbehoer
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added",generer_LignendeProdukter);
+        if(parentId === "Gensere"){
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else if (parentId === "Skjorter") {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else if (parentId === "Undertøy") {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else if (parentId === "Jakker") {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else if (parentId === "Tilbehør") {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else if (parentId === "Sko") {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tskjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        }
+        else {
+          gensere
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          skjorter
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          undertoey
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          jakker
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          tilbehoer
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+          sko
+            .orderByChild("pris")
+            .limitToLast(1)
+            .on("child_added",generer_LignendeProdukter);
+        };
       };
 
       lignendeProdukter(); // Skal kjøres uansett

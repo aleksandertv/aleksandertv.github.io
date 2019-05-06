@@ -148,13 +148,13 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
+          tilbudPris = `<div class="tilbudspris"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div></div>`;
           tilbudPris = `<div></a></div>`;
         };
@@ -192,13 +192,15 @@
           merkenavn = `${klesplagg.merkenavn}`;
         };
         secForside.innerHTML += `
-          <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
+          <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <a class="merkenavn" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a> <!-- Hvis man trykker på merkenavnet blir man tatt til produkter.html-siden og alle plaggene av det påtrykkede merket vises -->
-            ${originalPris}
-            ${tilbud}
-            ${tilbudPris}
+            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="secKlaer">
+              ${originalPris}
+              ${tilbud}
+              ${tilbudPris}
+            </div>
           </section>
         `;
       };
@@ -210,13 +212,13 @@
         let parent = snapshot.ref.parent.key;
         if(klesplagg.omTilbud === true){
           pris = klesplagg.pris*(1-klesplagg.tilbud);
-          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
-          tilbud = `<div class="tilbud">${klesplagg.tilbud*100}%</div>`;
-          tilbudPris = `<div class="tilbudspris">${pris.toFixed(2)} kr</a></div>`;
+          originalPris = `<div style="text-decoration:line-through" class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          tilbud = `<div class="tilbud">${Number(klesplagg.tilbud*100)}%</div>`;
+          tilbudPris = `<div class="tilbudspris"><a id="tilbudsprisRoed">${pris.toFixed(2)} kr</a></a></div>`;
         }
         else{
           pris = klesplagg.pris;
-          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?id=${key}&parent=${parent}">${klesplagg.pris.toFixed(2)} kr</div>`;
+          originalPris = `<div class="originalpris"><a href="produktinformasjon.html?parent=${parent}&id=${key}">${klesplagg.pris.toFixed(2)} kr</div>`;
           tilbud = `<div></div>`;
           tilbudPris = `<div></a></div>`;
         };
@@ -254,15 +256,15 @@
           merkenavn = `${klesplagg.merkenavn}`;
         };
         secSalgForside.innerHTML += `
-          <section class="secForsideElement">
-            <section><a href="produktinformasjon.html?id=${key}&parent=${parent}" class="secKlaer">
-              <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
-              <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-              <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+          <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
+            <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
+            <div class="produktnavn">${klesplagg.produktnavn}</div></a>
+            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="secKlaer">
               ${originalPris}
               ${tilbud}
               ${tilbudPris}
-            </section>
+            </div>
           </section>
         `;
       };
@@ -322,9 +324,7 @@
         besteSalg();
 
         /*
-          Hvordan får man class i "genererHTML" til å bli automatisk ?
-          Hvordan aktivisere genererTitleProduktinformasjon-funksjonen ?
-          Hvorfor kommer produktet som er på produktinformasjonssiden opp som første objekt i "lignendeProdukter"-funksjonen ?
+          Hvorfor er ikke originalPris, tilbud og tilbudPris ved siden av hverandre lenger ?
         */
     </script>
   </body>
