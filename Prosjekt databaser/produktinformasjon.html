@@ -184,7 +184,7 @@
           overmateriale = `Overmaterialer: `; // Hvis lengden arrayen er større enn 1, skal overmateriale være lik "Overmaterialer: "
         };
         if (parentIdStr === `Bukser`) {
-          var res = str.substr(0,5); // Hvis parentIdStr er lik `Bukser`, skal res være lik de 5 første bokstavene av key-en (Sko001, Sko002, osv.), som er "Bukse"
+          var res = str.substr(0,5); // Hvis parentIdStr er lik `Bukser`, skal res være lik de 5 første bokstavene av key-en (Sko001, Sko002, osv.), som er "Bukse". Den første bokstaven har posisjon 0, så det er derfor man begynner der
         }
         else if (parentIdStr === `Gensere`) {
           var res = str.substr(0,6); // Samme prinsipp som med Bukser, bare at her står det "Genser"

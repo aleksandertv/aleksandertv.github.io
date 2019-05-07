@@ -31,17 +31,19 @@ img {
   height: 3em; /* Høyde på 48px */
 }
 
+/* For a-elementene i listen i #navbar */
 #navbar>li>a {
   display: block;
   text-align: center; /* Midtstilles */
   padding: 0.8em 1em; /* 12.8px oppe og nede, og 16px på venstre- og høyresiden */
 }
 
-/* Gjelder for elementene i navbaren */
+/* Gjelder for Nylig lagt til, Klær, Salg i navbaren, og Alle *produkt* under StortBilde på forsiden */
 .navProduktHref, .alle {
   float: left; /* Flyter mot venstre */
 }
 
+/* Omvendt enn de over */
 .navEkstraHref, .bareTilbud {
   float: right; /* Flyter mot høyre */
 }
@@ -51,57 +53,69 @@ img {
   color: red;
 }
 
+/* For main-en på forsiden og på produktinformasjonssiden */
 #mainforside, #mainproduktinformasjon {
-  grid-gap: 0.5em; /* 0.5em/8px mellomrom i grid-en */
+  grid-gap: 0.5em; /* 8px mellomrom i grid-en */
 }
 
+/* Dette er alle grid-ene som skal deles inn i 6 deler */
 #mainforside, .secForside, .secKlaer, .secSalgForside, footer, #mainproduktinformasjon, .secProduktLignende {
   display: grid; /* For at det skal være en grid */
   grid-template-columns: repeat(6,1fr); /* Samme som at man skriver "grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;" */
 }
 
+/* For div-en videoen på forsiden er i */
 #videoforside {
   grid-column: span 6; /* Grid-en er seks bokser bred, og videoen skal dekke hele siden */
   text-align: center;
   margin-top: 1em; /* 16px */
 }
 
+/* For teksten under videoen på forsiden */
 #videoInfo {
   font-size: 20px; /* Skriftstørrelse 20 */
 }
 
+/* Dette er alle elementene som skal ha fet skrift, utenom hover-en i sidenav-en på produktsiden */
 #videoInfo, .produktnavn, .footerOverskrift, .produktnavnProduktinfo, #handlekurv {
   font-weight: bold; /* Fet skrift */
 }
 
+/* For selve videoen på forsiden, i tillegg til alle andre videoer som kan komme i fremtiden */
 iframe {
   width: 875px;
   height: 491.25px; /* Samme forhold som originalen */
 }
 
+/* Hovedsakelig for overskriftene på forsiden, men også for overskriften på produktinformasjonssiden */
 .overskrift {
   grid-column: span 6;
   text-align: center;
   font-size: 24px;
 }
 
+/* For å ha 3em mellomrom */
 .overskrift, .stortBilde {
   margin-top: 3em; /* 48px */
 }
 
+/* Måtte gjøre dette for at StortBilde-ne også skulle ha 3em mellomrom */
 .secForside {
   margin-bottom: 3em; /* 48px */
 }
 
+/* Disse grid-ene er delt opp i 6. Dette er for at disse boksene skal dekke hele siden */
 .secForside, .secSalgForside, .secProduktLignende {
   grid-column: span 6;
   grid-column-gap: 0.5em; /* 8px */
 }
 
+/* Når musepekeren er over noen av disse, får skriften en dekorasjon */
 .footerOverskrift:hover, .footerInnhold:hover, #merke:hover { /* Tok hover-en på #merke for at boksen ikke skulle understrekes før man hadde musen over href-en */
   text-decoration: underline; /* Når musepekeren er over, skal elementet understrekes */
 }
 
+/* For at tilbudsprisen skal være litt mer atskilt fra tilbudet og originalprisen */
 .originalpris {
   grid-column: span 2;
 }
@@ -110,27 +124,28 @@ iframe {
   grid-column: span 3;
 }
 
+/* For at mellomrommet skal være enda større */
 .tilbudspris, .tilbudsprisProduktinfo {
   text-align: right; /* Høyrestilles */
 }
 
-.stortBilde {
-  grid-column: span 2;
+/* For både anledninger og de store produktbildene på forsiden */
+.stortBilde, .anledninger {
+  grid-column: span 2; /* Av 6 */
   margin: 1em 0; /* 1em oppe og nede, ingen på venstre eller høyre */
 }
 
+/* Når musepekeren er over en av disse, får teksten en dekorasjon */
 .alle:hover, .bareTilbud:hover {
   font-style: italic; /* Når musepekeren er over, skal elementene stå i kursiv */
 }
 
+/* Større skrift på disse elementene */
 .alle, .bareTilbud, .anledninger {
   font-size: 24px;
 }
 
-.anledninger {
-  grid-column: span 2;
-}
-
+/* Felles for alle footer-e */
 footer {
   grid-gap: 0.35em; /* 5.6px */
   padding: 6em 2em 2em; /* 6em på toppen, 0 på venstre og høyre, og 2em på bunnen */
@@ -167,12 +182,14 @@ footer {
   padding-top: 1.25em; /* 20px */
 }
 
+/* a-elementene i sidenav-en */
 #sidenav a {
   padding: 0.375em 0.5em 0.375em 1em; /* 6px, 8px, 6px, 16px */
   font-size: 20px;
   display: block;
 }
 
+/* Når musepekeren er over a-elementene i sidenav-en */
 #sidenav a:hover {
   font-weight: bold; /* Når musepekeren er over et av elementene på sidebaren, blir a-en fet */
 }
@@ -183,12 +200,13 @@ footer {
   margin-right: 2em; /* 32px. Navbaren sin margin er på 1em */
 }
 
+/* For selve dropdownene */
 .dropdown {
   position: relative; /* For å ha muligheten til å posisjonere knappen mer spesifikt */
   display: inline-block; /* Dropdownene står ved siden av hverandre */
 }
 
-/* For dropdown-menyene på "produkter.html"-siden */
+/* For dropdown-knappene på "produkter.html"-siden */
 .dropbtn {
   background-color: grey; /* Grå bakgrunnsfarge */
   color: white; /* Hvit skrift */
@@ -199,6 +217,7 @@ footer {
   margin: 0.75em 0; /* 12px oppe og nede, og ingenting på venstre eller høyre */
 }
 
+/* For innholdet i dropdownene */
 .dropdown-content {
   display: none; /* Skal ikke vises før musepekeren er over */
   position: absolute; /* Posisjoneres relativt til over-elementet */
@@ -208,23 +227,28 @@ footer {
   z-index: 1; /* For at elementene skal vises som et lag oppå de forrige; ikke over eller bak */
 }
 
+/* Når musepekeren er over dropdownen, skal dropdown-knappen få lysegrå bakgrunnsfarge */
 .dropdown:hover>.dropbtn {
   background-color: lightgrey; /* Lysegrå bakgrunnsfarge etter at musepekeren har vært over */
 }
 
+/* Når musepekeren er over dropdownen, skal dropdown-innholdet vises */
 .dropdown:hover>.dropdown-content {
   display: block; /* For at innholdet i dropdown-menyene skal vises når musepekeren er over */
 }
 
+/* For a-elementene i dropdown-innholdet */
 .dropdown-content>a {
   padding: 0.75em 1em; /* Oppe og nede er det 0.75em, mens til venstre og høyre er det 1em */
   display: block;
 }
 
+/* Når musepekeren er over a-elementene i dropdown-innholdet */
 .dropdown-content>a:hover {
   background-color: #f1f1f1; /* Lysegrå */
 }
 
+/* For main-en på produkt-siden */
 #mainprodukter {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -232,10 +256,12 @@ footer {
   padding: 0 2em; /* Ingenting, 32px */
 }
 
+/* For tilbake-knappen på produktinformasjonssiden */
 #tilbake {
   grid-column: span 6;
 }
 
+/* For området genererProduktinfo() blir satt inn i */
 .secProduktinfo {
   grid-column: span 6;
   display: grid;
@@ -246,11 +272,13 @@ footer {
   margin: 0 13em; /* 198px */
 }
 
+/* For det store bildet på produktinformasjonssiden */
 .stortBildeProduktinfo {
  grid-column: span 2;
  grid-row: span 2;
 }
 
+/* For bildene inni stort- og liteBildeProduktinfo */
 .stortBildeProduktinfo>img {
   height: 100%; /* For at bildet skal dekke hele boksen */
 }
@@ -259,6 +287,7 @@ footer {
   height: 98.8%; /* For at bildet skal dekke hele boksen sin, men må være litt mindre enn 100% på grunn av grid-gap-en */
 }
 
+/* For informasjonen i secProduktinfo */
 .infoProduktinfo {
   grid-column: span 2;
   grid-row: span 2;
@@ -266,10 +295,12 @@ footer {
   padding-left: 0.5em; /* 8px */
 }
 
+/* For produktnavnetene */
 #navn {
   font-size: 23px;
 }
 
+/* For section-en med prisene på produktinformasjonssiden */
 .priserInfoProduktinfo {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -281,10 +312,12 @@ footer {
   margin-top: 1em; /* 16px */
 }
 
+/* For tekstfeltet i form-en på produktinformasjonssiden */
 input {
   font-size: 14px;
 }
 
+/* For både flervalgsmenyene og tekstfeltet */
 input, select {
   width: 95%; /* Skal ha et lite mellomrom */
   height: 48px;
@@ -292,6 +325,7 @@ input, select {
   font-size: 14px;
 }
 
+/* For handlekurv-knappen */
 #handlekurv {
   width: 95%;
   background-color: darkorange;
@@ -300,10 +334,11 @@ input, select {
   font-size: 10px;
 }
 
+/* For området hvor det står om fri frakt */
 .friFrakt {
   margin-top: 2em; /* 32px */
 }
-
+ /* For både fri frakt-området og sendetids-området */
 .friFrakt, .sendetid {
   font-size: 14px;
 }
