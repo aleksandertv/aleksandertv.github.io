@@ -23,18 +23,18 @@
       <nav>
         <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
-          <li><a id="navKlaer" class="navProduktHref" href="produkter.html">Klær</a></li>
-          <li><a id="navNyligLagtTil" class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
-          <li><a id="navSalg" class="navProduktHref" href="produkter.html?id=salg">Salg</a></li>
-          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li>
-          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
-          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
+          <li><a class="navProduktHref" href="produkter.html">Klær</a></li>
+          <li><a class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
+          <li><a class="navProduktHref" id="navSalg" href="produkter.html?id=salg">Salg</a></li>
+          <li><a class="navEkstraHref" href="#">Handlekurv</a></li>
+          <li><a class="navEkstraHref" href="#">Ønskeliste</a></li>
+          <li><a class="navEkstraHref" href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
     <main id="mainproduktinformasjon">
       <ul id="tilbake">
-        <li><a href="produkter.html"> < Tilbake </a></li>
+        <li><a href="produkter.html"> < Tilbake </a></li> <!-- Hadde opprinnelig en "window.history.back();" kommando, men fant ut at det funket like bra som det gjør nå, så valgte å holde det enkelt -->
       </ul>
       <section class="secProduktinfo"> <!-- Her settes produktinfoen inn -->
 
@@ -46,7 +46,7 @@
 
       </section>
     </main>
-    <footer>
+    <footer id="footerproduktinformasjon"> <!-- Lik som footer-en på forsiden -->
       <section>
         <div><a class="footerOverskrift" href="#">Om Alveto</a></div>
         <div><a class="footerInnhold" href="#">Firmainformasjon</a></div>
@@ -172,7 +172,7 @@
           merkenavn = `TommyHilfiger`;
         }
         else {
-          merkenavn = `${klesplagg.merkenavn}`;
+          merkenavn = `${klesplagg.merkenavn}`; // Hvis merkenavnet ikke er noen av de tidligere skal den være helt normal
         };
         if (klesplagg.overmateriale.length == 0 ) {
           overmateriale = ``; // Hvis objektet ikke har noen overmarerialer, skal overmateriale være tom. Kunne også ha laget hele div-boksen, men det hadde tatt mer lagringsplass (som blir relevant på større nettsider), i tillegg til at det tar lenger tid
@@ -196,7 +196,7 @@
           var res = str.substr(0,7); // Skjorte
         }
         else if (parentIdStr === `Sko`) {
-          var res = str.substr(0,3); // Sko. Kunne bare skrevet "Sko", men denne løsningen fungere like bra, og trenger ikke å være redd for skrivefeil
+          var res = str.substr(0,3); // Sko. Kunne bare skrevet "Sko", men denne løsningen fungerer like bra, og trenger ikke å være redd for skrivefeil
         }
         else if (parentIdStr === `Tilbehør`) {
           var res = `Tilbehør`; // For at det ikke skal stå "Tilbehoer", men "Tilbehør"
@@ -226,19 +226,19 @@
             </section>
             <div class="merkenavnProduktinfo"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="overmaterialeProduktinfo">${overmateriale}${klesplagg.overmateriale.join(", ")}</div>
-            <div class="skjema">
+            <div>
               <form>
-                <p class="formOverskrift">Produktet er tilgjengelig i disse fargene:</p>
+                <p>Produktet er tilgjengelig i disse fargene:</p>
                 <select name="farge" required>
                   <option value="">Farge</option>
                   ${farger}
                 </select>
-                <p class="formOverskrift">Produktet er tilgjengelig i disse størrelsene:</p>
+                <p>Produktet er tilgjengelig i disse størrelsene:</p>
                 <select name="stoerrelse" required>
                   <option value="">Størrelse</option>
                   ${stoerrelser}
                 </select>
-                <p class="formOverskrift">Hvor mange ønsker du å kjøpe?</p>
+                <p>Hvor mange ønsker du å kjøpe?</p>
                 <input type="number" autocomplete="off" min="0" name="antall" required> <!-- Bokstaver skal ikke aksepteres, bare tall. Autocomplete skal være av, for det er det ikke noe bruk av her. Verdien må være på minst 0, sånn at man ikke kan ha en negativ mengde produkter -->
                 <button id="handlekurv" type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
               </form>
@@ -269,16 +269,18 @@
 
 
       function produkterAndreFarger() {
-        if (${varer.produktnavn === ""}) {
+        if (${varer.produktnavn === "Soft Off Shoulder"}) {
           gensere
             .orderByChild("produktnavn")
-            .equalTo("")
+            .equalTo("Soft Off Shoulder")
         }
-        else if (${varer.produktnavn} === "") {
-
+        else if (${varer.produktnavn} === "Halle") {
+          kjoler
+            .orderByChild("produktnavn")
+            .equalTo("Halle")
         }
         else {
-
+          andreFarger.innerHTML += ``;
         };
       };
       */
@@ -337,7 +339,7 @@
           <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="merkenavn"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="secKlaer">
               ${originalPris}
               ${tilbud}

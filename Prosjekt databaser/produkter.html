@@ -23,12 +23,12 @@
       <nav>
         <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
-          <li><a id="navKlaer" class="navProduktHref" href="#" onclick="alleProdukter()">Klær</a></li> <!-- På forsiden og produktinformasjonssiden er dette en href, men her er det onclick. Dette er for at siden ikke skal måtte refreshes hver gang denne trykkes på -->
-          <li><a id="navNyligLagtTil" class="navProduktHref" href="#" onclick="alleProdukter()">Nylig lagt til</a></li> <!-- Denne onclick-en er lik den forrige, for JSON-filen inkluderer ikke datoen objektet er lagt til -->
-          <li><a id="navSalg" class="navProduktHref" href="#" onclick="visSalg()">Salg</a></li> <!-- Denne viser alle salg -->
-          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li> <!-- For å ha muligheten til å legge til en handlekurv senere -->
-          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li> <!-- Samme, bare med ønskeliste -->
-          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li> <!-- Samme, bare med innloggingsside -->
+          <li><a class="navProduktHref" href="#" onclick="alleProdukter()">Klær</a></li> <!-- På forsiden og produktinformasjonssiden er dette en href, men her er det onclick. Dette er for at siden ikke skal måtte refreshes hver gang denne trykkes på -->
+          <li><a class="navProduktHref" href="#" onclick="alleProdukter()">Nylig lagt til</a></li> <!-- Denne onclick-en er lik den forrige, for JSON-filen inkluderer ikke datoen objektet er lagt til -->
+          <li><a class="navProduktHref" id="navSalg" href="#" onclick="visSalg()">Salg</a></li> <!-- Denne viser alle salg -->
+          <li><a class="navEkstraHref" href="#">Handlekurv</a></li> <!-- For å ha muligheten til å legge til en handlekurv senere -->
+          <li><a class="navEkstraHref" href="#">Ønskeliste</a></li> <!-- Samme, bare med ønskeliste -->
+          <li><a class="navEkstraHref" href="#">Logg inn</a></li> <!-- Samme, bare med innloggingsside -->
         </ul>
       </nav>
     </header>
@@ -226,7 +226,7 @@
           <section><a href="produktinformasjon.html?parent=${parent}&id=${key}"> <!-- Må stå "parent=${parent}" og ikke "parentId=${parent}", fordi på den tidligere kommandoen står det "get("parent")" -->
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a> <!-- Her ender href-en til produktet -->
-            <div class="merkenavn"><a href="#" onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div> <!-- Hvis man trykker på merkenavnet, så vises alle plagg av det merket. Har en href="#" for at det fortsatt skal se ut som at musepekeren kan trykke på funksjonen. Trenger bare å gjøre det på genererHTML1-funksjonen på produkter.html-siden, for det er bare der det er relevant -->
+            <div class="merkenavn"><a href="#" id="merke" onclick="hent${merkenavn}()">${klesplagg.merkenavn}</a></div> <!-- Hvis man trykker på merkenavnet, så vises alle plagg av det merket. Har en href="#" for at det fortsatt skal se ut som at musepekeren kan trykke på funksjonen. Trenger bare å gjøre det på genererHTML1-funksjonen på produkter.html-siden, for det er bare der det er relevant -->
             <div class="secKlaer">
               ${originalPris} <!-- originalPris settes inn her, som hele tiden er lik, utenom at den av og til er gjennomstreket. Her fortsetter også href-en til produktet -->
               ${tilbud} <!-- tilbud settes inn her, som ofte er helt tom -->
@@ -290,7 +290,7 @@
           <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="merkenavn"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="secKlaer">
               ${originalPris}
               ${tilbud}

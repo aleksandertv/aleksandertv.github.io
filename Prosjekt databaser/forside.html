@@ -23,18 +23,18 @@
       <nav>
         <a href="forside.html"><img src="Bilder/Generellebilder/Logo.png" alt="logo, alveto" id="logobilde"></a>
         <ul id="navbar">
-          <li><a id="navKlaer" class="navProduktHref" href="produkter.html">Klær</a></li> <!-- Går til produkter.html, uten noen id, som betyr at det ikke er noen spesifikke funksjoner aktivisert -->
-          <li><a id="navNyligLagtTil" class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
-          <li><a id="navSalg" class="navProduktHref" href="produkter.html?id=salg">Salg</a></li> <!-- Går til produkter.html med id=salg, som gjør at visSalg-funksjonen kjøres -->
-          <li><a id="navHandlekurv" class="navEkstraHref" href="#">Handlekurv</a></li>
-          <li><a id="navOenskeliste" class="navEkstraHref" href="#">Ønskeliste</a></li>
-          <li><a id="navLoggInn" class="navEkstraHref" href="#">Logg inn</a></li>
+          <li><a class="navProduktHref" href="produkter.html">Klær</a></li> <!-- Går til produkter.html, uten noen id, som betyr at det ikke er noen spesifikke funksjoner aktivisert -->
+          <li><a class="navProduktHref" href="produkter.html">Nylig lagt til</a></li>
+          <li><a class="navProduktHref" id="navSalg" href="produkter.html?id=salg">Salg</a></li> <!-- Går til produkter.html med id=salg, som gjør at visSalg-funksjonen kjøres -->
+          <li><a class="navEkstraHref" href="#">Handlekurv</a></li>
+          <li><a class="navEkstraHref" href="#">Ønskeliste</a></li>
+          <li><a class="navEkstraHref" href="#">Logg inn</a></li>
         </ul>
       </nav>
     </header>
     <main id="mainforside">
       <section id="videoforside">
-        <iframe width="700px" height="393.75px" src="https://www.youtube.com/embed/dII-yd7p1as" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dII-yd7p1as" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p id="videoInfo">Alveto, veien til en bedre hverdag</p>
       </section>
       <section class="overskrift">
@@ -195,7 +195,7 @@
           <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="merkenavn"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="secKlaer">
               ${originalPris}
               ${tilbud}
@@ -259,7 +259,7 @@
           <section><a href="produktinformasjon.html?parent=${parent}&id=${key}">
             <div class="bilde"><img src="Bilder/Bilder${parent}/${klesplagg.bilde1}"></div>
             <div class="produktnavn">${klesplagg.produktnavn}</div></a>
-            <div class="merkenavn"><a href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
+            <div class="merkenavn"><a id="merke" href="produkter.html?id=${merkenavn}">${klesplagg.merkenavn}</a></div>
             <div class="secKlaer">
               ${originalPris}
               ${tilbud}
