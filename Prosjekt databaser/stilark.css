@@ -258,6 +258,9 @@ footer {
 
 /* For tilbake-knappen på produktinformasjonssiden */
 #tilbake {
+  margin: 1em 3em;
+  text-decoration: none;
+  font-size: 20px;
   grid-column: span 6;
 }
 
@@ -344,13 +347,18 @@ input, select {
 }
 
 @media(max-width: 1242px) { /* "Rendered pixels" på en iPhone Xs Max. https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions */
+  #logobilde {
+    height: 100px;
+    width: 500px;
+  }
+
   #mainforside, .secForside, .secKlaer, .secSalgForside, footer, #mainprodukter, #mainproduktinformasjon, .secProduktLignende { /* Tidligere 6,1fr */
     grid-template-columns: repeat(2,1fr);
     grid-gap: 0.5em; /* 8px */
   }
 
   #navbar>li>a { /* Tidligere 0.8em, 1em */
-    padding: 0.4em 0.5em; /* 6.4px oppe og nede, 8px på venstre og høyre */
+    padding: 0.4em; /* 6.4px på alle sider */
   }
 
   #videoforside, .overskrift, .secForside, .secKlaer, .secSalgForside, #tilbake, .secProduktinfo, .secProduktLignende { /* Tidligere span 6 */
@@ -362,8 +370,18 @@ input, select {
     height: 265.275px;
   }
 
-  #headerprodukter, #mainprodukter, #footerprodukter { /* Egentlig 11em */
+  #navbar {
+    height: auto;
+  }
+
+  #headerprodukter, #mainprodukter, #footerprodukter { /* Egentlig 11em, 12em og 13em */
     margin-left: 8em; /* 128px */
+    margin-right: 1em;
+    padding: 0;
+  }
+
+  footer {
+    margin-top: 3em;
   }
 
   #sidenav { /* Egentlig 10em */
@@ -372,6 +390,7 @@ input, select {
 
   .secProduktinfo { /* Tidligere 5,1fr */
     grid-template-columns: repeat(1,1fr); /* Liker å skrive repeat() uansett, for å lett kunne endre på det senere */
+    margin: 0 5em;;
   }
 
   .stortBildeProduktinfo, .infoProduktinfo { /* Tidligere span 2 */

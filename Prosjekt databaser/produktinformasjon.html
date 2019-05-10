@@ -33,9 +33,9 @@
       </nav>
     </header>
     <main id="mainproduktinformasjon">
-      <ul id="tilbake">
-        <li><a href="produkter.html"> < Tilbake </a></li> <!-- Hadde opprinnelig en "window.history.back();" kommando, men fant ut at det funket like bra som det gjør nå, så valgte å holde det enkelt -->
-      </ul>
+      <section id="tilbake">
+          <a href="produkter.html"> < Tilbake </a> <!-- Hadde opprinnelig en "window.history.back();"-kommando, men fant ut at det funket like bra som det gjør nå, så valgte å holde det enkelt -->
+      </section>
       <section class="secProduktinfo"> <!-- Her settes produktinfoen inn -->
 
       </section>
@@ -228,17 +228,17 @@
             <div class="overmaterialeProduktinfo">${overmateriale}${klesplagg.overmateriale.join(", ")}</div>
             <div>
               <form>
-                <p>Produktet er tilgjengelig i disse fargene:</p>
+                <p class="formOverskrift">Produktet er tilgjengelig i disse fargene:</p>
                 <select name="farge" required>
                   <option value="">Farge</option>
                   ${farger}
                 </select>
-                <p>Produktet er tilgjengelig i disse størrelsene:</p>
+                <p class="formOverskrift">Produktet er tilgjengelig i disse størrelsene:</p>
                 <select name="stoerrelse" required>
                   <option value="">Størrelse</option>
                   ${stoerrelser}
                 </select>
-                <p>Hvor mange ønsker du å kjøpe?</p>
+                <p class="formOverskrift">Hvor mange ønsker du å kjøpe?</p>
                 <input type="number" autocomplete="off" min="0" name="antall" required> <!-- Bokstaver skal ikke aksepteres, bare tall. Autocomplete skal være av, for det er det ikke noe bruk av her. Verdien må være på minst 0, sånn at man ikke kan ha en negativ mengde produkter -->
                 <button id="handlekurv" type="reset" method="get">Legg til i handlekurv</button> <!-- Vanligvis hadde dette vært en "submit", men siden Alveto ikke har en handlekurv, står det "reset" inntil videre -->
               </form>
@@ -251,41 +251,6 @@
           </section>
         `;
       };
-
-
-      /* Åste */
-      /*
-      <section class="andreFarger">
-
-      </section>
-
-
-      andreFarger.innerHTML += `
-        <section>
-
-        </section>
-      `;
-
-
-      valgtProdukt.on("value",produkterAndreFarger);
-
-
-      function produkterAndreFarger() {
-        if (${varer.produktnavn === "Soft Off Shoulder"}) {
-          gensere
-            .orderByChild("produktnavn")
-            .equalTo("Soft Off Shoulder")
-        }
-        else if (${varer.produktnavn} === "Halle") {
-          kjoler
-            .orderByChild("produktnavn")
-            .equalTo("Halle")
-        }
-        else {
-          andreFarger.innerHTML += ``;
-        };
-      };
-      */
 
       function generer_LignendeProdukter(snapshot){
         console.log(snapshot.val());
@@ -537,6 +502,9 @@
       };
 
       lignendeProdukter(); // Skal kjøres uansett
+      // Åste
+      produkterAndreFarger();
+      // Åste
     </script>
   </body>
 </html>
