@@ -1,0 +1,450 @@
+body{
+  font-family: "Times New Roman", serif;
+  font-size: 16px;
+  background-color: #efeff5;
+  margin: 0;
+}
+
+header{
+  background-color: white;
+}
+
+img, .bilde {
+  width: 100%;
+}
+
+#logobilde{
+  height: 40%;
+  width: 40%;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 45px;
+}
+
+.navbar>li {
+  border-right: 2px solid white;
+}
+
+.navbar>li>a {
+  display: block;.navbar>li>a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar>li .inactive:hover {
+  background-color: grey;
+}
+
+.navbilder {
+  height: 25px;
+  width: 25px;
+}
+
+.inactive {
+  background-color: darkgrey;
+}
+
+.active {
+  background-color: grey;
+}
+
+.active2{
+  font-weight: bold;
+}
+
+.navbar_2 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  background-color: #f1f1f1;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 185px;
+  overflow: auto;
+}
+
+.liste{
+  text-decoration: none;
+  color: black;
+}
+
+#index {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+#herrebukser {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-left: 170px;
+}
+
+#produktinformasjon {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+.herredamebarn {
+  grid-column: span 2;
+}
+
+.buksersko {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column: span 2;
+  position: relative;
+}
+
+.bildebuksersko {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.dame{
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
+
+.mann{
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
+.kjopdameherre {
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.kjopdameherre:hover{
+  font-style: italic;
+}
+
+.bestselgere {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.bestselgere, .lignendeprodukter {
+  margin-top: 3em;
+}
+
+.indexprodukt>a, .produkt>a, .andreprodukter>a{
+  text-decoration: none;
+  color: black;
+}
+
+.produkt, .indexprodukt {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.indexprodukt {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.produktnavn {
+  font-weight: bold;
+}
+
+.produktnavn, .merkenavn, .pris {
+  background-color: #ffffff;
+}
+
+.tilbake {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 45px;
+}
+
+.tilbake>li {
+  margin-top: 1em;
+}
+
+.tilbake>li>a {
+  display: block;
+  text-decoration: none;
+  text-decoration: underline;
+  font-weight: 300;
+  color: black;
+  font-size: 18px;
+}
+
+.mellomrom {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.stortbilde {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.info {
+  grid-column: span 1;
+  grid-row: span 2;
+  background-color: white;
+  position: relative;
+}
+
+.merkelogo {
+  width: 60%;
+}
+
+.merkelogobilde {
+  height: 58px;
+  width: 218px;
+}
+
+.merkelogobilde2 {
+  height: 58px;
+  width: 246px;
+}
+
+.oenskelisteikon {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+.navnpaaprodukt {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.prispaaprodukt {
+  font-size: 32px;
+}
+
+.fri-frakt {
+  padding-top: 1em;
+}
+
+.prispaaprodukt, .fri-frakt, .sendetid {
+  padding: 0 15px;
+}
+
+.dropdown>p {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+
+select {
+  margin-top: 1em;
+  width: 95%;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+button {
+  width: 95%;
+  margin-top: 2em;
+  background-color: darkorange;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 50px;
+}
+
+.lignendeprodukter {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.andreprodukter {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+footer, .footer_herrebukser {
+  display: grid;
+  grid-auto-columns: minmax(1px,auto);
+  grid-auto-rows: minmax(1px,auto);
+  grid-gap: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin: 2em 0;
+}
+
+footer, .footer_herrebukser {
+  grid-template-columns: repeat(6,1fr);
+  background-color: white;
+  margin-top: 6em;
+  padding-top: 0;
+  margin-bottom: 1em;
+}
+
+.footer_herrebukser {
+  grid-template-columns: repeat(7,1fr);
+}
+
+.venstre {
+  text-align: left;
+}
+
+.overskrifterifooter {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.infoifooter {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.overskrifterifooter, .infoifooter {
+  text-decoration: none;
+  color: black;
+}
+
+.overskrifterifooter:hover, .infoifooter:hover {
+  text-decoration: underline;
+}
+
+
+/* Dette er til "error1.html", "error2.html", "erro3.html", "error4.html", som er Error: 404 (Not found) sider. Ikke skrevet selv. */
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#bodynotfound {
+  padding: 0;
+  margin: 0;
+}
+
+#notfound {
+  position: relative;
+  height: 100vh;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 520px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 240px;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 252px;
+  font-weight: 900;
+  margin: 0px;
+  color: #262626;
+  text-transform: uppercase;
+  letter-spacing: -40px;
+  margin-left: -20px;
+}
+
+.notfound .notfound-404 h1>span {
+  text-shadow: -8px 0px 0px #fff;
+}
+
+.notfound .notfound-404 h3 {
+  font-family: 'Cabin', sans-serif;
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #262626;
+  margin: 0px;
+  letter-spacing: 3px;
+  padding-left: 6px;
+}
+
+.notfound h2 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 {
+    height: 200px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 200px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 {
+    height: 162px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 162px;
+    height: 150px;
+    line-height: 162px;
+  }
+  .notfound h2 {
+    font-size: 16px;
+  }
+}
+
+/* Her er koden til "error1.html", "error2.html", "erro3.html", "error4.html", som er Error: 404 (Not found) sider, ferdig. */

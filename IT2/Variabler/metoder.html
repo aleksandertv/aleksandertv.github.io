@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Metoder</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var tall1 = 57.4;
+
+      // Runder av til nærmeste tall
+      document.write(Math.round(tall1) + "<br>");
+
+      // Runder av oppover til nærmeste tall
+      document.write(Math.ceil(tall1) + "<br>");
+
+      // Runder av nedover til nærmeste tall
+      document.write(Math.floor(tall1) + "<br>");
+
+      // Grunntallet 3 opphøyd i eksponenten 4
+      document.write(Math.pow(3,4) + "<br>");
+
+      // Kvadratroten av et tall
+      document.write(Math.sqrt(9) + "<br>");
+
+      // Absoluttverdien av et tall
+      document.write(Math.abs(-4) + "<br>");
+
+      // Tilfeldig tall fra 0 til 0.9999
+      document.write(Math.random().toFixed(4) + "<br>");
+
+      // Terningkast
+      var terning = Math.floor(Math.random() * 6) + 1;
+      document.write("Antall øyne: " + terning + "<br>");
+    </script>
+  </body>
+</html>

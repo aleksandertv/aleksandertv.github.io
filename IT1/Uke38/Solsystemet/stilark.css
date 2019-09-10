@@ -1,0 +1,74 @@
+main{
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  width: 1000px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px;
+  grid-column-gap: 7px;
+  grid-row-gap: 7px;
+  padding: 2px;
+}
+
+article{
+  background-color: grey;
+  border-radius: 6px;
+  height: 250px;
+}
+
+img{
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 170px;
+  width: 170px;
+}
+
+header{
+  text-align: center;
+}
+
+p{
+  font-style: normal;
+  
+  font-size: 16px;
+}
+
+h1{
+  font-size: 36px;
+  color: black;
+}
+
+#informasjonOmPlanetene{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#overskrifter{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#redirect{
+  display: block;
+  background-color: lightgrey;
+  width: 175px;
+  padding: 10px;
+  margin: 2px;
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+}
+
+#redirect:hover{
+  background-color: #323232;
+  color: white;
+}

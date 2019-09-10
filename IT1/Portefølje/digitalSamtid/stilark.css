@@ -1,0 +1,41 @@
+body {
+  background-color: darkgrey;
+  font-family: "Century Gothic", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, nav{
+  text-align: center;
+}
+
+html{
+  display: block;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+nav li{
+  display: inline;
+}
+
+nav a{
+  text-decoration: none;
+}
+
+#redirect{
+  display: block;
+  background-color: lightgrey;
+  padding: 10px;
+  margin: 2px;
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+  display: inline;
+}
+
+#redirect:hover{
+  background-color: grey;
+}

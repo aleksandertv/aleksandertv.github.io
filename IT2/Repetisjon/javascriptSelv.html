@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Javascript uten lærer</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="overskrift">En nettside</h1>
+      <p id="innhold">Med innhold</p>
+      <img src="Bilder/hund1.jpg" alt="hund dog" id="bilde">
+      <p id="infoBilde">Og et bilde</p>
+    </header>
+    <main>
+      <div id="div1">
+        <p>Hva skjer?</p>
+      </div>
+      <div id="div2">
+        <p>Ikke så mye</p>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript">
+      document.getElementById("overskrift").innerHTML = `En side`;
+      document.getElementById("innhold").innerHTML = `Med litt innhold`;
+      document.getElementById("infoBilde").innerHTML = `Og et søtt lite bilde`;
+      document.getElementById("bilde").src = `Bilder/hund2.jpg`;
+      document.getElementById("bilde").height = `240`;
+      document.getElementById("bilde").width = `360`;
+      document.getElementById("div2").innerHTML = document.getElementById("div1").innerHTML;
+    </script>
+  </body>
+</html>

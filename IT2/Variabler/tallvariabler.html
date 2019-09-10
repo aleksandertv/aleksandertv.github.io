@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tallvariabler</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      var input1 = prompt("Skriv et tall");
+      var input2 = prompt("Skriv et tall til");
+      var sum = Number(input1) + Number(input2);
+      document.write("Summen er " + sum +  ".<br>");
+      */
+      // Matematiske operatorer: Vanlige tegn
+      //+ er pluss, - er minus, / er dele, * er gange
+
+      var tall1 = 2+3; // tal11 er 5
+      var tall2 = tall1/3; // tall2 er 1.66
+
+      document.write("tall2: " + tall1 + "/3 = " + tall2 + "<br>");
+      document.write("tall2: " + tall1 + "/3 = " + tall2.toFixed(2) + "<br>");
+
+      // Flere regneuttrykk
+      var a = 3;
+      a = a + 1; // a er 4
+      a++; // Det samme, a er 5
+      a = a - 1; // a reduseres med 1, a er 4
+      a--; //Det samme, a er 3
+      a += 3; //a øker med 3 og er nå 6
+      var b = 2;
+      a += b; // a får ny verdi som er gammel verdi pluss b, dvs a er 8
+      a -= 5; // a reduseres med 5, a er 3
+
+      document.write("Verdien av a er nå: " + a + "<br>");
+
+      // pi
+      document.write("pi = " + Math.PI);
+    </script>
+  </body>
+</html>

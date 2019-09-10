@@ -1,0 +1,133 @@
+body{
+  background-color: #e0e0e0;
+  font-family: "Century Gothic", arial, sans-serif;
+  font-size: 24px;
+  color: #323232;
+  background-image: url("Hval.jpg");
+  /*background-repeat: repeat-y;*/
+  background-repeat: no-repeat;
+  background-size: 1440px;
+}
+
+h1{
+  color: #2E0927;
+}
+
+h2{
+  color: #781D5F;
+  font-family: serif;
+}
+
+h3{
+  color: #D90000;
+}
+
+h4{
+  color: #FF2D00;
+}
+
+h5{
+  color: #FF8C00;
+}
+
+h6{
+  color: #04756F;
+}
+
+ol li{
+  background-color: #8cbe05;
+  padding: 5px;
+  margin: 2px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+ul li{
+  background-color: #f04605;
+  margin: 2px;
+  padding: 5px;
+  width: 200px;
+  border-radius: 5px;
+  list-style-type: none;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+th, td{
+  background-color: #8cbe05;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+td{
+  background-color: #e7f1cc;
+}
+
+#lenkeListe{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#lenkeListe a{
+  display: block;
+  background-color: #8cbe05;
+  width: 175px;
+  padding: 10px;
+  margin: 2px;
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#lenkeListe a:hover{
+  background-color: #e7f1cc;
+}
+
+#vannrettLenkeliste{
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+}
+
+#vannrettLenkeliste li{
+  display: inline;
+}
+
+#vannrettLenkeliste a{
+  background-color: #f06505;
+  margin: 3px;
+  padding: 10px 30px;
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#vannrettLenkeliste a:hover{
+  background-color: #ebe584;
+}
+
+input[type="text"]{
+  display: block;
+  width: 220px;
+  padding: 5px;
+  color: #666666;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+input[type="submit"]{
+  display: block;
+  padding: 8px 15px;
+  font-weight: bold;
+  color: #444444;
+  border: none;
+  background-color: #888888;
+}
+
+input[type="submit"]:hover{
+  background-color: #666666;
+}

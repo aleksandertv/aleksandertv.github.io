@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Første kodefil</title>
+  </head>
+  <body>
+    <h1 id="minOverskrift">Velkommen til siden min</h1>
+    <p>Den er fin</p>
+    <img src="Bilder/hund1.jpg" alt="hund dog" id="imgHund">
+    <script type="text/javascript">
+      //String: innhold i anførselstegn
+      /*
+      alert("hallo verden"); //varselboks
+      document.write("hallo igjen verden"); //viser tekst på siden
+      prompt("Hvor mange timer har du i dag?"); //innskriving
+      */
+      //document.body.innerHTML = "<h1>Nytt innhold</h1>" + "<p>Det er enda finere</p>";
+      document.getElementById("minOverskrift").innerHTML = "Dette er en ny overskrift";
+      document.getElementById("imgHund").width = "300";
+      //document.getElementById("imgHund").width = window.innerWidth;
+      document.getElementById("imgHund").height = "200";
+      document.getElementById("imgHund").src = "Bilder/hund2.jpg";
+    </script>
+  </body>
+</html>

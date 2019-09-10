@@ -1,0 +1,83 @@
+body{
+  font-family: helvetica, sans-serif;
+  background-color: darkorange;
+}
+
+h1{
+  text-align: center;
+  font-size: 36px;
+}
+
+div{
+  background-color: #ffff00;
+  padding-left: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 7px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+div:hover{
+  background-color: white;
+}
+
+section{
+  display: grid;
+  grid-gap: 4px;
+  /*grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px;*/
+  /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+  grid-template-columns: repeat(18,1fr);
+  grid-auto-rows: minmax(40px,auto);
+  grid-auto-columns: minmax(40px);
+}
+
+.span-2{
+  grid-column: span 16;
+}
+
+.span-3{
+  grid-column: 12;
+}
+
+.usynlig{
+  opacity: 0;
+}
+
+.span-nedover-3{
+  /*grid-row: span 3;*/
+}
+.grønn{
+  background-color: #00cc66;
+}
+.orange{
+  background-color: orange;
+}
+
+.rød{
+  background-color: #ff3300;
+}
+
+.blå{
+  background-color: #0099ff;
+}
+
+.lilla{
+  background-color: #993399;
+}
+
+.green{
+  color: #006600;
+}
+
+.grey{
+  color: #666699;
+}
+
+.red{
+  color: #e60000;
+}
+
+#rød{
+  color: #b30000;
+}

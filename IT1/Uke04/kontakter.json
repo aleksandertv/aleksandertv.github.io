@@ -1,0 +1,27 @@
+{
+  "kontaktliste":{
+    "1":{
+      "firstName":"Aleksander Thornes",
+      "lastName":"Vestlund",
+      "telephone":91694994
+    },
+    "2":{
+      "firstName":"Karan Singh",
+      "lastName":"Sandhu",
+      "telephone":99112250
+    }
+  }
+}
+
+{
+  "meldinger":{
+    "1":{
+      "sender":"Aleks",
+      "message":"Hei"
+    },
+    "2":{
+      "sender":"Karri",
+      "message":"hva skjer"
+    }
+  }
+}

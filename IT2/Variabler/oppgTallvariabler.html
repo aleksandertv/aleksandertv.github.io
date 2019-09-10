@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver Tallvariabler</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Oppgave 1
+      /*
+      var side1 = prompt("Skriv inn lengden på rektangelet.");
+      var side2 = prompt("Skriv inn bredden på rektangelet.");
+
+      var areal = Number(side1) * Number(side2);
+      var omkrets = 2 * Number(side1) + 2 * Number(side2);
+
+      document.write("Omkretsen er lik " + omkrets + "<br>");
+      document.write("Arealet er lik " + areal + "<br>");
+      */
+
+      // Oppgave 2
+      /*
+      var gammelPris = prompt("Skriv inn originalprisen på varen.");
+      var rabatt = prompt("Skriv inn rabatten i prosent.");
+
+      var vekstfart = 1 - Number(rabatt) / 100;
+      var nyPris = vekstfart * gammelPris;
+
+      document.write("Hvis originalprisen er lik " + gammelPris + ", og rabatten er på " + rabatt + "%, er den nye prisen på " + nyPris + ".<br>");
+      */
+
+      // Oppgave 3
+      /*
+      var navn = prompt("Hva er navnet ditt?");
+      var alder = prompt("Hvor gammel er du?");
+
+      var tilHundre = 100 - alder;
+
+      document.write("Hei " + navn + "! Du er " + alder + " år gammel. Det er " + tilHundre + " år igjen til 100-årsdagen din!");
+      */
+
+      // Oppgave 4
+      /*
+      var temperatur = prompt("Hvilken temperatur ønsker du å ha hjemme?");
+
+      var dagTemperatur = temperatur - 5;
+      var nattTemperatur = temperatur - 8;
+
+      document.write("Hvis du ønsker å ha " + temperatur + " hjemme, må dagstemperaturen din være på " + dagTemperatur + ", og nattemperaturen må være på " + nattTemperatur + ".<br>")
+      */
+
+      // Oppgave 3, s. 60
+      /*
+      var radius = prompt("Skriv inn radien til kulen.");
+
+      var omkrets = 2 * Math.PI * Number(radius); // Man skriver Number() for at koden bare skal godta tall
+      var volum = (4 * Math.PI * Math.pow(Number(radius),3)) / 3; // Math.pow(x,y) er x opphøyd i y
+      var arealOverflate = 4 * Math.PI * Math.pow(Number(radius),2);
+
+      document.write("Omkretsen til kula er lik " + omkrets + ".<br>"); // <br> for at det ikke skal komme på samme linje
+      document.write("Volumet til kula er lik " + volum + ".<br>");
+      document.write("Arealet av overflaten til kula er lik " + arealOverflate + ".<br>");
+      */
+
+      // Oppgave 4, s. 60
+      /*
+      var antallPoengBesvarelse = prompt("Hvor mange poeng fikk eleven?");
+      var antallMuligePoeng = prompt("Hvor mange poeng var det mulig å få?");
+
+      var karakter = antallPoengBesvarelse / antallMuligePoeng * 6;
+
+      document.write("Hvis eleven fikk " + antallPoengBesvarelse + " av " + antallMuligePoeng + " poeng, får eleven karakter " + karakter.toFixed(0) + ".<br>");
+      */
+
+      // Oppgave 5, s. 60
+      var vekt = prompt("Hvor mye veier du, i kilo?");
+      var hoeyde = prompt("Hvor høy er du, i centimeter?");
+
+      var KMI = (Number(vekt) / Math.pow(Number(hoeyde),2)) * 10000;
+
+      document.write("Hvis du veier " + vekt + "kg, og er " + hoeyde + "cm høy, er din KMI på " + KMI.toFixed(1) + "kg/m^2.<br>");
+    </script>
+  </body>
+</html>

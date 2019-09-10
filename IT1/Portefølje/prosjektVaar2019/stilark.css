@@ -1,0 +1,404 @@
+/* Gjelder for hele alle elementer */
+* {
+  padding: 0; /* For å kunne angi padding på alle objekter selv */
+  margin: 0; /* For å kunne angi margin på alle objekter selv */
+  color: black; /* Alle a-ene har svart skrift, med mindre noe annet er spesifisert */
+  text-decoration: none; /* For å angi alle font-dekorasjoner selv */
+}
+
+/* For å sette en margin på hele forsiden */
+#headerforside, #mainforside, #footerforside, #headerproduktinformasjon, .secProduktLignende, #footerproduktinformasjon {
+  margin: 0 1em; /* Ingen margin oppe eller nede, men 16px på både venstre- og høyresiden */
+}
+
+/* Felles for alle bilder */
+img {
+  width: 100%; /* Alle bilder dekker nå 100% av sitt angitte område, med mindre noe annet er spesifisert */
+}
+
+/* For logoen på toppen, på alle undersidene */
+#logobilde {
+  height: 150px; /* Logoen er egentlig 200px*1000px, så dette er 75% av originalstørrelse */
+  width: 750px; /* Samme her */
+}
+
+/* For navbaren, som er på alle undersidene */
+#navbar {
+  list-style-type: none; /* Ikke liste-punkt */
+  overflow: hidden; /* Elementer skal fjernes hvis de ikke passer i boksen */
+  border: 0.1em solid #e7e7e7; /* Veldig lys grå kant */
+  width: 100%; /* Dekker 100% av bredden på skjermen. På produkter.html-siden er det hele siden minus de tidligere 16em, pluss 1em ekstra mellomrom på hver side */
+  height: 3em; /* Høyde på 48px */
+}
+
+/* For a-elementene i listen i #navbar */
+#navbar>li>a {
+  display: block;
+  text-align: center; /* Midtstilles */
+  padding: 0.8em 1em; /* 12.8px oppe og nede, og 16px på venstre- og høyresiden */
+}
+
+/* Gjelder for Nylig lagt til, Klær, Salg i navbaren, og Alle *produkt* under StortBilde på forsiden */
+.navProduktHref, .alle {
+  float: left; /* Flyter mot venstre */
+}
+
+/* Omvendt enn de over */
+.navEkstraHref, .bareTilbud {
+  float: right; /* Flyter mot høyre */
+}
+
+/* For at alle salgsvarer, i tillegg til knappen som viser salgsvarer er rød */
+#navSalg, #tilbudsprisRoed {
+  color: red;
+}
+
+/* For main-en på forsiden og på produktinformasjonssiden */
+#mainforside, #mainproduktinformasjon {
+  grid-gap: 0.5em; /* 8px mellomrom i grid-en */
+}
+
+/* Dette er alle grid-ene som skal deles inn i 6 deler */
+#mainforside, .secForside, .secKlaer, .secSalgForside, footer, #mainproduktinformasjon, .secProduktLignende {
+  display: grid; /* For at det skal være en grid */
+  grid-template-columns: repeat(6,1fr); /* Samme som at man skriver "grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;" */
+}
+
+/* For div-en videoen på forsiden er i */
+#videoforside {
+  grid-column: span 6; /* Grid-en er seks bokser bred, og videoen skal dekke hele siden */
+  text-align: center;
+  margin-top: 1em; /* 16px */
+}
+
+/* For teksten under videoen på forsiden */
+#videoInfo {
+  font-size: 20px; /* Skriftstørrelse 20 */
+}
+
+/* Dette er alle elementene som skal ha fet skrift, utenom hover-en i sidenav-en på produktsiden */
+#videoInfo, .produktnavn, .footerOverskrift, .produktnavnProduktinfo, #handlekurv {
+  font-weight: bold; /* Fet skrift */
+}
+
+/* For selve videoen på forsiden, i tillegg til alle andre videoer som kan komme i fremtiden */
+iframe {
+  width: 875px;
+  height: 491.25px; /* Samme forhold som originalen */
+}
+
+/* Hovedsakelig for overskriftene på forsiden, men også for overskriften på produktinformasjonssiden */
+.overskrift {
+  grid-column: span 6;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* For å ha 3em mellomrom */
+.overskrift, .stortBilde {
+  margin-top: 3em; /* 48px */
+}
+
+/* Måtte gjøre dette for at StortBilde-ne også skulle ha 3em mellomrom */
+.secForside {
+  margin-bottom: 3em; /* 48px */
+}
+
+/* Disse grid-ene er delt opp i 6. Dette er for at disse boksene skal dekke hele siden */
+.secForside, .secSalgForside, .secProduktLignende {
+  grid-column: span 6;
+  grid-column-gap: 0.5em; /* 8px */
+}
+
+/* Når musepekeren er over noen av disse, får skriften en dekorasjon */
+.footerOverskrift:hover, .footerInnhold:hover, #merke:hover { /* Tok hover-en på #merke for at boksen ikke skulle understrekes før man hadde musen over href-en */
+  text-decoration: underline; /* Når musepekeren er over, skal elementet understrekes */
+}
+
+/* For at tilbudsprisen skal være litt mer atskilt fra tilbudet og originalprisen */
+.originalpris {
+  grid-column: span 2;
+}
+
+.tilbudspris {
+  grid-column: span 3;
+}
+
+/* For at mellomrommet skal være enda større */
+.tilbudspris, .tilbudsprisProduktinfo {
+  text-align: right; /* Høyrestilles */
+}
+
+/* For både anledninger og de store produktbildene på forsiden */
+.stortBilde, .anledninger {
+  grid-column: span 2; /* Av 6 */
+  margin: 1em 0; /* 1em oppe og nede, ingen på venstre eller høyre */
+}
+
+/* Når musepekeren er over en av disse, får teksten en dekorasjon */
+.alle:hover, .bareTilbud:hover {
+  font-style: italic; /* Når musepekeren er over, skal elementene stå i kursiv */
+}
+
+/* Større skrift på disse elementene */
+.alle, .bareTilbud, .anledninger {
+  font-size: 24px;
+}
+
+/* Felles for alle footer-e */
+footer {
+  grid-gap: 0.35em; /* 5.6px */
+  padding: 6em 2em 2em; /* 6em på toppen, 0 på venstre og høyre, og 2em på bunnen */
+}
+
+/* For overskriftene i footeren */
+.footerOverskrift {
+  font-size: 20px;
+}
+
+/* For underoverskriftene i footeren */
+.footerInnhold {
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* Dette er for at alt innholdet på "produkter.html" skal forskyves */
+#headerprodukter, #mainprodukter, #footerprodukter {
+  margin-left: 11em; /* 176px. De 10em-ene som sidenav-en dekker, i tillegg til 1em ekstra for å få litt ekstra rom */
+  margin-right: 1em; /* 16px. Må gjøres på både venstre- og høyresiden */
+}
+
+/* Dette er for sidebaren på "produkter.html"-siden */
+#sidenav {
+  height: 100%; /* Dekker hele høyden av skjermen */
+  width: 10em; /* 160px */
+  position: fixed; /* Skal være der konstant */
+  z-index: 1; /* For at den skal holde seg på toppen */
+  top: 0; /* Ingen avstand fra toppen */
+  left: 0; /* Ingen avstand fra venstre */
+  background-color: white; /* Hvit bakgrunnsfarge */
+  border-right: 0.1em solid black; /* For å ha en svak skillevegg mellom sidebaren og resten av innholdet */
+  overflow-x: hidden; /* For å deaktivere horisontal scrolling */
+  padding-top: 1.25em; /* 20px */
+}
+
+/* a-elementene i sidenav-en */
+#sidenav a {
+  padding: 0.375em 0.5em 0.375em 1em; /* 6px, 8px, 6px, 16px */
+  font-size: 20px;
+  display: block;
+}
+
+/* Når musepekeren er over a-elementene i sidenav-en */
+#sidenav a:hover {
+  font-weight: bold; /* Når musepekeren er over et av elementene på sidebaren, blir a-en fet */
+}
+
+/* For at området hvor dropdown-menyene befinner seg skal se litt annerledes ut enn navbaren */
+#articleprodukter {
+  margin-left: 12em; /* 192px. Navbaren sin margin er på 11em */
+  margin-right: 2em; /* 32px. Navbaren sin margin er på 1em */
+}
+
+/* For selve dropdownene */
+.dropdown {
+  position: relative; /* For å ha muligheten til å posisjonere knappen mer spesifikt */
+  display: inline-block; /* Dropdownene står ved siden av hverandre */
+}
+
+/* For dropdown-knappene på "produkter.html"-siden */
+.dropbtn {
+  background-color: grey; /* Grå bakgrunnsfarge */
+  color: white; /* Hvit skrift */
+  padding: 1em; /* 16px */
+  font-size: 16px;
+  border: none; /* Ingen kant rundt */
+  cursor: pointer; /* For at musepekeren ikke skal endre seg */
+  margin: 0.75em 0; /* 12px oppe og nede, og ingenting på venstre eller høyre */
+}
+
+/* For innholdet i dropdownene */
+.dropdown-content {
+  display: none; /* Skal ikke vises før musepekeren er over */
+  position: absolute; /* Posisjoneres relativt til over-elementet */
+  background-color: #f9f9f9; /* Grå */
+  min-width: 10em; /* Innholdet i dropdown-menyen tar minst 10em */
+  box-shadow: 0 0.5em 1em 0 rgba(0,0,0,0.2);
+  z-index: 1; /* For at elementene skal vises som et lag oppå de forrige; ikke over eller bak */
+}
+
+/* Når musepekeren er over dropdownen, skal dropdown-knappen få lysegrå bakgrunnsfarge */
+.dropdown:hover>.dropbtn {
+  background-color: lightgrey; /* Lysegrå bakgrunnsfarge etter at musepekeren har vært over */
+}
+
+/* Når musepekeren er over dropdownen, skal dropdown-innholdet vises */
+.dropdown:hover>.dropdown-content {
+  display: block; /* For at innholdet i dropdown-menyene skal vises når musepekeren er over */
+}
+
+/* For a-elementene i dropdown-innholdet */
+.dropdown-content>a {
+  padding: 0.75em 1em; /* Oppe og nede er det 0.75em, mens til venstre og høyre er det 1em */
+  display: block;
+}
+
+/* Når musepekeren er over a-elementene i dropdown-innholdet */
+.dropdown-content>a:hover {
+  background-color: #f1f1f1; /* Lysegrå */
+}
+
+/* For main-en på produkt-siden */
+#mainprodukter {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 1em; /* 16px */
+  padding: 0 2em; /* Ingenting, 32px */
+}
+
+/* For tilbake-knappen på produktinformasjonssiden */
+#tilbake {
+  margin: 1em 3em;
+  text-decoration: none;
+  font-size: 20px;
+  grid-column: span 6;
+}
+
+/* For området genererProduktinfo() blir satt inn i */
+.secProduktinfo {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: repeat(5,1fr); /* For at produktinformasjonen skulle være passe størrelse og de små bildene skulle kunne være halvparten så høy/bred som de store */
+  grid-auto-rows: minmax(0,auto); /* Hvis hele raden er tom, har ikke raden noen høyde, men den er like høy som radens største element */
+  grid-column-gap: 0.5em; /* 8px */
+  grid-row-gap: 0.5em; /* 8px */
+  margin: 0 13em; /* 198px */
+}
+
+/* For det store bildet på produktinformasjonssiden */
+.stortBildeProduktinfo {
+ grid-column: span 2;
+ grid-row: span 2;
+}
+
+/* For bildene inni stort- og liteBildeProduktinfo */
+.stortBildeProduktinfo>img {
+  height: 100%; /* For at bildet skal dekke hele boksen */
+}
+
+.liteBildeProduktinfo>img {
+  height: 98.8%; /* For at bildet skal dekke hele boksen sin, men må være litt mindre enn 100% på grunn av grid-gap-en */
+}
+
+/* For informasjonen i secProduktinfo */
+.infoProduktinfo {
+  grid-column: span 2;
+  grid-row: span 2;
+  font-size: 20px;
+  padding-left: 0.5em; /* 8px */
+}
+
+/* For produktnavnetene */
+#navn {
+  font-size: 23px;
+}
+
+/* For section-en med prisene på produktinformasjonssiden */
+.priserInfoProduktinfo {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-column-gap: 1em; /* 16px */
+}
+
+/* Alle elementene i infoProduktinfo unntatt .produktnavnProduktinfo, .friFrakt og .sendetid */
+.priserInfoProduktinfo, .merkenavnProduktinfo, .overmaterialeProduktinfo, .formOverskrift, #handlekurv {
+  margin-top: 1em; /* 16px */
+}
+
+/* For tekstfeltet i form-en på produktinformasjonssiden */
+input {
+  font-size: 14px;
+}
+
+/* For både flervalgsmenyene og tekstfeltet */
+input, select {
+  width: 95%; /* Skal ha et lite mellomrom */
+  height: 48px;
+  background-color: white;
+  font-size: 14px;
+}
+
+/* For handlekurv-knappen */
+#handlekurv {
+  width: 95%;
+  background-color: darkorange;
+  color: white;
+  height: 50px; /* Litt større enn input-en og select-ene */
+  font-size: 10px;
+}
+
+/* For området hvor det står om fri frakt */
+.friFrakt {
+  margin-top: 2em; /* 32px */
+}
+ /* For både fri frakt-området og sendetids-området */
+.friFrakt, .sendetid {
+  font-size: 14px;
+}
+
+@media(max-width: 1242px) { /* "Rendered pixels" på en iPhone Xs Max. https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions */
+  #logobilde {
+    height: 100px;
+    width: 500px;
+  }
+
+  #mainforside, .secForside, .secKlaer, .secSalgForside, footer, #mainprodukter, #mainproduktinformasjon, .secProduktLignende { /* Tidligere 6,1fr */
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 0.5em; /* 8px */
+  }
+
+  #navbar>li>a { /* Tidligere 0.8em, 1em */
+    padding: 0.4em; /* 6.4px på alle sider */
+  }
+
+  #videoforside, .overskrift, .secForside, .secKlaer, .secSalgForside, #tilbake, .secProduktinfo, .secProduktLignende { /* Tidligere span 6 */
+    grid-column: span 2;
+  }
+
+  iframe { /* Tidligere 875px, 491.25px */
+    width: 472.5px;
+    height: 265.275px;
+  }
+
+  #navbar {
+    height: auto;
+  }
+
+  #headerprodukter, #mainprodukter, #footerprodukter { /* Egentlig 11em, 12em og 13em */
+    margin-left: 8em; /* 128px */
+    margin-right: 1em;
+    padding: 0;
+  }
+
+  footer {
+    margin-top: 3em;
+  }
+
+  #sidenav { /* Egentlig 10em */
+    width: 7em; /* Minste den kan være, som er 112px */
+  }
+
+  .secProduktinfo { /* Tidligere 5,1fr */
+    grid-template-columns: repeat(1,1fr); /* Liker å skrive repeat() uansett, for å lett kunne endre på det senere */
+    margin: 0 5em;;
+  }
+
+  .stortBildeProduktinfo, .infoProduktinfo { /* Tidligere span 2 */
+    grid-column: span 1; /* Skal nå bare dekke én kolonne */
+    grid-row: span 1; /* Og én rad */
+  }
+
+  .stortBildeProduktinfo>img, .liteBildeProduktinfo>img {
+    width: 100%; /* Dekker hele siden */
+  }
+}

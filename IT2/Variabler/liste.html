@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Liste</title>
+  </head>
+  <body>
+    <h1>Min liste</h1>
+    <ol id="minListe"></ol>
+      <div class="">
+        <img src="" id="mittBilde">
+      </div>
+    <script type="text/javascript">
+      var minListe = document.querySelector("#minListe");
+      var fornavn = prompt("Skriv fornavn");
+      var etternavn = prompt("Skriv etternavn");
+      var by = prompt = prompt("Skriv bosted");
+      var mittBilde = document.querySelector("#mittBilde");
+
+      minListe.innerHTML = "<li>Fornavn: "+ fornavn +"</li>";
+      minListe.innerHTML += "<li>Etternavn: "+ etternavn +"</li>";
+      minListe.innerHTML += "<li>Bosted: "+ by +"</li>";
+
+      mittBilde.src = "Bilder/hund1.jpg";
+    </script>
+  </body>
+</html>

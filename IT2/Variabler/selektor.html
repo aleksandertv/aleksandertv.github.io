@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Selektor</title>
+  </head>
+  <body>
+    <p id="info">Her kommer det info</p>
+    <p class="nyInfo">Her kommer mer info</p>
+    <script type="text/javascript">
+      document.getElementById("info").innerHTML = "Nå kommer høsten<br>";
+      document.querySelector(".nyInfo").innerHTML += "<br>Det skjer hvert år.";
+      document.querySelector("#info").innerHTML += "Høst er også bra.<br>";
+
+      var info = document.querySelector("#info");
+      info.innerHTML += "Men det kan bli mye regn."
+    </script>
+  </body>
+</html>

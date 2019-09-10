@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDzXaN2oGMRQ9dqMGN0wd9mn9WN8m2Hk3w",
+        authDomain: "uke4-48cb4.firebaseapp.com",
+        databaseURL: "https://uke4-48cb4.firebaseio.com",
+        projectId: "uke4-48cb4",
+        storageBucket: "uke4-48cb4.appspot.com",
+        messagingSenderId: "280036278557"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <form class="" method="post">
+      <label for="inpNavn">Navn:</label>
+      <input id="inpNavn" type="text" name="navn" value="" placeholder="navn">
+      <label for="inpTelefon">Telefon:</label>
+      <input id="inpTelefon" type="text" name="telefon" value="" placeholder="tlf.">
+      <button id="btnKnapp" type="button" name="button">Send inn</button>
+    </form>
+    <form class="" method="post">
+      <label for="inpAvsender">Avsender</label>
+      <input id="inpAvsender" type="text" name="avsender" value="" placeholder="Ditt navn">
+      <label for="inpMelding">Melding</label>
+      <input id="inpMelding" type="text" name="melding" value="" placeholder="Din melding">
+      <button id="btnKnapp" type="button" name="button">Send</button>
+    </form>
+    <script type="text/javascript">
+
+      const db = firebase.database();
+      const kontaktliste = db.ref("kontaktliste")
+      const kontaktliste = db.ref("meldinger")
+
+      const inpNavn = document.querySelector("#inpNavn");
+      const inpTelefon = document.querySelector("#inpTelefon");
+      const btnKnapp = document.querySelector("#btnKnapp");
+
+      const inpAvsender = document.querySelector("#inpAvsender");
+      const inpMelding = document.querySelector("#inpMelding");
+      const btnKnapp = document.querySelector("#btnKnapp");
+
+      btnKnapp.onclick = function(event){
+        event.preventDefault();
+        let navn = inpNavn.value;
+        let telefon = inpTelefon.value;
+        kontaktliste.push(
+          {
+            "name": navn,
+            "telephone": telefon
+          }
+        );
+      }
+
+      btnKnapp.onclick = function(event){
+        event.preventDefault();
+        let avsender = inpAvsender.value;
+        let melding = inpMelding.value;
+        meldinger.push(
+          {
+            "sender": avsender,
+            "message": melding
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
