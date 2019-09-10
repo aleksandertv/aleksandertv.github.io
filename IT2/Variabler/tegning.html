@@ -5,7 +5,7 @@
     <title>Tegning med canvas</title>
   </head>
   <body>
-    <canvas id="canvas" width="300" height="400"></canvas>
+    <canvas id="canvas"></canvas>
     <script type="text/javascript">
       var canvas = document.querySelector("#canvas");
       var ctx = canvas.getContext("2d");
@@ -13,10 +13,16 @@
       ctx.strokeStyle = "black"; // Strekfarge
       ctx.lineWidth = 3; // Linjebredde
       ctx.fillRect(40,20,200,100); // x,y,bredde,høyde
-      ctx.strokeRect(40,20,200,100); // Tegner strek
+      ctx.strokeRect(40,20,200,100); // Tegner kantlinje
 
       // Tegner rette linjer
-      
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 5;
+      ctx.moveTo(40,200);
+      ctx.lineTo(240,320);
+      ctx.moveTo(40,320);
+      ctx.lineTo(240,200);
+      ctx.stroke();
     </script>
   </body>
 </html>

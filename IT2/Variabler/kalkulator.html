@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kalkulator</title>
+  </head>
+  <body>
+    <input type="number" id="inpTall1" value="3">
+    <input type="number" id="inpTall2" value="3">
+    <button type="button" id="btnLeggSammen">Legg sammen</button>
+    <p id="utskrift"></p>
+    <script type="text/javascript">
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall1 = document.querySelector("#inpTall1");
+      var btnLeggSammen = document.querySelector("#btnLeggSammen");
+      var utskrift = document.querySelector("#utskrift");
+
+      btnLeggSammen.onclick = function(){
+        var t1 = Number(inpTall1.value);
+        var t2 = Number(inpTall2.value);
+        var sum = t1 + t2;
+        utskrift.innerHTML = "Summen er " + sum;
+      };
+    </script>
+  </body>
+</html>

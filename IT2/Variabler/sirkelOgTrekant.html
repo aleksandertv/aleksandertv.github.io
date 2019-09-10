@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="800"></canvas>
+    <script type="text/javascript">
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      ctx.beginPath(); // Starter sirkelen
+      ctx.fillStyle = "orange";
+      // Sirkelsentrum i x og y
+      var x = 150;
+      var y = 150;
+      var radius = 100;
+      ctx.arc(x,y,radius,0,2*Math.PI); // Starter i 0, så går 2 ganger en halv sirkel rundt
+      ctx.stroke(); // Tegner kanten
+      ctx.fill(); // Blir oransje
+      ctx.closePath(); // Ender sirkelen
+
+      // Tegning av trekant
+      ctx.beginPath();
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 3;
+      ctx.moveTo(50,300);
+      ctx.lineTo(25,350);
+      ctx.lineTo(75,350);
+      ctx.lineTo(50,300);
+      ctx.stroke();
+      ctx.closePath();
+
+      // Tegning av rød firkant
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      ctx.fillRect(30,20,50,50);
+      ctx.strokeRect(30,20,50,50);
+      ctx.closePath();
+
+      // Tegning av hus
+      ctx.beginPath();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(300,40,50,50);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.moveTo(300,40);
+      ctx.lineTo(325,15);
+      ctx.lineTo(350,40);
+      ctx.stroke();
+      ctx.closePath();
+
+      // Tegning av det norske flagget
+      ctx.beginPath();
+      ctx.fillStyle = "white";
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "black";
+      ctx.fillRect(300,200,75,50);
+      ctx.strokeRect(300,200,75,50);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(300,200,25,20);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(335,200,40,20);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(300,230,25,20);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(335,230,40,20);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 3;
+      ctx.moveTo(300,225);
+      ctx.lineTo(375,225);
+      ctx.moveTo(330,200);
+      ctx.lineTo(330,250);
+      ctx.stroke();
+      ctx.closePath();
+
+      // Tegning av smiley
+      ctx.beginPath();
+      ctx.strokeStyle = "yellow";
+      ctx.lineWidth = 4;
+      var x = 150;
+      var y = 550;
+      var radius = 100;
+      ctx.arc(x,y,radius,0,2*Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      var x = 115;
+      var y = 525;
+      var radius = 10;
+      ctx.arc(x,y,radius,0,2*Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2;
+      var x = 185;
+      var y = 525;
+      var radius = 10;
+      ctx.arc(x,y,radius,0,2*Math.PI);
+      ctx.stroke();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "black";
+      ctx.fillStyle = "black";
+      ctx.lineWidth = 2;
+      var x = 150;
+      var y = 565;
+      var radius = 50;
+      ctx.arc(x,y,radius,0,Math.PI);
+      ctx.stroke();
+      ctx.fill();
+      ctx.closePath();
+    </script>
+  </body>
+</html>

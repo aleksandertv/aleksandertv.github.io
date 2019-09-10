@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver med knapp og input</title>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <!--  Hva heter du? <input type="text" id="inpNavn" value="">
+            <input type="text" id="inpTall1" value="2"><input type="text" id="inpTall2" value="3">
+            <button type="button" id="btnMultipliser">Multipliser</button><button type="button" id="btnAdder">Adder</button>
+            Hva er hastigheten, i meter per sekund? <input type="number" id="inpMs" value=""> -->
+            Lengde, i centimeter: <input type="number" id="inpLengde" value="" required>
+            Bredde, i centimeter: <input type="number" id="inpBredde" value="" required>
+            <select id="selFarge" required>
+              <option value="">Farge</option>
+              <option value="blue">Blå</option>
+              <option value="red">Rød</option>
+              <option value="yellow">Gul</option>
+              <option value="purple">Lilla</option>
+              <option value="pink">Rosa</option>
+            </select>
+            <button type="submit" id="btnSubmit">Submit</button>
+            <p id="print"></p>
+            <canvas id="canvas" width="1000" height="1000"></canvas>
+    </form>
+    <script type="text/javascript">
+      var print = document.querySelector("#print");
+      var btnSubmit = document.querySelector("#btnSubmit");
+      var inpNavn = document.querySelector("#inpNavn");
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall2 = document.querySelector("#inpTall2");
+      var btnMultipliser = document.querySelector("#btnMultipliser");
+      var btnAdder = document.querySelector("#btnAdder");
+      var inpMs = document.querySelector("#inpMs");
+      var selFarge = document.querySelector("#selFarge");
+      var inpLengde = document.querySelector("#inpLengde");
+      var inpBredde = document.querySelector("#inpBredde");
+
+      // Oppgave 1
+      /*
+      btnSubmit.onclick = function(){
+        print.innerHTML = "Nå er høsten endelig her";
+      };
+      */
+
+      // Oppgave 2
+      /*
+      btnSubmit.onclick = function(){
+        print.innerHTML = "Hei " + inpNavn.value + "!";
+      };
+      */
+
+      // Oppgave 3
+      /*
+      btnAdder.onclick = function(){
+        print.innerHTML = "Summen er da " + Number(inpTall1.value) + Number(inpTall2.value) + ".";
+      };
+      btnMultipliser.onclick = function(){
+        print.innerHTML = "Produktet er da " + Number(inpTall1.value) * Number(inpTall2.value) + ".";
+      };
+      */
+
+      // Oppgave 4
+      /*
+      btnSubmit.onclick = function(){
+        print.innerHTML = inpMs.value + " m/s er det samme som " + inpMs.value * 3.6 + " km/t."
+      };
+      */
+
+      // Oppgave 5
+      btnSubmit.onclick = function(){
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        var lengde = Number(inpBredde.value) * 37.7952755906;
+        var bredde = Number(inpLengde.value) * 37.7952755906;
+        ctx.lineWidth = 2;
+        ctx.fillStyle = selFarge.value;
+        ctx.strokeStyle = "black";
+        ctx.fillRect(40,40,lengde,bredde);
+        ctx.strokeRect(40,40,lengde,bredde);
+      };
+    </script>
+  </body>
+</html>
