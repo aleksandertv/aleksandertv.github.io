@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="">
+      Pris vare 1: <input type="number" id="inpTall1" value="">
+      Pris vare 2: <input type="number" id="inpTall2" value="">
+      <button type="button" id="btnSummer">Sjekk pris</button>
+      <p id="info"></p>
+    </div>
+    <script type="text/javascript">
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall2 = document.querySelector("#inpTall2");
+      var btnSummer = document.querySelector("#btnSummer");
+      var info = document.querySelector("#info");
+      var beloep = 100;
+
+      btnSummer.onclick = function() {
+        var t1 = Number(inpTall1.value);
+        var t2 = Number(inpTall2.value);
+        var sum = t1 + t2; // Sum av priser
+        // info.innerHTML = "Summen er: " + sum + ".<br>";
+        if (sum > beloep) {
+          info.innerHTML = "Du har ikke råd, men mangler " + (sum - beloep) + "kr.";
+        }
+        else if (sum === beloep) {
+          info.innerHTML = "Du har akkurat nok.";
+        }
+        else {
+          info.innerHTML = "Du har " + (beloep - sum) + "kr tilgode.";
+        };
+      };
+    </script>
+  </body>
+</html>

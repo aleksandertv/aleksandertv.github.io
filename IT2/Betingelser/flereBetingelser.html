@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Kan ha flere if-setninger som ikke utelukker hverandre
+      var terning1 = Math.floor(Math.random()*6+1);
+      var terning2 = Math.floor(Math.random()*6+1);
+      var sum = terning1 + terning2;
+      document.write("Tallene er " + terning1 + " og " + terning2 + ". ");
+      if (terning1 === terning2) {
+        document.write("Du fikk to like tall. ")
+      };
+      if (sum > 8) {
+        document.write("Du fikk en sum som er større enn 8. ")
+      };
+      if (terning1 > terning2) {
+        document.write("Du hadde høyest første kast.")
+      };
+    </script>
+  </body>
+</html>

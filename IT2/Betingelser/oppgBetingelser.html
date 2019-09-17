@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form>
+            <p id="pSpm"></p>
+            Svar: <input type="number" id="inpTall1" value="">
+      <!--  Tall 2: <input type="number" id="inpTall2" value="">
+            Hva vil du tegne? <input type="text" id="inpTekst" value="" required>
+            Hvilken farge vil du at den skal være? <select id="selFarge" required>
+              <option value="black">Svart</option>
+              <option value="blue">Blå</option>
+              <option value="red">Rød</option>
+              <option value="yellow">Gul</option>
+              <option value="purple">Lilla</option>
+              <option value="pink">Rosa</option>
+            </select> -->
+      <button type="button" id="btnSummer">Trykk her</button>
+    <!--  </form>
+    <img src="" id="bilde"> -->
+    <p id="print"></p>
+    <!--  <p id="resultat"></p>
+    <canvas id="canvas" width="300" height="300"></canvas>  -->
+    <script type="text/javascript">
+      var pSpm = document.querySelector("#pSpm")
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall2 = document.querySelector("#inpTall2");
+      var inpTekst = document.querySelector("#inpTekst");
+      var selFarge = document.querySelector("#selFarge");
+      var btnSummer = document.querySelector("#btnSummer");
+      var bilde = document.querySelector("#bilde");
+      var print = document.querySelector("#print");
+      var resultat = document.querySelector("#resultat");
+      var canvas = document.querySelector("#canvas");
+
+      // Oppgave 1 & 2, s.79
+      /*
+      var svar = prompt("Hva er hovedstaden i Norge");
+      if (svar.toLowerCase() === "oslo") {
+        document.write("<br>Du svarte riktig!");
+        bilde.src = "Bilder/Pokal.jpg";
+      }
+      else {
+        document.write("<br>Du svarte feil!");
+      };
+      */
+
+      // Oppgave 3, s.79
+      /*
+      var tall = "4";
+      if (tall === 4) {
+        document.write("sann");
+      }
+      else {
+        document.write("usann");
+      };
+      */
+
+      // Oppgave 4, s.79
+      /*
+      var ukedag = prompt("Hvilken ukedag er det i dag?");
+      var dato = prompt("Hvilken dag i måneden er det?");
+
+      if (ukedag.toLowerCase() === "fredag" && Number(dato) === 13) {
+        document.write("<br>Pass på, i dag er det fredag den 13!");
+        bilde.src = "Bilder/Fredag13.jpg";
+      }
+      else {
+        document.write("<br>Ha en god dag!");
+        bilde.src = "Bilder/Strand.png";
+      };
+      */
+
+      // Oppgave 1
+      /*
+      btnSummer.onclick = function() {
+        if (Number(inpTall1.value) > Number(inpTall2.value)) {
+          print.innerHTML = "Tall 1 er større enn Tall 2.";
+        }
+        else if (Number(inpTall1) === Number(inpTall2.value)) {
+          print.innerHTML = "Tallene er like store.";
+        }
+        else {
+          print.innerHTML = "Tall 2 er større enn Tall 1.";
+        };
+      };
+      */
+
+      // Oppgave 2
+      /*
+      btnSummer.onclick = function() {
+        if (Number(inpTall1.value) > 67) {
+          print.innerHTML = "Du må kjøpe honnørbillett.";
+        }
+        else if (Number(inpTall1.value) < 16) {
+          print.innerHTML = "Du må kjøpe barnebillett";
+        }
+        else {
+          print.innerHTML = "Du må kjøpe voksenbillett.";
+        };
+      };
+      */
+
+      // Oppgave 3
+      /*
+      btnSummer.onclick = function() {
+        if (inpTekst.value.toLowerCase() === "firkant") {
+          var ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.lineWidth = 2;
+          ctx.fillStyle = selFarge.value;
+          ctx.strokeStyle = "black";
+          ctx.fillRect(40,40,220,220);
+          ctx.strokeRect(40,40,220,220);
+          ctx.closePath();
+        }
+        else if (inpTekst.value.toLowerCase() === "sirkel") {
+          var ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "black";
+          ctx.fillStyle = selFarge.value;
+          var x = 150;
+          var y = 150;
+          var radius = 148;
+          ctx.arc(x,y,radius,0,2*Math.PI);
+          ctx.stroke();
+          ctx.fill();
+          ctx.closePath();
+        }
+        else {
+          print.innerHTML = "Du må enten skrive firkant eller sirkel."
+        };
+      };
+      */
+
+      // Oppgave 4
+      /*
+      btnSummer.onclick = function() {
+        var terning1 = Math.floor(Math.random()*6+1);
+        var terning2 = Math.floor(Math.random()*6+1);
+        var terning3 = Math.floor(Math.random()*6+1);
+        var sum = terning1 + terning2 + terning3;
+        print.innerHTML = "Terningene viser " + terning1 + ", " + terning2 + " og " + terning3 + ". ";
+        if (sum <= 17 && sum >= 16) {
+          resultat.innerHTML = "Gratulerer, du har fått minst en sekser.";
+        }
+        else if (sum === 18) {
+          resultat.innerHTML = "Gratulerer! Du vant.";
+        }
+        else {
+          resultat.innerHTML = "Prøv igjen.";
+        };
+      };
+      */
+
+      // Oppgave 5
+
+
+      // Oppgave 9
+      /*
+      btnSummer.onclick = function() {
+        var rest = Number(inpTall1.value)%2;
+        if (rest === 0) {
+          print.innerHTML = "Tallet er et partall.";
+        }
+        else {
+          print.innerHTML = "Tallet er et oddetall.";
+        };
+      };
+      */
+    </script>
+  </body>
+</html>
