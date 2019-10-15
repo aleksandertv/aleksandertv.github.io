@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 4</title>
+  </head>
+  <body>
+    <input type="number" id="inpTall" value="">
+    <button type="button" id="btnFinn">Finn</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+      var inpTall = document.querySelector("#inpTall");
+      var btnFinn = document.querySelector("#btnFinn");
+      var print = document.querySelector("#print");
+
+      btnFinn.onclick = function() {
+        print.innerHTML = ``;
+        while (inpTall.value >= 1) {
+          inpTall.value--; // Hvis denne hadde stått under if-setningen hadde tallet man skrev inn blitt inkludert
+          if (inpTall.value%2 !== 0) { // Kunne også skrevet "=== 1"
+            print.innerHTML += inpTall.value + "<br>";
+          };
+        };
+      };
+    </script>
+  </body>
+</html>

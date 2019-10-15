@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      var vinner = 0;
+        while(vinner !== 10){
+          vinner = Math.floor(Math.random()*10+1);//tilfeldig tall mellom 1 og 10
+          console.log("Du vant ikke");
+        }
+          console.log("Hurra! Du vant");
+//-------------------------------------------------------------------------------
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var ende = 300;
+      var yPos = 50;
+      while(ende > 0){
+        ctx.moveTo(50,yPos);
+        ctx.lineTo(200,yPos);
+        ctx.stroke();
+        yPos = yPos + 50;
+        ende = ende - 50;
+      };
+    </script>
+  </body>
+</html>

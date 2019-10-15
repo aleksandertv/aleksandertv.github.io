@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var x = 150;
+      var y = 150;
+      var radius = 100;
+      while (radius >= 100/10) { // For at man alltid har 10 sirkler. Man må huske å endre alle 3 radius-variablene.
+        ctx.arc(x,y,radius,0,2*Math.PI);
+        ctx.stroke();
+        radius = radius - 100/10;
+      };
+    </script>
+  </body>
+</html>

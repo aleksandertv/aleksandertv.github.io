@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    Høyde (i centimeter): <input type="number" id="inpHoeyde" value="">
+    <button type="button" id="btnSjekk">Sjekk</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+      var inpHoeyde = document.querySelector("#inpHoeyde");
+      var btnSjekk = document.querySelector("#btnSjekk");
+      var print = document.querySelector("#print");
+
+      btnSjekk.onclick = function() {
+        if (inpHoeyde.value < 120) {
+          print.innerHTML = "Prøv noen andre attraksjoner.";
+        }
+        else if (inpHoeyde.value >= 120 && inpHoeyde.value < 130) {
+          print.innerHTML = "Du må ha med deg en voksen.";
+        }
+        else if (inpHoeyde.value >= 130 && inpHoeyde.value < 140) {
+          print.innerHTML = "Du kan kjøre to av berg-og-dalbanene.";
+        }
+        else {
+          print.innerHTML = "Du kan kjøre alle berg-og-dalbanene.";
+        };
+      };
+    </script>
+  </body>
+</html>

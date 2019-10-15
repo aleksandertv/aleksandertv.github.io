@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 5</title>
+  </head>
+  <body>
+    <button type="button" id="btnGenerer">Generer</button>
+    <!-- <p id="midlertidig"></p> -->
+    <input type="text" id="inpGjett" value="">
+    <button type="button" id="btnSjekk">Sjekk</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+      var btnGenerer = document.querySelector("#btnGenerer");
+      // var midlertidig = document.querySelector("#midlertidig");
+      var inpGjett = document.querySelector("#inpGjett");
+      var btnSjekk = document.querySelector("#btnSjekk");
+      var print = document.querySelector("#print");
+      var tilfeldig = 0;
+      var forsoek = 0;
+
+      btnGenerer.onclick = function() {
+        tilfeldig = Math.floor(Math.random() * 100);
+        // midlertidig.innerHTML = tilfeldig;
+        forsoek = 0; // For å resette antall forsøk
+      };
+
+      btnSjekk.onclick = function() {
+        forsoek++;
+        if (inpGjett.value == tilfeldig) {
+          print.innerHTML = "Gratulerer! Du brukte " + forsoek + " forsøk.";
+        }
+        else if (inpGjett.value < tilfeldig) {
+          print.innerHTML = "Du gjettet for lavt. Gjett på nytt.";
+        }
+        else if (inpGjett.value > tilfeldig) {
+          print.innerHTML = "Du gjettet for høyt. Gjett på nytt.";
+        };
+      };
+    </script>
+  </body>
+</html>

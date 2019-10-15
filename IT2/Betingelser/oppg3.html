@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    <form>
+      <p id="pSpm"></p>
+        Hva vil du tegne? <input type="text" id="inpTekst" value="" required>
+        Hvilken farge vil du at den skal være? <select id="selFarge" required>
+          <option value="black">Svart</option>
+          <option value="blue">Blå</option>
+          <option value="red">Rød</option>
+          <option value="yellow">Gul</option>
+          <option value="purple">Lilla</option>
+          <option value="pink">Rosa</option>
+        </select>
+      <button type="button" id="btnTegn">Trykk her</button>
+    </form>
+    <p id="print"></p>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      var inpTekst = document.querySelector("#inpTekst");
+      var btnTegn = document.querySelector("#btnTegn");
+      var ctx = canvas.getContext("2d");
+      var print = document.querySelector("#print");
+
+      btnTegn.onclick = function() {
+        if (inpTekst.value.toLowerCase() === "firkant") {
+          ctx.beginPath();
+          ctx.lineWidth = 2;
+          ctx.fillStyle = selFarge.value;
+          ctx.strokeStyle = "black";
+          ctx.fillRect(40,40,220,220);
+          ctx.strokeRect(40,40,220,220);
+          ctx.closePath();
+        }
+        else if (inpTekst.value.toLowerCase() === "sirkel") {
+          ctx.beginPath();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "black";
+          ctx.fillStyle = selFarge.value;
+          var x = 150;
+          var y = 150;
+          var radius = 148;
+          ctx.arc(x,y,radius,0,2*Math.PI);
+          ctx.stroke();
+          ctx.fill();
+          ctx.closePath();
+        }
+        else {
+          print.innerHTML = "Du må enten skrive firkant eller sirkel."
+        };
+      };
+    </script>
+  </body>
+</html>
