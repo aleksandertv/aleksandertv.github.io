@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button type="button" id="btnSlett">Skriv ut</button>
+    <input type="text" id="inpNavn" value="">
+    <p id="info"></p>
+    <script type="text/javascript">
+      var btnSlett = document.querySelector("#btnSlett");
+      var inpNavn = document.querySelector("#inpNavn");
+      var info = document.querySelector("#info");
+
+      var navnArr = ["Per","Siri","Kari","Ane"];
+
+      skrivUt();
+
+      function skrivUt() {
+        for (var navn of navnArr) {
+          info.innerHTML += navn + "<br>";
+        };
+      };
+
+      // Funksjon som sletter det vi skriver inn fra arrayen når vi trykker på knappen
+      btnSlett.onclick = function() {
+        info.innerHTML = ""; // Tømmer info elementet
+        var indeks = navnArr.indexOf(inpNavn.value);
+        if (indeks >= 0) {
+          navnArr.splice(indeks,1);
+        };
+        skrivUt();
+      };
+    </script>
+  </body>
+</html>

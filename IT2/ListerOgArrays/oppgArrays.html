@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver arrays</title>
+  </head>
+  <body>
+    <!-- Oppgave 1, 2, 3, 4
+    <input type="number" id="inpVerdi" value="">
+    <button type="button" id="btnReg">Registrer</button>
+    <button type="button" id="btnSum">Summer</button>
+    <button type="button" id="btnFaktor">Multipliser tallene</button>
+    <button type="button" id="btnLavest">Laveste tall</button>
+    <button type="button" id="btnAverage">Gjennomsnitt</button>
+    <p id="printTall"></p>
+    <p id="printSum"></p>
+    <p id="printFaktor"></p>
+    <p id="printReverse"></p>
+    <p id="printLavest"></p>
+    <p id="printAverage"></p> -->
+    <img id="imgFerie" src="">
+    <button type="button" id="btnForrige"></button>
+    <button type="button" id="btnNeste"></button>
+    <script type="text/javascript">
+      /*
+      // Oppgave 1, 2
+      var inpVerdi = document.querySelector("#inpVerdi");
+      var btnReg = document.querySelector("#btnReg");
+      var btnSum = document.querySelector("#btnSum");
+      var btnFaktor = document.querySelector("#btnFaktor");
+      var btnLavest = document.querySelector("#btnLavest");
+      var btnAverage = document.querySelector("#btnAverage");
+      var printTall = document.querySelector("#printTall");
+      var printSum = document.querySelector("#printSum");
+      var printFaktor = document.querySelector("#printFaktor");
+      var printLavest = document.querySelector("#printLavest");
+      var printAverage = document.querySelector("#printAverage");
+
+      var tallArr = [4,3,6,2];
+
+      btnReg.onclick = function() {
+        if (inpVerdi.value === "") {
+          return;
+        };
+        tallArr.push(Number(inpVerdi.value));
+        printTall.innerHTML = "Sortert, ser tallene sånn ut: " + tallArr.sort().join(", ");
+        printReverse.innerHTML = "Reversert, ser tallene sånn ut: " + tallArr.reverse().join(", ");
+      };
+
+      btnSum.onclick = function() {
+        var sum = 0;
+        for (var i = 0; i < tallArr.length; i++) {
+          printSum.innerHTML = "";
+          sum = sum + tallArr[i];
+        };
+        printSum.innerHTML = "Summen av alle tallene er " + sum;
+      };
+
+      btnFaktor.onclick = function() {
+        var faktor = 1;
+        for (var i = 0; i < tallArr.length; i++) {
+          faktor = faktor * tallArr[i];
+        };
+        printFaktor.innerHTML = "Faktoren av alle tallene er " + faktor;
+      };
+
+      // Oppgave 3
+      btnLavest.onclick = function() {
+        var min = tallArr[0];
+        for (var i = 0; i < tallArr.length; i++) {
+          if (tallArr[i] < min) {
+            min = tallArr[i];
+          };
+        };
+        printLavest.innerHTML = "Det laveste av alle tallene er " + min;
+      };
+
+      // Oppgave 4
+      btnAverage.onclick = function() {
+        var sum = 0;
+        for (var i = 0; i < tallArr.length; i++) {
+          printAverage.innerHTML = "";
+          sum = sum + tallArr[i];
+        };
+        var gjennomsnitt = sum / (tallArr.length - 1);
+        printAverage.innerHTML = "Gjennomsnittet av tallene er " + gjennomsnitt;
+      };
+      */
+
+      // Oppgave 5
+      var bildeArr = [];
+      var imgFerie = document.querySelector("#imgFerie");
+
+      imgFerie.src = bildeArr[0];
+      btnNeste.onclick = function() {
+        
+      };
+    </script>
+  </body>
+</html>

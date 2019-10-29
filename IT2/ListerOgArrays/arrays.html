@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Array</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var landliste = ["Norge","Sverige","Danmark","Italia"]; // Variabel med fler verdier, der verdiene har hvert sitt nr
+      // document.write(landliste.join(", ") + "<br>"); // Skriver ut arrayen
+      document.write(landliste[2] + "<br>"); // Danmark
+      landliste[0] = "Frankrike"; // Norge byttes ut med Frankrike
+      document.write(landliste.join(", ") + "<br>"); // .join(", ") gjør sånn at det blir et komma og et mellomrom mellom hvert element i arrayen
+      document.write("indeks " + landliste.indexOf("Danmark") + "<br>"); // For å finne indeksen til et element i et array
+      document.write("indeks " + landliste.indexOf("Sverig") + "<br>"); // Hvis den ikke finnes i arrayen; returnerer -1
+
+      document.write("----------------------------------------<br>");
+
+      var poeng = [];
+      poeng[0] = 12;
+      poeng[1] = 73;
+      poeng[2] = 24;
+      // poeng[12] = 33;
+
+      document.write(poeng[4] + "<br>");
+      document.write(poeng.length + "<br>");
+
+      poeng.push(7); // Legger til på slutten
+      document.write(poeng.join(", ") + "<br>");
+      poeng[poeng.length] = 8;
+      document.write(poeng.join(", ") + "<br>");
+
+      document.write(poeng.length + "<br>");
+
+      document.write("----------------------------------------<br>");
+
+      var sum = 0;
+      for (i = 0; i < poeng.length; i++) {
+        document.write("Element nr " + i + " er " + poeng[i] + ".<br>");
+        sum = sum + poeng[i];
+      };
+      document.write("Summen er " + sum + ".<br>");
+    </script>
+  </body>
+</html>

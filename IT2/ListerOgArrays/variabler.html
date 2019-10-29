@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Globale og lokale variabler</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var minVerdi = 5; // global variabel
+
+      function leggTilEn() {
+        // minVerdi++;
+        var minVerdi = 3; // lokal variabel, i inne i funksjonen
+        this.minVerdi++; // den globale variabelen = den lokale variabelen + 1
+      };
+
+      leggTilEn();
+      document.write(minVerdi);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver funksjoner</title>
+  </head>
+  <body>
+    <!-- Oppgave 2 -->
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      // Oppgave 1
+      /*
+      function tilfeldigHilsen() {
+        var hilsen = ["Hei","Hallo","God dag"];
+        var posisjon = Math.floor(Math.random() * 3);
+        document.write(hilsen[posisjon]);
+      };
+      tilfeldigHilsen();
+      */
+
+      // Oppgave 2
+
+      var x = 20;
+      var y = 20;
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var radius = 20;
+      function tegnSirkel() {
+        ctx.arc(x,y,radius,0,2*Math.PI);
+        ctx.stroke();
+      };
+      function flyttX() {
+        for (x = 20; x <= 260; x = x + 40) {
+          for (y = 20; y <= 260; y = y + 40) {
+            ctx.beginPath();
+            ctx.arc(x,y,radius,0,2*Math.PI);
+            ctx.stroke();
+            ctx.closePath();
+          };
+        };
+      };
+      tegnSirkel();
+      flyttX();
+
+      // Oppgave 3
+
+    </script>
+  </body>
+</html>

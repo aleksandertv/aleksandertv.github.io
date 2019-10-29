@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Fravær</title>
+  </head>
+  <body>
+    <input type="number" id="inpProsent" value="0">
+    <button type="button" id="btnReg">Registrer fravær</button>
+    <script type="text/javascript">
+      // Skrive inn fraværet sitt i prosent + knapp
+        // Hvis fravær er under 5 prosent skal siden bli grønn
+        // Hvis fravær er mellom 5 og 10 prosent skal siden bli oransje
+        // Fravær over 10 --> Rød side
+      var inpProsent = document.querySelector("#inpProsent");
+      var btnReg = document.querySelector("#btnReg");
+
+      btnReg.onclick = function() {
+        var prosentFravaer = inpProsent.value;
+        if(prosentFravaer === "") { // Tester om brukeren har skrevet inn noe
+          alert("Skriv inn fravær");
+          return;
+        };
+        if (prosentFravaer < 5) {
+          document.body.style.backgroundColor = "green";
+        }
+        else if (prosentFravaer < 10) {
+          document.body.style.backgroundColor = "orange";
+        }
+        else {
+          document.body.style.backgroundColor = "red";
+        };
+      };
+    </script>
+  </body>
+</html>

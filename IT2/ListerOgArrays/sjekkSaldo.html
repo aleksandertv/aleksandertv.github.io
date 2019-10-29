@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sjekk saldo</title>
+  </head>
+  <body>
+    <div class="">
+      <button type="button" id="btnSaldo">Sjekk saldo</button>
+      <p id="info"></p>
+    </div>
+    <script type="text/javascript">
+      var btnSaldo = document.querySelector("#btnSaldo");
+      var info = document.querySelector("#info");
+      var saldo = 15000;
+
+      btnSaldo.onclick = function() {
+        if (saldo >= 3000) {
+          info.innerHTML = uttak(3000);
+        };
+      };
+
+      function uttak(beloep) {
+        saldo = saldo - beloep;
+        return "Du har tatt ut " + beloep + " kr. Ny saldo er " + saldo;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Arrays med tall og maksverdi</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var tallArr = [12,9,7,14,2];
+      var maks = tallArr[0];
+      for (var i = 0; i < tallArr.length; i++) {
+        if (tallArr[i] > maks) {
+          maks = tallArr[i];
+        };
+      };
+      document.write("Maks verdi er " + maks + "<br>")
+
+      utskrift();
+
+      // funksjon som skriver ut innholder i arrayet tallArr
+      function utskrift() {
+        for (var i = 0; i < tallArr.length; i++) {
+          document.write(tallArr[i] + "<br>");
+        };
+      };
+    </script>
+  </body>
+</html>
