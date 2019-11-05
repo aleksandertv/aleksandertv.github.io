@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sortere et array med tall</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var tallArr = [12,4,7,2,11];
+      tallArr.sort();
+      document.write(tallArr + "<br>");
+
+      // Sammenligner to tall om gangen. Funksjonen returnerer a-b. Hvis funksjonen returnerer et negativt tall, plasseres a
+      // foran b, fordi a er mindre enn b. Hvis de er like, returneres 0.
+      function sammenlignTall(a,b) {
+        return a-b;
+      };
+
+      tallArr.sort(sammenlignTall);
+      document.write(tallArr + "<br>");
+    </script>
+  </body>
+</html>

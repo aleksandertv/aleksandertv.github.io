@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver arrays 2</title>
+  </head>
+  <body>
+    <form method="post">
+      <input type="text" id="inpMerke" placeholder="Merke" value="" required>
+      <input type="number" id="inpModell" value="" placeholder="Modell" required>
+      <input type="text" id="inpRegNr" value="" placeholder="Registreringsnummer" required>
+      <button type="submit" id="btnReg" method="get">Registrer bil</button>
+      <button type="button" id="btnPrint">Skriv ut</button>
+    </form>
+    <table id="table" border=1>
+
+    </table>
+    <script type="text/javascript">
+      var inpMerke = document.querySelector("#inpMerke");
+      var inpModell = document.querySelector("#inpModell");
+      var inpRegNr = document.querySelector("#inpRegNr");
+      var btnReg = document.querySelector("#btnReg");
+      var btnPrint = document.querySelector("#btnPrint");
+      var table = document.querySelector("#table");
+
+      // Oppgave 1
+      var bilArr = [{merke:"a",modell:"1",regNr:"b"}];
+
+      var overskrifter = "<tr>";
+      overskrifter += "<th>Merke</th>";
+      overskrifter += "<th>Modell</th>";
+      overskrifter += "<th>Registreringsnummer</th>";
+      overskrifter += "</tr>";
+
+      btnReg.onclick = function() {
+        bilArr.push({merke:inpMerke.value,modell:inpModell.value,regNr:inpRegNr.value});
+        console.log(bilArr.merke);
+      };
+
+      btnPrint.onclick = function() {
+        table.innerHTML = "";
+        table.innerHTML = overskrifter;
+        for(var bil of bilArr){
+          var rad = "<tr>";
+          rad += "<td>" + bil.merke + "</td>";
+          rad += "<td>" + bil.modell + "</td>";
+          rad += "<td>" + bil.regNr + "</td>";
+          rad += "</tr>";
+
+          //legger til raden i tabellen
+          table.innerHTML += rad;
+        };
+      };
+    </script>
+  </body>
+</html>

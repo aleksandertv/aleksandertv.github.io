@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Andeby</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var personinfo = [
+        {fornavn:"Donald",etternavn:"Duck",alder:85},
+        {fornavn:"Dolly",etternavn:"Duck",alder:82},
+        {fornavn:"Mikke",etternavn:"Mus",alder:91},
+        {fornavn:"Anders",etternavn:"And",alder:83}
+      ];
+
+      skrivUt();
+
+      // legge til
+      personinfo.push({fornavn:"Hetti",etternavn:"Duck",alder:45});
+
+      var lengde = personinfo.length;
+      personinfo[lengde] = {fornavn:"Ole",etternavn:"Duck",alder:53};
+
+      skrivUt();
+
+      // sortering på navn
+      personinfo.sort(sammenlignNavn);
+
+      function sammenlignNavn(a,b) {
+        a = a.fornavn.toUpperCase();
+        b = b.fornavn.toUpperCase();
+        if (a > b) {
+          return 1;
+        }
+        else if (a < b) {
+          return -1;
+        }
+        else {
+          return 0;
+        };
+      };
+
+      skrivUt();
+
+      // sortering på alder
+      // personinfo.sort(sammenlignTall);
+
+      function sammenlignTall(a,b) {
+        return a.alder - b.alder;
+      };
+
+      // skrivUt();
+
+      function skrivUt() {
+        for (var navn of personinfo) {
+          document.write(navn.fornavn + " " + navn.etternavn + " er " + navn.alder + " år.<br>");
+        };
+      };
+    </script>
+  </body>
+</html>

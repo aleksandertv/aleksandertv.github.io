@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Endre til stor forbokstav</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var navnArr = ["kari","Petter","anna","SISSEL"];
+
+      var navn = navnArr[0];
+      navn = navn.substring(0,1).toUpperCase() + navn.substring(1);
+      document.write(navn + "<br>");
+
+      function endreBokstav() {
+        for (var i = 0; i < navnArr.length; i++) {
+          navn = navnArr[i];
+          navn = navn.substring(0,1).toUpperCase() + navn.substring(1).toLowerCase();
+          navnArr[i] = navn; // endrer innholdet i arrayet til navn med stor forbokstav
+        };
+      };
+
+      endreBokstav();
+      document.write(navnArr);
+    </script>
+  </body>
+</html>

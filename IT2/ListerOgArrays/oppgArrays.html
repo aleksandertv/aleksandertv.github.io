@@ -19,8 +19,8 @@
     <p id="printLavest"></p>
     <p id="printAverage"></p> -->
     <img id="imgFerie" src="">
-    <button type="button" id="btnForrige"></button>
-    <button type="button" id="btnNeste"></button>
+    <button type="button" id="btnForrige">Forrige</button>
+    <button type="button" id="btnNeste">Neste</button>
     <script type="text/javascript">
       /*
       // Oppgave 1, 2
@@ -88,13 +88,31 @@
       */
 
       // Oppgave 5
-      var bildeArr = [];
       var imgFerie = document.querySelector("#imgFerie");
+      var bildeArr = ["Bilder/hund1.jpg","Bilder/hund2.jpg","Bilder/hund3.jpg","Bilder/Strand.png"];
 
-      imgFerie.src = bildeArr[0];
-      btnNeste.onclick = function() {
-        
+      var bilde = 0;
+      btnForrige.onclick = function() {
+        if (bilde === 0) {
+          imgFerie.src = bildeArr[bildeArr.length - 1];
+        }
+        else {
+          imgFerie.src = bildeArr[bilde];
+        };
+        bilde--;
       };
+
+      btnNeste.onclick = function() {
+        if (bilde === bildeArr.length - 1) {
+          imgFerie.src = bildeArr[0];
+        }
+        else {
+          imgFerie.src = bildeArr[bilde];
+        };
+        bilde++;
+      };
+
+      console.log(bilde);
     </script>
   </body>
 </html>
