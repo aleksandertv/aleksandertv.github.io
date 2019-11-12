@@ -5,13 +5,11 @@
     <title>Oppgaver arrays 2</title>
   </head>
   <body>
-    <form method="post">
-      <input type="text" id="inpMerke" placeholder="Merke" value="" required>
-      <input type="number" id="inpModell" value="" placeholder="Modell" required>
-      <input type="text" id="inpRegNr" value="" placeholder="Registreringsnummer" required>
-      <button type="submit" id="btnReg" method="get">Registrer bil</button>
-      <button type="button" id="btnPrint">Skriv ut</button>
-    </form>
+    <input type="text" id="inpMerke" placeholder="Merke" value="">
+    <input type="number" id="inpModell" placeholder="Modell" value="">
+    <input type="text" id="inpRegNr" placeholder="Registreringsnummer" value="">
+    <button type="button" id="btnReg">Registrer bil</button>
+    <button type="button" id="btnPrint">Skriv ut</button>
     <table id="table" border=1>
 
     </table>
@@ -24,31 +22,41 @@
       var table = document.querySelector("#table");
 
       // Oppgave 1
-      var bilArr = [{merke:"a",modell:"1",regNr:"b"}];
+      var bilArr = []; //lager et tomt array
 
-      var overskrifter = "<tr>";
-      overskrifter += "<th>Merke</th>";
-      overskrifter += "<th>Modell</th>";
-      overskrifter += "<th>Registreringsnummer</th>";
-      overskrifter += "</tr>";
+      var overskrifter = "<tr><th>Merke</th><th>Modell</th><th>Registreringsnummer</th></tr>"; //overskriftene
 
       btnReg.onclick = function() {
-        bilArr.push({merke:inpMerke.value,modell:inpModell.value,regNr:inpRegNr.value});
-        console.log(bilArr.merke);
+        bilArr.push({merke:inpMerke.value,modell:inpModell.value,regNr:inpRegNr.value}); //pusher verdien man har skrevet inn
       };
 
       btnPrint.onclick = function() {
-        table.innerHTML = "";
-        table.innerHTML = overskrifter;
-        for(var bil of bilArr){
+        bilArr.sort(sammenlignMerke);
+        table.innerHTML = ""; //tømmer tabellen
+        table.innerHTML = overskrifter; //legger til overskriftene
+        for (var bil of bilArr) {
           var rad = "<tr>";
           rad += "<td>" + bil.merke + "</td>";
           rad += "<td>" + bil.modell + "</td>";
           rad += "<td>" + bil.regNr + "</td>";
           rad += "</tr>";
 
-          //legger til raden i tabellen
-          table.innerHTML += rad;
+          table.innerHTML += rad; //legger til raden i tabellen
+        };
+      };
+
+      // Oppgave 2
+      function sammenlignMerke(a,b) {
+        a = a.merke.toUpperCase();
+        b = b.merke.toUpperCase();
+        if (a > b) {
+          return 1;
+        }
+        else if (a < b) {
+          return -1;
+        }
+        else {
+          return 0;
         };
       };
     </script>
