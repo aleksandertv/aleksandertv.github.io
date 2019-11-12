@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver todimensjonale arrayer</title>
+  </head>
+  <body>
+      <!-- Oppgave 1
+    <input type="number" id="inpNr1" value="">
+    <input type="number" id="inpNr2" value="">
+    <button type="button" id="btnMultipliser">Multipliser</button>
+    <p id="print"></p>
+  -->
+    <input type="text" id="inpDag" placeholder="Dag" value="">
+    <input type="number" id="inpTime" placeholder="Timenummer" value="">
+    <button type="button" id="btnSjekk">Sjekk</button>
+    <p id="print2"></p>
+    <button type="button" id="btnVis">Vis timeplan</button>
+    <table>
+
+    </table>
+    <script type="text/javascript">
+      var inpNr1 = document.querySelector("#inpNr1");
+      var inpNr2 = document.querySelector("#inpNr2");
+      var btnMultipliser = document.querySelector("#btnMultipliser");
+      var print = document.querySelector("#print");
+      var inpDag = document.querySelector("#inpDag");
+      var inpTime = document.querySelector("#inpTime");
+      var btnSjekk = document.querySelector("#btnSjekk");
+      var print2 = document.querySelector("#print2");
+      var btnVis = document.querySelector("#btnVis");
+      var table = document.querySelector("table");
+
+      // Oppgave 1
+      /*
+      var gangetabell = [];
+      var i = 1;
+      gangetabell[0] = [0];
+      while (i <= 100) {
+        gangetabell[0].push(0);
+        i++;
+      };
+      i = 0;
+      gangetabell[1] = [];
+      while (i <= 100) {
+        gangetabell[1].push(i);
+        i++;
+      };
+      i = 0;
+      gangetabell[2] = [];
+      while (i <= 100) {
+        gangetabell[2].push(i);
+        i = i + 2;
+      };
+      i = 0;
+      gangetabell[3] = [];
+      while (i <= 100) {
+        gangetabell[3].push(i);
+        i = i + 3;
+      };
+      i = 0;
+      gangetabell[4] = [];
+      while (i <= 100) {
+        gangetabell[4].push(i);
+        i = i + 4;
+      };
+      i = 0;
+      gangetabell[5] = [];
+      while (i <= 100) {
+        gangetabell[5].push(i);
+        i = i + 5;
+      };
+      i = 0;
+      gangetabell[6] = [];
+      while (i <= 100) {
+        gangetabell[6].push(i);
+        i = i + 6;
+      };
+      i = 0;
+      gangetabell[7] = [];
+      while (i <= 100) {
+        gangetabell[7].push(i);
+        i = i + 7;
+      };
+      i = 0;
+      gangetabell[8] = [];
+      while (i <= 100) {
+        gangetabell[8].push(i);
+        i = i + 8;
+      };
+      i = 0;
+      gangetabell[9] = [];
+      while (i <= 100) {
+        gangetabell[9].push(i);
+        i = i + 9;
+      };
+      i = 0;
+      gangetabell[10] = [];
+      while (i <= 100) {
+        gangetabell[10].push(i);
+        i = i + 10;
+      };
+
+      btnMultipliser.onclick = function() {
+        var j = Number(inpNr1.value);
+        var k = Number(inpNr2.value);
+        print.innerHTML = "Svaret er " + gangetabell[j][k] + ".<br>";
+      };
+      */
+
+      // Oppgave 2
+      var timeplanArr = [];
+      timeplanArr[0] = ["norsk"];
+      timeplanArr[1] = ["IT2"];
+      timeplanArr[2] = ["religion","historie"];
+      timeplanArr[3] = ["matte S2"];
+      timeplanArr[4] = ["markedsføring 1","gym"];
+
+      var dagArr = ["mandag","tirsdag","onsdag","torsdag","fredag"];
+
+      var i = 0;
+      btnSjekk.onclick = function() {
+        i = dagArr.indexOf(inpDag.value);
+        // console.log(i);
+        if (i === -1) {
+          alert("Du har ikke noen timer den dagen.");
+          return;
+        };
+        if (Number(inpTime.value) > timeplanArr[i].length) {
+          alert("Du har ikke så mange timer.");
+          return;
+        };
+        if (Number(inpTime.value) <= 0) {
+          alert("Det går ikke an å skrive " + inpTime.value + " som timenummer.");
+          return;
+        };
+        print2.innerHTML = "I time nummer " + inpTime.value + " på " + inpDag.value + " har du " + timeplanArr[i][Number(inpTime.value) - 1] + ".<br>"
+      };
+    </script>
+  </body>
+</html>

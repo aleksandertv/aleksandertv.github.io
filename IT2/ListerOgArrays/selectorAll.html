@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bytt farge</title>
+    <style media="screen">
+      .gul {
+        background-color: yellow;
+      }
+
+      .roed {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btnFarge" name="button">Trykk her</button>
+    <p class="gul">Jeg er et farget p-element</p>
+    <p class="roed">Jeg er et farget p-element</p>
+    <p class="gul">Jeg er et farget p-element</p>
+    <p class="roed">Jeg er et farget p-element</p>
+    <p class="gul">Jeg er et farget p-element</p>
+    <p class="roed">Jeg er et farget p-element</p>
+    <script type="text/javascript">
+      var btnFarge = document.querySelector("#btnFarge");
+      // Lager et array med alle p-elementene
+      var avsnittEl = document.querySelectorAll("p");
+
+      btnFarge.onclick = function() {
+        for (var element of avsnittEl) {
+          if (element.className === "gul") {
+            element.className = "roed";
+          }
+          else {
+            element.className = "gul";
+          };
+        };
+      };
+    </script>
+  </body>
+</html>

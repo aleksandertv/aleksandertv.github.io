@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todimensjonale arrayer</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var bilArr = [];
+      bilArr[0] = ["Volvo","Fiat","Lada","Renault"];
+      bilArr[1] = ["Blå","Rød","Sølv","Svart"];
+      bilArr[2] = ["DK12345","DA23456","AB34567","AA76543"];
+
+      document.write(bilArr[0][0] + " " + bilArr[1][0] + "<br>");
+
+
+      var retterArr = [
+        ["salat","suppe"],
+        ["biff","lammeskank","laks"],
+        ["iskrem","kake"]
+      ];
+
+      document.write(retterArr[0][0] + " " + retterArr[1][2] + " " + retterArr[2][0] + "<br>");
+
+      for (var i = 0; i < retterArr.length; i++) {
+        document.write(retterArr[i] + "<br>");
+      };
+
+      retterArr.push(["cola","farris","solo"]);
+
+      for (var i = 0; i < retterArr.length; i++) {
+        for (var j=0; j < retterArr[i].length; j++) {
+          document.write(retterArr[i][j] + "<br>");
+        };
+      };
+
+      document.write(retterArr[0].indexOf("suppe"));
+    </script>
+  </body>
+</html>
