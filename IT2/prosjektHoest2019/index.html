@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman - HTML, CSS og JavaScript</title>
+  </head>
+  <body>
+    <p id="pLiv">Du har 10 liv igjen.</p>
+    <p id="pOrd"><br></p>
+    <p id="pBokstaver"><br></p>
+    <canvas id="canvas" width="550" height="350"></canvas><br>
+    <input type="text" id="inpBokstav" value="" placeholder="Skriv inn én bokstav">
+    <button type="button" id="btnSjekk">Sjekk</button>
+    <button type="button" id="btnReset">Reset</button><br>
+    <button type="button" id="btnHint">Vis hint</button>
+    <p id="pHint"><br></p>
+    <p id="pResultat"></p>
+    <p id="ordMidlertidig"></p>
+    <script type="text/javascript">
+      var pLiv = document.querySelector("#pLiv");
+      var pOrd = document.querySelector("#pOrd");
+      var pBokstaver = document.querySelector("#pBokstaver");
+      var inpBokstav = document.querySelector("#inpBokstav");
+      var btnSjekk = document.querySelector("#btnSjekk");
+      var btnHint = document.querySelector("#btnHint");
+      var pHint = document.querySelector("#pHint");
+      var pResultat = document.querySelector("#pResultat");
+      var btnReset = document.querySelector("#btnReset");
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var ordMidlertidig = document.querySelector("#ordMidlertidig"); // For å se om ordene er riktige og gjør testing enklere
+
+      var ordArr = []; // De forskjellige ordene brukeren skal prøve å komme frem til
+      ordArr[0] = "london"; // Legger til slik for å få det mer oversiktlig og lettere å lete etter problemer
+      ordArr[1] = "bærum";
+      ordArr[2] = "buss";
+      ordArr[3] = "vy";
+      ordArr[4] = "nsb";
+      ordArr[5] = "skjøteledning";
+      ordArr[6] = "sabeltann";
+      ordArr[7] = "potet";
+      var hint = []; // Hintene som hører til de ulike ordene
+      hint[0] = "By";
+      hint[1] = "By"; // Både hint[0] (London) og hint[1] (Bærum) er byer
+      hint[2] = "Transport";
+      hint[3] = "Transport";
+      hint[4] = "Transport";
+      hint[5] = "Stikkontakt";
+      hint[6] = "Kaptein";
+      hint[7] = "Grønnsak";
+
+      function finnOrd() {
+        var ordIndex = Math.floor(Math.random() * ordArr.length);
+        ordMidlertidig.innerHTML = ordArr[ordIndex] + ", " + ordIndex;
+        return ordIndex;
+      };
+
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.fillStyle = "black";
+      ctx.fillRect(0,0,canvas.length,canvas.height);
+      ctx.strokeRect(0,0,canvas.length,canvas.height);
+      ctx.closePath();
+
+      var mittOrd = finnOrd();
+      var ordet = ordArr[mittOrd];
+      var tomtOrd = [];
+      var mittOrdArr = [];
+      for (var i = 0; i < ordet.length; i++) {
+        mittOrdArr.push(ordet[i].toUpperCase());
+        tomtOrd.push("_");
+      };
+      pOrd.innerHTML = tomtOrd.join(" ");
+
+      btnHint.onclick = function() {
+        pHint.innerHTML = "Hint: " + hint[mittOrd];
+      };
+
+      var brukteBokstaverArr = [];
+      var liv = 10; // antall liv man starter med
+      btnSjekk.onclick = function() {
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 4;
+        if (brukteBokstaverArr.indexOf(inpBokstav.value.toUpperCase()) >= 0) {
+          alert("Du har allerede prøvd den bokstaven.");
+          return;
+        };
+        brukteBokstaverArr.push(inpBokstav.value.toUpperCase());
+        if (inpBokstav.value === "") {
+          alert("Du har ikke skrevet inn en bokstav.");
+        }
+        else if (inpBokstav.value === ordet) {
+
+        }
+        else if (inpBokstav.value.length > 1) {
+          alert("Du har skrevet inn mer enn én bokstav.");
+        }
+        else if (mittOrdArr.indexOf(inpBokstav.value.toUpperCase()) === -1) {
+          if (liv === 10) {
+            ctx.beginPath();
+            ctx.moveTo(100,320);
+            ctx.lineTo(100,300);
+            ctx.lineTo(500,300);
+            ctx.lineTo(500,320);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 9) {
+            ctx.beginPath();
+            ctx.moveTo(200,300);
+            ctx.lineTo(200,16);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 8) {
+            ctx.beginPath();
+            ctx.moveTo(200,18);
+            ctx.lineTo(350,20);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 7) {
+            ctx.beginPath();
+            ctx.moveTo(350,18);
+            ctx.lineTo(350,50);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 6) {
+            ctx.beginPath();
+            ctx.arc(350,75,25,0,2*Math.PI);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 5) {
+            ctx.beginPath();
+            ctx.moveTo(350,100);
+            ctx.lineTo(350,225);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 4) {
+            ctx.beginPath();
+            ctx.moveTo(350,130);
+            ctx.lineTo(300,175);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 3) {
+            ctx.beginPath();
+            ctx.moveTo(350,130);
+            ctx.lineTo(400,175);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else if (liv === 2) {
+            ctx.beginPath();
+            ctx.moveTo(350,225);
+            ctx.lineTo(300,275);
+            ctx.stroke();
+            ctx.closePath();
+          }
+          else {
+            ctx.beginPath();
+            ctx.moveTo(350,225);
+            ctx.lineTo(400,275);
+            ctx.stroke();
+            ctx.closePath();
+          };
+          if (liv > 0) {
+            liv--;
+          };
+        }
+        else {
+          var arrRiktigeBokstaver = [];
+          for (var i = 0; i < mittOrdArr.length; i++) { // for-løkke som finner alle bokstaver som er riktige
+            if (mittOrdArr[i] === inpBokstav.value.toUpperCase()) {
+              arrRiktigeBokstaver.push(i);
+            };
+          };
+          for (var i = 0; i < arrRiktigeBokstaver.length; i++) {
+            tomtOrd.splice(arrRiktigeBokstaver[i],1,inpBokstav.value.toUpperCase());
+          };
+          pOrd.innerHTML = tomtOrd.join(" ");
+          arrRiktigeBokstaver = [];
+        };
+        pBokstaver.innerHTML = brukteBokstaverArr.join(", ");
+        pLiv.innerHTML = "Du har " + liv + " liv igjen.";
+        function vinn() {
+          for (var i = 0; i < mittOrdArr.length; i++) {
+            if (tomtOrd[i] !== mittOrdArr[i]) {
+              return false;
+            };
+          };
+          return true;
+        };
+        var riktig = vinn();
+        if (liv === 0) {
+          inpBokstav.disabled = true;
+          pResultat.innerHTML = "Du tapte."
+        }
+        else if (riktig === true) {
+          inpBokstav.disabled = true;
+          pResultat.innerHTML = "Du vant."
+        };
+      };
+
+      btnReset.onclick = function() {
+        mittOrd = Math.floor(Math.random() * ordArr.length);
+        ordet = ordArr[mittOrd];
+        tomtOrd = [];
+        mittOrdArr = [];
+        brukteBokstaverArr = [];
+        pHint.innerHTML = "<br>";
+        pBokstaver.innerHTML = "<br>";
+        pResultat.innerHTML = "<br>";
+        liv = 10;
+        pLiv.innerHTML = "Du har 10 liv igjen";
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        inpBokstav.disabled = false;
+        pOrd.innerHTML = "<br>";
+        for (var i = 0; i < ordet.length; i++) {
+          mittOrdArr.push(ordet[i].toUpperCase());
+          tomtOrd.push("_");
+        };
+        pOrd.innerHTML = tomtOrd.join(" ");
+        ordMidlertidig.innerHTML = ordArr[mittOrd];
+      };
+    </script>
+  </body>
+</html>
