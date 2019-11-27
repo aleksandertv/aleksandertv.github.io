@@ -11,14 +11,14 @@
         margin-left: 4.5em;
       }
       p {
-        margin-left: 3.5em;
+        margin-left: 3em;
       }
     </style>
   </head>
   <body>
     <p id="pLiv">Du har 10 liv igjen.</p>
     <p id="pOrd"></p>
-    <p id="pBokstaver">Brukte bokstaver:</p>
+    <p id="pBokstaver">Brukte bokstaver: </p>
     <canvas id="canvas" width="550" height="350"></canvas><br>
     <input type="text" id="inpBokstav" value="" placeholder="Skriv inn én bokstav"> <!-- input-element hvor det står "Skriv inn én bokstav fra før av" -->
     <button type="button" id="btnSjekk">Sjekk</button>
@@ -26,7 +26,7 @@
     <button type="button" id="btnHint">Vis hint</button>
     <p id="pHint"><br></p>
     <p id="pResultat"><br></p>
-    <p id="ordMidlertidig"></p>
+    <!-- <p id="ordMidlertidig"></p> -->
     <script type="text/javascript">
       // Her defineres alle HTML-selektorene
       var pLiv = document.querySelector("#pLiv");
@@ -56,8 +56,8 @@
       // Dette er de forskjellige hintene som tilhører ordene
       var hint = [];
       hint[0] = "By"; // Disse burde ha stor forbokstav
-      hint[1] = "By"; // Både hint[0] (London) og hint[1] (Bærum) er byer
-      hint[2] = "Transport";
+      hint[1] = "Sted";
+      hint[2] = "Transport"; // hint[2] (Buss), hint[3] (Vy) og hint[4] (NSB) er alle forbundet med transport
       hint[3] = "Transport";
       hint[4] = "Transport";
       hint[5] = "Stikkontakt";
@@ -66,16 +66,10 @@
 
       // Dette er funksjonen som velger et tilfeldig ord
       function finnOrd() {
-        var ordIndex = Math.floor(Math.random() * ordArr.length);
-        ordMidlertidig.innerHTML = ordArr[ordIndex]; // Får ordet til å vises opp på siden
+        var ordIndex = Math.floor(Math.random() * ordArr.length); // Tilfeldig indeks til ordArr-arrayet
+        //ordMidlertidig.innerHTML = ordArr[ordIndex]; // Får ordet til å vises opp på siden
         return ordIndex; // Bringer ordIndex ut av denne lokale funksjonen
       };
-
-      // Tegner en ramme rundt canvas-et
-      ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.strokeRect(50,2,497,347);
-      ctx.closePath();
 
       // Disse lager både ordet som en array og et tomt array med objekter som kan "splice"-s
       var mittOrd = finnOrd(); // mittOrd er lik finnOrd-funksjonens ordIndex
@@ -87,9 +81,11 @@
       };
       pOrd.innerHTML = tomtOrd.join(" "); // Printer det underscore-arrayet ut på nettsiden med mellomrom mellom
 
-      btnHint.onclick = function() {
-        pHint.innerHTML = "Hint: " + hint[mittOrd]; // Viser hintet
-      };
+      // Tegner en ramme rundt canvas-et
+      ctx.beginPath();
+      ctx.lineWidth = 2;
+      ctx.strokeRect(50,2,497,347);
+      ctx.closePath();
 
       var brukteBokstaverArr = []; // Her legges de ulike bokstavene man tidligere har skrevet inn
       var liv = 10; // Antall liv man starter med
@@ -101,13 +97,16 @@
         };
         brukteBokstaverArr.push(inpBokstav.value.toUpperCase()); // Legger til bokstaven i brukteBokstaverArr-arrayen
         if (inpBokstav.value === "") { // Sjekker om input-elementet har noe innhold
-          alert("Du har ikke skrevet inn en bokstav.");
+          alert("Du må skrive inn en bokstav.");
+          return;
         }
         else if (inpBokstav.value.length > 1) { // Sjekker om det er flere bokstaver enn én i input-elementet. Vurderte å gjøre slik at man kunne skrive inn hele ordet, men følte at dette ikke var nødvendig
           alert("Du har skrevet inn mer enn én bokstav.");
+          return;
         }
         else if (isNaN(inpBokstav.value) === false) { // Sjekker at man ikke har skrevet inn et tall
-          alert("Du må skrive inn en bokstav.");
+          alert("Du kan ikke skrive inn et tall.");
+          return;
         }
         else if (mittOrdArr.indexOf(inpBokstav.value.toUpperCase()) === -1) { // Hvis man skriver inn feil bokstav
           if (liv === 10) {
@@ -181,7 +180,7 @@
             ctx.stroke();
             ctx.closePath();
           };
-          if (liv > 0) { // Trekker fra et liv
+          if (liv > 0) { // Trekker fra et liv hvis man har noen igjen
             liv--;
           };
         }
@@ -192,7 +191,7 @@
               arrRiktigeBokstaver.push(i);
             };
           };
-          for (var i = 0; i < arrRiktigeBokstaver.length; i++) {
+          for (var i = 0; i < arrRiktigeBokstaver.length; i++) { // Erstatter underscorene i tomtOrd-arrayet med riktig bokstav
             tomtOrd.splice(arrRiktigeBokstaver[i],1,inpBokstav.value.toUpperCase());
           };
           pOrd.innerHTML = tomtOrd.join(" ");
@@ -202,46 +201,52 @@
         pLiv.innerHTML = "Du har " + liv + " liv igjen.";
         function vinn() {
           for (var i = 0; i < mittOrdArr.length; i++) {
-            if (tomtOrd[i] !== mittOrdArr[i]) {
+            if (tomtOrd[i] !== mittOrdArr[i]) { // Hvis noe ikke er likt returnerer funksjonen false
               return false;
             };
           };
-          return true;
+          return true; // Hvis alt er riktig returnerer den true
         };
-        var riktig = vinn();
+        var riktig = vinn(); // Variablen riktig er enten lik true eller false, basert på funksjonen
         if (liv === 0) {
-          inpBokstav.disabled = true;
+          inpBokstav.disabled = true; // Skrur av input-elementet dersom man er tom for liv
           pResultat.innerHTML = "Du tapte."
         }
         else if (riktig === true) {
-          inpBokstav.disabled = true;
+          inpBokstav.disabled = true; // Skrur av input-elementet dersom man har vunnet
           pResultat.innerHTML = "Du vant."
         };
       };
 
+      // Funksjon som nullstiller alt
       btnReset.onclick = function() {
         mittOrd = Math.floor(Math.random() * ordArr.length); // Finner nytt ord
-        tomtOrd = [];
+        tomtOrd = []; // Tømmer arrayet
         mittOrdArr = [];
         brukteBokstaverArr = [];
-        pHint.innerHTML = "<br>";
+        pHint.innerHTML = "<br>"; // Tømmer dette p-elementet
         pBokstaver.innerHTML = "Brukte bokstaver:";
         pResultat.innerHTML = "<br>";
-        liv = 10;
+        liv = 10; // Får tilbake livene
         pLiv.innerHTML = "Du har 10 liv igjen";
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        inpBokstav.disabled = false;
+        ctx.clearRect(0,0,canvas.width,canvas.height); // Tømmer canvas
+        inpBokstav.disabled = false; // Skrur på input-elementet igjen
         pOrd.innerHTML = "<br>";
-        for (var i = 0; i < ordArr[mittOrd].length; i++) {
+        for (var i = 0; i < ordArr[mittOrd].length; i++) { // Lager nye arrayer for det nye ordet
           mittOrdArr.push(ordArr[mittOrd][i].toUpperCase());
           tomtOrd.push("_");
         };
         pOrd.innerHTML = tomtOrd.join(" ");
-        ordMidlertidig.innerHTML = ordArr[mittOrd];
-        ctx.beginPath();
+        //ordMidlertidig.innerHTML = ordArr[mittOrd];
+        ctx.beginPath(); // Tegner ny ramme
         ctx.lineWidth = 2;
         ctx.strokeRect(50,2,498,348);
         ctx.closePath();
+      };
+
+      // Dersom man trykker på en knapp, vises hintet som hører til ordet
+      btnHint.onclick = function() {
+        pHint.innerHTML = "Hint: " + hint[mittOrd]; // Viser hintet
       };
     </script>
   </body>
