@@ -16,27 +16,29 @@
       h1 {
         margin-left: 1.5em;
       }
-      #info {
-        margin-top: 5em;
-        margin-right: 55em;
+      #info,#info2 {
+        margin-right: 54em;
+      }
+      #info2 {
+        color: red;
       }
     </style>
   </head>
   <body>
     <h1>Hangman</h1>
+    <p id="info">Du starter med 0 poeng. Målet ditt er å gjette riktig ord. Du mister 10 poeng ved et tap, og du får poeng som tilsvarer livene du har igjen ved et vinn. Et hint koster 2 poeng. Reset-knappen gir deg et nytt ord. Dersom du resetter før du har tapt/vunnet, koster en reset deg 4 poeng.</p>
+    <input type="text" id="inpBokstav" value="" placeholder="Skriv inn én bokstav"> <!-- input-element hvor det står "Skriv inn én bokstav fra før av" -->
+    <button type="button" id="btnSjekk">Sjekk</button>
+    <button type="button" id="btnReset">Reset</button>
+    <p id="pPoeng">Akkumulert poengsum: 0p.</p> <!-- Disse to knappene, input-elemtenet og p-elementet er på samme linje -->
     <p id="pOrd"></p>
     <p id="pBokstaver">Brukte bokstaver: </p>
     <canvas id="canvas" width="550" height="350"></canvas><br>
-    <input type="text" id="inpBokstav" value="" pattern="[A-Za-z\\s]*" placeholder="Skriv inn én bokstav"> <!-- input-element hvor det står "Skriv inn én bokstav fra før av" -->
-    <button type="button" id="btnSjekk">Sjekk</button>
-    <button type="button" id="btnReset">Reset</button><br> <!-- Disse to knappene er på samme linje -->
     <p id="pLiv">Du har 10 liv igjen.</p>
     <button type="button" id="btnHint">Vis hint</button>
-    <p id="pHint"><br></p>
-    <p id="pResultat"><br></p>
-    <p id="pPoeng">Du har 10 poeng.</p>
-    <p id="info">Du starter med 10 poeng. Målet ditt er å gjette riktig ord. Du mister 10 poeng ved et tap, og du får poeng som tilsvarer livene du har igjen ved et vinn. Et hint koster 2 poeng. Reset-knappen gir deg et nytt ord.</p>
-    <!-- <p id="ordMidlertidig"></p> -->
+    <p id="pHint"></p>
+    <p id="pResultat"></p>
+    <p id="info2">Du kan ikke skrive inn flere bokstaver om gangen. Du kan ikke skrive inn tegn. Dersom du gjetter samme bokstav flere ganger, forteller spillet deg at bokstaven allerede er prøvd.</p>
     <script type="text/javascript">
       // Her defineres alle HTML-selektorene
       var pLiv = document.querySelector("#pLiv");
@@ -80,53 +82,32 @@
       // Dette er funksjonen som velger et tilfeldig ord
       function finnOrd() {
         var ordIndex = Math.floor(Math.random() * ordArr.length); // Tilfeldig indeks til ordArr-arrayet
-        //ordMidlertidig.innerHTML = ordArr[ordIndex]; // Får ordet til å vises opp på siden
+        console.log(ordArr[ordIndex]); // Får ordet til å vises i konsollen
         return ordIndex; // Bringer ordIndex ut av denne lokale funksjonen
       };
 
-      // Disse lager både ordet som en array og et tomt array med objekter som kan "splice"-s
-      var poeng = 10;
+      // Disse lager både ordet som en array og et tomt array med objekter som kan splices
+      var poeng = 0; // Definerer poengene man begynner med
       var mittOrd = finnOrd(); // mittOrd er lik finnOrd-funksjonens ordIndex
       var tomtOrd = []; // Lager et tomt array som fylles i for-løkken under
       var mittOrdArr = [];
       for (var i = 0; i < ordArr[mittOrd].length; i++) {
-        mittOrdArr.push(ordArr[mittOrd][i].toUpperCase());
-        tomtOrd.push("_"); // "Push"er en underscore som tar plassen til de forskjellige bokstavene
+        mittOrdArr.push(ordArr[mittOrd][i].toUpperCase()); // Pusher bokstavene inn et array
+        tomtOrd.push("_"); // Pusher en underscore som tar plassen til de forskjellige bokstavene
       };
       pOrd.innerHTML = tomtOrd.join(" "); // Printer det underscore-arrayet ut på nettsiden med mellomrom mellom
 
-      // Tegner en ramme rundt canvas-et
+      // Tegner en ramme rundt canvaset
       ctx.beginPath();
       ctx.lineWidth = 2;
-      ctx.strokeRect(50,2,497,347);
+      ctx.strokeRect(50,2,497,346);
       ctx.closePath();
 
       // Det som skjer når man sjekker om bokstaven er korrekt
+      var bokstavArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Æ","Ø","Å"];
       var brukteBokstaverArr = []; // Her legges de ulike bokstavene man tidligere har skrevet inn
       var liv = 10; // Antall liv man starter med
-      //var charCode = window.event.keyCode;
       btnSjekk.onclick = function() {
-        /*
-        if (charCode > 64 && charCode < 91) {
-
-        }
-        else if (charCode > 96 && charCode < 123) {
-
-        }
-        else if (charCode === 222) {
-
-        }
-        else if (charCode === 186) {
-
-        }
-        else if (charCode === 219) {
-
-        }
-        else {
-          alert("Du må skrive inn en bokstav.");
-          return;
-        }
-        */
         ctx.lineWidth = 4; // Linjebredde på 4px eller 0.25em
         if (brukteBokstaverArr.indexOf(inpBokstav.value.toUpperCase()) >= 0) { // Søker blant de tidligere brukte bokstavene for å sjekke om bokstaven allerede er prøvd
           alert("Du har allerede prøvd den bokstaven.");
@@ -136,11 +117,14 @@
           alert("Du må skrive inn en bokstav.");
         }
         else if (inpBokstav.value.length > 1) { // Sjekker om det er flere bokstaver enn én i input-elementet. Vurderte å gjøre slik at man kunne skrive inn hele ordet, men følte at dette ikke var nødvendig
-          alert("Du har skrevet inn mer enn én bokstav.");
+          alert("Du kan ikke skrive inn mer enn én bokstav.");
         }
-        else if (isNaN(inpBokstav.value) === false) { // Sjekker at man ikke har skrevet inn et tall
+        else if (bokstavArr.indexOf(inpBokstav.value.toUpperCase()) === -1) {
+          alert("Du kan ikke skrive inn tegn.");
+        } // Denne trenger jeg ikke lenger, på grunn av bokstavArr-arrayen
+        /*else if (isNaN(inpBokstav.value) === false) { // Sjekker at man ikke har skrevet inn et tall
           alert("Du kan ikke skrive inn et tall.");
-        }
+        }*/
         else if (mittOrdArr.indexOf(inpBokstav.value.toUpperCase()) === -1) { // Hvis man skriver inn feil bokstav
           if (liv === 10) {
             ctx.beginPath(); // Tegner bakken
@@ -152,7 +136,7 @@
             ctx.closePath();
           }
           else if (liv === 9) {
-            ctx.beginPath(); // Tegner halve av stangen
+            ctx.beginPath(); // Tegner halve stangen
             ctx.moveTo(200,300);
             ctx.lineTo(200,16);
             ctx.stroke();
@@ -249,7 +233,7 @@
           btnHint.disabled = true; // Skrur av hint-knappen
           pResultat.innerHTML = "Du tapte denne runden.";
           poeng = poeng - 10;
-          pPoeng.innerHTML = "Du har " + poeng + " poeng.";
+          pPoeng.innerHTML = "Akkumulert poengsum: " + poeng + "p.";
         }
         else if (riktig === true) {
           inpBokstav.disabled = true; // Skrur av input-elementet dersom man har vunnet
@@ -257,7 +241,7 @@
           btnHint.disabled = true;
           pResultat.innerHTML = "Du vant denne runden.";
           poeng = Number(poeng) + Number(liv);
-          pPoeng.innerHTML = "Du har " + poeng + " poeng.";
+          pPoeng.innerHTML = "Akkumulert poengsum: " + poeng + "p.";
         };
         inpBokstav.value = "";
       };
@@ -276,25 +260,29 @@
         tomtOrd = []; // Tømmer arrayet
         mittOrdArr = [];
         brukteBokstaverArr = [];
-        pHint.innerHTML = "<br>"; // Tømmer dette p-elementet
+        if (inpBokstav.disabled === false) { // Enkel måte å sjekke om spillet er fullført. Dette skjer bare dersom man har vunnet eller tapt
+          poeng = poeng - 4; // Man mister 3 poeng
+        };
+        pPoeng.innerHTML = "Akkumulert poengsum: " + poeng + "p."
+        pHint.innerHTML = ""; // Tømmer dette p-elementet
         pBokstaver.innerHTML = "Brukte bokstaver:";
-        pResultat.innerHTML = "<br>";
+        pResultat.innerHTML = "";
         liv = 10; // Får tilbake livene
         pLiv.innerHTML = "Du har 10 liv igjen";
         ctx.clearRect(0,0,canvas.width,canvas.height); // Tømmer canvas
         inpBokstav.disabled = false; // Skrur på input-elementet igjen
         btnSjekk.disabled = false; // Skrur på button-elementet igjen
         btnHint.disabled = false; // Skrur på hint-knappen igjen
-        pOrd.innerHTML = "<br>";
+        pOrd.innerHTML = "";
         for (var i = 0; i < ordArr[mittOrd].length; i++) { // Lager nye arrayer for det nye ordet
           mittOrdArr.push(ordArr[mittOrd][i].toUpperCase());
           tomtOrd.push("_");
         };
         pOrd.innerHTML = tomtOrd.join(" ");
-        //ordMidlertidig.innerHTML = ordArr[mittOrd];
+        console.log(ordArr[mittOrd]);
         ctx.beginPath(); // Tegner ny ramme
         ctx.lineWidth = 2;
-        ctx.strokeRect(50,2,498,348);
+        ctx.strokeRect(50,2,497,346);
         ctx.closePath();
       };
 
@@ -302,7 +290,7 @@
       btnHint.onclick = function() {
         pHint.innerHTML = "Hint: " + hint[mittOrd]; // Viser hintet
         poeng = poeng - 2;
-        pPoeng.innerHTML = "Du har " + poeng + " poeng.";
+        pPoeng.innerHTML = "Akkumulert poengsum: " + poeng + "p.";
       };
     </script>
   </body>

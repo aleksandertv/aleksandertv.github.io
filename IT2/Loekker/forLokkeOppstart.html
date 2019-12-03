@@ -7,7 +7,7 @@
   <body>
     <script type="text/javascript">
       // For: Vet antall ganger vi ønsker å gjøre noe
-      for(var i = 1; i <= 10; i++){
+      for(var i = 1; i <= 15; i++){
         document.write("Hei til " + i + "<br>");
       }
       // Summere tallene fra 1 til 100
@@ -22,6 +22,14 @@
         if(j%2 !== 0){
           document.write(j+"<br>");
         };
+      };
+
+      var tallArr = [1,2,3,4,5,6];
+      for (var element of tallArr) {
+        console.log(element);
+      };
+      for (var i = 0; i < tallArr.length; i++) {
+        console.log(tallArr[i]);
       };
     </script>
   </body>

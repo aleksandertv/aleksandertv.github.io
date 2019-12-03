@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Repetisjonsfil</title>
+  </head>
+  <body>
+    <input type="text" id="inpTall" value=10>
+    <button type="button" id="btnReg">Registrer</button>
+    <button type="button" id="btnArr">Summer tall</button>
+    <p id="print"></p>
+
+    <script type="text/javascript">
+      var inpTall = document.querySelector("#inpTall");
+      var btnReg = document.querySelector("#btnReg");
+      var btnArr = document.querySelector("#btnArr");
+      var print = document.querySelector("#print");
+
+      var tallArr = [2,4,6,8];
+      var sum = 0;
+
+      // Funksjon som summerer tall i array
+      btnArr.onclick = function() {
+        sum = 0;
+        if (inpTall.value > 0) {
+          tallArr.push(Number(inpTall.value));
+        };
+        for (var element of tallArr) {
+          sum = sum + element;
+        };
+        print.innerHTML = "Summen er " + sum + "."
+      };
+
+      // Sjekke om inputen er over 20, mellom 12 og 20 eller under 12
+      btnReg.onclick = function() {
+        var tall = inpTall.value;
+        if (tall >= 20) {
+          print.innerHTML += "Du er voksen. ";
+        }
+        else if (tall >= 12) {
+          print.innerHTML += "Du er ungdom. ";
+        }
+        else {
+          print.innerHTML += "Du er barn. ";
+        };
+
+        // Løkke som skriver ut "hei nr 1 .... 2... 3 opp til tall"
+        for (var i = 1; i < tall; i++) {
+          print.innerHTML += "Hei nr " + i + "<br>";
+        };
+      };
+    </script>
+  </body>
+</html>

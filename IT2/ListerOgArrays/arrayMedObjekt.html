@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Karakterer</title>
+  </head>
+  <body>
+    <p id="print"></p>
+
+    <script type="text/javascript">
+      var print = document.querySelector("#print");
+
+      var toppKarakter = 0;
+      var elevArr = [
+        {navn:"Petter",karakter:4},
+        {navn:"Siri",karakter:5},
+        {navn:"Reidun",karakter:4},
+        {navn:"Jan",karakter:3},
+        {navn:"Jens",karakter:6}
+      ];
+
+      elevArr.push({navn:"Pippi",karakter:6});
+
+      for (var element of elevArr) {
+        if (element.karakter >= 5) {
+          toppKarakter++;
+        };
+        print.innerHTML += element.navn + " har fått karakteren " + element.karakter + ".<br>";
+      };
+      print.innerHTML += "Antall toppkarakterer er " + toppKarakter + ".<br>";
+    </script>
+  </body>
+</html>
