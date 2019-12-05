@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Øving til juletentamen</title>
+    <style media="screen">
+      #slideshow {
+        height: 500px; /* Valgte å endre på høyden til alle bildene for at alt skulle passe på én side. Alle bildene, unntatt mdg01.jpg som har en høyde på 1440px, har en høyde på 700px */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Oppgave 5 -->
+<!-- <input type="number" id="inpFahrenheit" value="">
+    <button type="button" id="btnKonverter">Konverter</button>
+    <p id="print"><br></p>
+    <img src="bilder/termometer.png"> -->
+    <!-- Oppgave 6 -->
+<!-- <input type="number" id="inpVerdi" value="">
+    <button type="button" id="btnMva">Finn total pris</button>
+    <p id="print"></p> -->
+    <!-- Oppgave 7 -->
+<!-- <button type="button" id="btnAlder">Ny tilfeldig person</button>
+    <p id="print"><br></p>
+    <img id="imgAlder" src=""> -->
+    <!-- Oppgave 9 -->
+<!-- <img src="bilder/miljopartiet.png" id="imgMdg">
+    <img src="bilder/sp.png" id="imgSp">
+    <p id="print"><br></p>
+    <img src="" id="slideshow"><br>
+    <button type="button" id="nesteBilde">Neste bilde</button> -->
+    <!-- Oppgave 10 -->
+<!-- <p>Helt lik som oppgave 9</p> -->
+    <script type="text/javascript">
+      // Oppgave 1
+      /*
+      var elev = {navn:"Aleksander",alder:18,favorittfag:"Gym"};
+      document.write(elev.navn);
+      elev.favorittfag = "Informasjonsteknologi";
+      console.log(elev.favorittfag);
+      */
+
+      // Oppgave 2
+      /*
+      var filmer = ["Pulp Fiction","Fight Club","Matrix","Forrest Gump"];
+      //document.write(filmer[1] + "<br>");
+      document.write(filmer[filmer.indexOf("Fight Club")] + "<br>");
+      //filmer[2] = "Gudfaren";
+      filmer.splice(filmer.indexOf("Matrix"),1,"Gudfaren");
+      console.log(filmer[2]);
+      */
+
+      // Oppgave 3
+      // n
+
+      // Oppgave 4
+      /*
+      tilfeldigTall !== 3
+      i*3 / i%3===0
+      */
+
+      // Oppgave 5
+      /*
+      const inpFahrenheit = document.querySelector("#inpFahrenheit");
+      const btnKonverter = document.querySelector("#btnKonverter");
+      const print = document.querySelector("#print");
+
+      let fahrenheit = 0;
+      let celsius = 0;
+      btnKonverter.onclick = function() {
+        fahrenheit = Number(inpFahrenheit.value);
+        celsius = (fahrenheit - 32) * (5/9);
+        print.innerHTML += fahrenheit + " ºF er " + celsius.toFixed(2) + " ºC.<br>";
+
+      }
+      */
+
+      // Oppgave 6
+      /*
+      const inpVerdi = document.querySelector("#inpVerdi");
+      const btnMva = document.querySelector("#btnMva");
+      const print = document.querySelector("#print");
+
+      let mvaProsent = 1.25;
+      let tollgebyr = 158;
+      btnMva.onclick = function() {
+        let originalPris = Number(inpVerdi.value);
+        mva = Number(originalPris * mvaProsent);
+        if (originalPris < 350) {
+          return;
+        }
+        else {
+          mva = mva + tollgebyr;
+        }
+        print.innerHTML += "Hvis varen koster " + originalPris + ", blir den totale prisen " + mva.toFixed(2) + ".<br>";
+      }
+      */
+
+      // Oppgave 7
+      /*
+      const btnAlder = document.querySelector("#btnAlder");
+      const imgAlder = document.querySelector("#imgAlder");
+      const print = document.querySelector("#print");
+
+      let alder = 0;
+      btnAlder.onclick = function() {
+        alder = Math.floor(Math.random() * 70) + 1;
+        if (alder < 15) {
+          print.innerHTML = alder + " år! Ikke for smårollinger, minst 15 år!";
+          imgAlder.src = "bilder/ung.jpg";
+
+        }
+        else if (alder > 60) {
+          print.innerHTML = alder + " år! Ikke for gamlinger, maks 60 år!";
+          imgAlder.src = "bilder/gammel.jpg";
+        }
+        else {
+          print.innerHTML = alder + " år! Gratulerer, du er akkurat passe gammel!";
+          imgAlder.src = "bilder/passe.jpg";
+        }
+      }
+      */
+
+      // Oppgave 8
+      /*
+      let liste = [3,51,18,7,32,10,74];
+
+      let sum = 0;
+      for (let i = 0; i < liste.length; i++) {
+        sum = Number(sum + liste[i]);
+      }
+      console.log(sum);
+
+      let maks = 0;
+      for (let i = 0; i < liste.length; i++) {
+        if (liste[i] > maks) {
+          maks = liste[i];
+        }
+      }
+      console.log(maks);
+
+      let partallArr = [];
+      for (let i = 0; i < liste.length; i++) {
+        if (liste[i]%2 === 0) {
+          partallArr.push(liste[i]);
+        }
+      }
+      console.log(partallArr);
+      */
+
+      // Oppgave 9
+      /*
+      const imgMdg = document.querySelector("#imgMdg");
+      const imgSp = document.querySelector("#imgSp");
+      const print = document.querySelector("#print");
+      const slideshow = document.querySelector("#slideshow");
+      const nesteBilde = document.querySelector("#nesteBilde");
+
+      let partiArr = [
+        {
+          navn:"Senterpartiet",
+          representanter:19,
+          slagord:"Vi tror på hele Norge",
+          bilder:["sp01.jpg","sp02.jpg","sp03.jpg"]
+        },
+        {
+          navn:"Miljøpartiet de grønne",
+          representanter:1,
+          slagord:"Ta vare på fremtiden",
+          bilder:["mdg01.jpg","mdg02.jpg","mdg03.jpg"]
+        }
+      ];
+
+      let parti = 2;
+      imgMdg.onclick = function() {
+        visParti("Miljøpartiet de grønne");
+        parti = 1;
+        slideshow.src = "bilder/" + partiArr[parti].bilder[0];
+      }
+
+      imgSp.onclick = function() {
+        visParti("Senterpartiet");
+        parti = 0;
+        slideshow.src = "bilder/" + partiArr[parti].bilder[0];
+      }
+
+      let bildeNr = 0;
+      nesteBilde.onclick = function() {
+        if (parti === 2) {
+          return;
+        };
+        if (bildeNr < partiArr[parti].bilder.length - 1) {
+          bildeNr++;
+        }
+        else {
+          bildeNr = 0;
+        }
+        slideshow.src = "bilder/" + partiArr[parti].bilder[bildeNr];
+      }
+
+      function visParti(partiNavn) {
+        for (let i = 0; i < partiArr.length; i++) {
+          if (partiArr[i].navn === partiNavn) {
+            print.innerHTML = "Navn: " + partiArr[i].navn + ". Representanter på Stortinget: " + partiArr[i].representanter + ". Slagord: " + partiArr[i].slagord + ".<br>";
+          }
+        }
+      }
+      */
+
+      // Oppgave 10
+      /*
+      Helt lik som oppgave 9
+      */
+    </script>
+  </body>
+</html>

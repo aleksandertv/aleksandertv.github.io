@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <!--img id="imgTerm" src="termometer.png" alt=""-->
+    </div>
+    <div>
+      <!--input type="text" id="inpFahr" name="" value=""-->
+      <input type="text" id=inpVerdi name="" value="">
+      <button type="button" id="btnReg">Beregn</button>
+      <p id= "print"></p>
+  </div>
+
+    <script type="text/javascript">
+    //Oppgave 1
+    /*  var elev = {navn:"Petra",alder:18,fag:"IT"};
+      document.write(elev.navn);
+      elev.fag="Informasjonsteknologi";
+      document.write(elev.alder, elev.fag);*/
+
+    //Oppgave 2
+    /*var filmer = ["Pulp Fiction","Fight Club", "Matrix", "Forrest Gump"];
+    document.write(filmer[1]);
+    filmer[2] = "Gudfaren";
+    document.write(filmer);*/
+
+  /*  function yatzykast(n){
+      var resultat = [];
+      for(var i=0; i<n; i++){
+        resultat.push(Math.floor(Math.random()*6)+1)
+      }
+      return resultat;
+    }
+
+    var minTab = yatzykast(10);
+    for(var terning of minTab){
+      document.write(terning+"<br>")
+    }
+
+    //oppgave 4
+    var tilfeldigTall = 0;
+
+    while(tilfeldigTall != 3){
+      tilfeldigTall = Math.floor(Math.random()*10);
+      console.log(tilfeldigTall)
+      console.log("Svaret er ikke 3")
+      }
+      console.log("Svaret er tre")*/
+
+      //for-løkke
+      /*for (var i = 0; i < 50 ; i++){
+        if(i%3==0){
+          document.write(i+"<br>");
+        }
+      }*/
+
+      //oppgave 5 - Fahrenheit til Celsius
+      /*var inpFahr = document.querySelector("#inpFahr");
+      var btnReg = document.querySelector("#btnReg");
+      var print = document.querySelector("#print");
+      var celsius = 0;
+      var fahrenheit = 0;
+      btnReg.onclick = function(){
+        fahrenheit = inpFahr.value;
+        celsius = (fahrenheit - 32)*5/9;
+        print.innerHTML = celsius +" grader."
+      }*/
+
+      //oppgave 6
+      var inpVerdi = document.querySelector("#inpVerdi");
+      var btnReg = document.querySelector("#btnReg");
+      var print = document.querySelector("#print");
+
+      btnReg.onclick = function(){
+        if(inpVerdi.value < 350){
+          print.innerHTML = "ingen toll. Prisen er "+inpVerdi.value+" kr"
+        }
+        else{
+          var nyPris = inpVerdi.value * 1.25;
+          var tekst = "Ny pris med mva er "+nyPris+" kr.<br>I tillegg kommer"
+                       +"tollgebyr på 350 kr. Tilsammen blir dette "
+                       +(nyPris+350)+" kr";
+           print.innerHTML=tekst;
+        }
+      }
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
