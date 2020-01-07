@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2 - Rabattkalkulator</title>
+  </head>
+  <body>
+    <h1>Rabattkalkulator</h1>
+    <input type="number" id="inpPris" value="" placeholder="Pris">
+    <input type="number" id="inpRabatt" value="" placeholder="Rabatt">
+    <button type="button" id="btnBeregn">Beregn rabatt</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+      const inpPris = document.querySelector("#inpPris");
+      const inpRabatt = document.querySelector("#inpRabatt");
+      const btnBeregn = document.querySelector("#btnBeregn");
+      const print = document.querySelector("#print");
+
+      let pris = 0;
+      let vekstfaktor = 0;
+      let sluttpris = 0;
+      btnBeregn.onclick = function() {
+        pris = Number(inpPris.value); // Et tall
+        vekstfaktor = 1 - (Number(inpRabatt.value) / 100); // Skriver rabatt som er skrevet inn i input-feltet som en vekstfaktor (1-rabatt/100 = vekstfaktor)
+        sluttpris = pris * vekstfaktor;
+        print.innerHTML = "Sluttpris: " + sluttpris.toFixed(2) + " kr";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 4 - Handleliste</title>
+  </head>
+  <body>
+    <h1>Handleliste</h1>
+    Skriv vare: <input type="text" id="inpVare" value="" placeholder="Navn på vare">
+    Skriv pris: <input type="number" id="inpPris" value="" placeholder="Pris per vare">
+    Skriv antall: <input type="number" id="inpAntall" value="" placeholder="Antall varer">
+    <button type="button" id="btnAdder">Legg til</button>
+    <p id="print"></p>
+    <button type="button" id="btnSlett">Slett</button>
+    <p id="pSum"></p>
+    <script type="text/javascript">
+      const inpVare = document.querySelector("#inpVare");
+      const inpPris = document.querySelector("#inpPris");
+      const inpAntall = document.querySelector("#inpAntall");
+      const btnAdder = document.querySelector("#btnAdder");
+      const print = document.querySelector("#print");
+      const btnSlett = document.querySelector("#btnSlett");
+      const pSum = document.querySelector("#pSum");
+
+      let vareArr = [];
+      let prisArr = [];
+      let antallArr = [];
+      let handlelisteArr = []; // HTML-array. Kunne brukt en nodelist
+
+      let vare = ""; // Liker å definere tekst-variabler som "" istedenfor 0
+      let pris = 0;
+      let antall = 0;
+      btnAdder.onclick = function() {
+        if (inpVare.value === "") { // At noe er skrevet inn i varefeltet. Trenger ikke return i de if-/else if-elementene, siden siste del av koden er inni en else
+          alert("Du må skrive inn noe i varefeltet.");
+        }
+        else if (inpPris.value === "") { // At noe er skrevet inn i prisfeltet
+          alert("Du må skrive inn noe i prisfeltet.");
+        }
+        else if (inpAntall.value === "") { // At noe er skrevet inn i antallfeltet
+          alert("Du må skrive inn noe i antallfeltet.");
+        }
+        else if (inpPris.value <= 0) { // At prisen er større enn 0
+          alert("Prisen kan ikke være 0 eller mindre.");
+        }
+        else if (inpAntall.value <= 0) { // At antallet er større enn 0
+          alert("Antallet kan ikke være 0 eller mindre.");
+        }
+        else {
+          vare = inpVare.value;
+          pris = Number(inpPris.value); // Et tall
+          antall = Number(inpAntall.value);
+          vareArr.push(vare);
+          prisArr.push(pris);
+          antallArr.push(antall);
+          handlelisteArr.push("- " + vare + ", pris: " + pris + ", antall: " + antall + "<br>"); // For å kunne slette valgte jeg å pushe HTML-en inn i et array
+          print.innerHTML = handlelisteArr.join(""); // HTML-arrayet uten et komma mellom, siden det er et array
+          inpVare.value = ""; // Tømmer input-elementene
+          inpPris.value = "";
+          inpAntall.value = "";
+
+          let totalsum = 0;
+          for (let i = 0; i < handlelisteArr.length; i++) {
+            totalsum = totalsum + (prisArr[i] * antallArr[i]); // Kunne definert dette som f.eks. prissum, men da måtte jeg også ha nullstilt den variablen
+          }
+          pSum.innerHTML = "Totalsummen er " + totalsum + " kr.";
+        };
+      }
+
+      btnSlett.onclick = function() { // Sletter siste element i alle arrayene og oppdaterer HTML-en
+        vareArr.pop();
+        prisArr.pop();
+        antallArr.pop();
+        handlelisteArr.pop();
+        print.innerHTML = handlelisteArr.join("");
+        let totalsum = 0;
+        for (let i = 0; i < handlelisteArr.length; i++) {
+          totalsum = totalsum + (prisArr[i] * antallArr[i]);
+        }
+        pSum.innerHTML = "Totalsummen er " + totalsum + " kr.";
+      }
+    </script>
+  </body>
+</html>

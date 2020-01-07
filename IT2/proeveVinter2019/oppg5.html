@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 5 - Bestillingsverktøy for matkasse</title>
+  </head>
+  <body>
+    <h1>Bestillingsverktøy for matkasse</h1>
+    Antall middager: <select id="selMiddager"> <!-- Enklere å skille mellom 2 og 3 dersom man har en select istedenfor en input -->
+      <option value=2>2</option>
+      <option value=3>3</option>
+    </select>
+    Antall personer: <input type="number" min="1" max="50" id="inpPersoner" autocomplete="off" autofocus value="1"><br> <!-- Valgte å ha de på to forskjellige linjer -->
+    Opplysninger: <input type="text" id="inpNavn" value="" autocomplete="on" placeholder="Fullt navn">
+    <input type="text" id="inpAdresse" value="" autocomplete="on" placeholder="Adresse">
+    <input type="number" id="inpPostnr" value="" autocomplete="on" placeholder="Postnummer">
+    <button type="button" id="btnRegistrer">Registrer</button>
+    <p id="print"><br></p>
+    <p id="pSum"><br></p>
+    <img src="bilder/middag.png" id="imgMatkasse">
+    <p><b>Info:</b> Dersom du bestiller for 5 eller fler personer, blir prisen per måltid 70 kr. Ellers er den 80 kr. Du kan maks bestille til 50 personer.</p>
+    <button type="button" id="btnBekreft">Bekreft kjøp</button>
+    <script type="text/javascript">
+      const selMiddager = document.querySelector("#selMiddager");
+      const inpPersoner = document.querySelector("#inpPersoner");
+      const inpNavn = document.querySelector("#inpNavn");
+      const inpAdresse = document.querySelector("#inpAdresse");
+      const inpPostnr = document.querySelector("#inpPostnr");
+      const btnRegistrer = document.querySelector("#btnRegistrer");
+      const print = document.querySelector("#print");
+      const pSum = document.querySelector("#pSum");
+      const imgMatkasse = document.querySelector("#imgMatkasse");
+      const btnBekreft = document.querySelector("#btnBekreft");
+
+      let middager = 0;
+      let personer = 0;
+      let navn = "";
+      let adresse = "";
+      let postnr = 0;
+      let pris = 0;
+      let totalpris = 0;
+      btnRegistrer.onclick = function() {
+        middager = Number(selMiddager.value); // Et tall
+        personer = Number(inpPersoner.value);
+        navn = inpNavn.value;
+        adresse = inpAdresse.value;
+        postnr = inpPostnr.value;
+        if (personer > 50) { // Mindre enn 50 personer
+          alert("Du kan ikke bestille for mer enn 50 personer.");
+        }
+        else if (personer <= 0) { // Mer enn 0 personer
+          alert("Du kan ikke bestiller for 0 eller færre personer.");
+        }
+        else if (personer === "") { // Skrive inn personer i det hele tatt
+          alert("Du må skrive inn antall personer.");
+        }
+        else if (navn === "") { // Skrive inn navn
+          alert("Du må skrive inn et navn.");
+        }
+        else if (adresse === "") { // Skrive inn adresse
+          alert("Du må skrive inn en adresse.");
+        }
+        else if (postnr.length !== 4) { // Postnumre har 4 siffer
+          alert("Du må skrive inn et firesifret postnummer.");
+        }
+        else {
+          print.innerHTML = "<b>Din bestilling:</b> Antall middager: " + middager + ". Antall personer: " + personer + ". Fullt navn: " + navn + ". Adresse: " + adresse + ". Postnummer: " + postnr + ".";
+          if (middager === 2) { // Hvis det er 2 middager
+            imgMatkasse.src = "bilder/matkasse2.png";
+          }
+          else { // Den eneste andre tillatte verdien er 3
+            imgMatkasse.src = "bilder/matkasse3.png";
+          };
+          if (personer >= 5) { // Hvis det er fler enn 5 personer, blir prisen lavere
+            pris = 70;
+          }
+          else {
+            pris = 80;
+          };
+          totalpris = pris * personer * middager;
+          pSum.innerHTML = "<b>Totalpris:</b> " + totalpris + " kr.";
+        };
+      }
+
+      btnBekreft.onclick = function() {
+        if (print.innerHTML === "<br>") { // Sjekke om det er skrevet inn en bestilling
+          alert("Du må skrive inn bestillingen før du kan bekrefte.");
+        }
+        else {
+          btnRegistrer.disabled = true; // Skrur av registrerknappen
+          btnBekreft.disabled = true; // Skrur av bekreftknappen
+        };
+      }
+    </script>
+  </body>
+</html>

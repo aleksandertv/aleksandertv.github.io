@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1 - Kinobillettkalkulator for barn</title>
+  </head>
+  <body>
+    <h1>Kinobillettkalkulator for barn</h1>
+    <input type="number" id="inpAlder1" value="" placeholder="Alder på første barn">
+    <input type="number" id="inpAlder2" value="" placeholder="Alder på andre barn">
+    <button type="button" id="btnUtregn">Regn ut</button>
+    <p id="print"></p>
+    <script type="text/javascript">
+      const inpAlder1 = document.querySelector("#inpAlder1");
+      const inpAlder2 = document.querySelector("#inpAlder2");
+      const btnUtregn = document.querySelector("#btnUtregn");
+      const print = document.querySelector("#print");
+
+      let sum = 0;
+      btnUtregn.onclick = function() {
+        sum = Number(inpAlder1.value) + Number(inpAlder2.value);
+        if (sum < 4) { // Hvis summen er mindre enn 4
+          print.innerHTML = "Barn på tilsammen " + sum + " år kommer inn gratis.";
+        }
+        else if (sum <= 18) { // Hvis summen er mellom 4 og 18
+          print.innerHTML = "Med alderen " + sum + " år må man betale barnebillett.";
+        }
+        else {
+          print.innerHTML = "Med alderen " + sum + " år må man betale voksenbillett.";
+        };
+      }
+    </script>
+  </body>
+</html>

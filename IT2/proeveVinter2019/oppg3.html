@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3 - Ligningssett</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      for (let x = 0; x <= 10; x++) { // Definerer x som -10, og teller den opp til 10. Valgte dette fordi summen av 3 og 7 er 10, så tenkte det var usannsynlig at hverken x eller y er større enn 10
+        for (let y = 0; y <= 10; y++) { // Gjør det samme som med x med y
+          if (x + y === 7 && x - y === 3) { // Hvis BÅDE x+y=7 og x-y=3, er svaret korrekt
+            document.write("<b>Løsning:</b> x = " + x + " og y = " + y + "."); // Kunne hatt en return, men da hadde jeg bare funnet et svar
+          };
+        }
+      }
+    </script>
+  </body>
+</html>
