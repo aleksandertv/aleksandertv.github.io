@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver brukergrensesnitt</title>
+  </head>
+  <body>
+    <!-- Oppgave 1 -->
+<!-- <button type="button" id="btnTeller">En gjest til</button>
+    <p id="print">Det er 0 elever inne i lokalet.</p> -->
+    <!-- Oppgave 2 -->
+<!-- <button type="button" id="btnHund" data-bilde="hund.jpg">Hund</button>
+    <button type="button" id="btnKatt" data-bilde="katt.jpg">Katt</button>
+    <button type="button" id="btnSkilpadde" data-bilde="skilpadde.jpg">Skilpadde</button><br>
+    <img src="" id="imgDyr" width=320> -->
+    <!-- Oppgave 3 -->
+<!-- <p>Beløp: 500kr</p>
+    <button type="button" id="btnRabatt10" data-rabatt=0.9>10% rabatt</button>
+    <button type="button" id="btnRabatt50" data-rabatt=0.5>50% rabatt</button>
+    <p id="print">Varen koster nå 500kr.</p> -->
+    <!-- Oppgave 4 -->
+    <input type="text" id="inpNavn" placeholder="Navn" value=""><br>
+    <input type="text" id="inpTlf" maxlength=8 placeholder="Telefonnummer" value=""><br>
+    Gjester: <input type="range" id="inpGjester" min=1 max=10 value=""><br>
+    <select type="number" list="middagsmenyer" id="inpMiddagsmeny" min=1 value="" placeholder="Middagsmeny" width="50px">
+    <datalist id="middagsmenyer">
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+    </datalist>
+    <input type="color" id="inpDukfarge" value="red"><br><br><br>
+    <p><b>Bestilling</b></p>
+    <p id="print"></p>
+    <!-- Oppgave 5 -->
+<!-- Bredde: <input type="range" id="inpBredde" min=1 max=14 value=7>
+    <p id="print">700px</p>
+    <img src="Filer/skilpadde.jpg" id="imgSkilpadde" width=700> -->
+    <script type="text/javascript">
+      const print = document.querySelector("#print");
+      const btnTeller = document.querySelector("#btnTeller");
+      const btnHund = document.querySelector("#btnHund");
+      const btnKatt = document.querySelector("#btnKatt");
+      const btnSkilpadde = document.querySelector("#btnSkilpadde");
+      const imgDyr = document.querySelector("#imgDyr");
+      const btnRabatt10 = document.querySelector("#btnRabatt10");
+      const btnRabatt50 = document.querySelector("#btnRabatt50");
+      const inpNavn = document.querySelector("#inpNavn");
+      const inpTlf = document.querySelector("#inpTlf");
+      const inpGjester = document.querySelector("#inpGjester");
+      const inpMiddagsmeny = document.querySelector("#inpMiddagsmeny");
+      const inpDukfarge = document.querySelector("#inpDukfarge");
+      const inpBredde = document.querySelector("#inpBredde");
+      const imgSkilpadde = document.querySelector("#imgSkilpadde");
+
+      // Oppgave 1
+      /*
+      let gjester = 0;
+      btnTeller.onclick = function() {
+        let elev = "elever";
+        gjester++;
+        if (gjester === 1) {
+          elev = "elev";
+        };
+        print.innerHTML = "Det er " + gjester + " " + elev + " inne i lokalet.<br>";
+      }
+      */
+
+      // Oppgave 2
+      /*
+      function visBilde(evt) {
+        let knapp = evt.target;
+        let bildefil = knapp.getAttribute("data-bilde");
+        imgDyr.src = "Filer/" + bildefil;
+      }
+
+      btnHund.onclick = visBilde;
+      btnKatt.onclick = visBilde;
+      btnSkilpadde.onclick = visBilde;
+      */
+
+      // Oppgave 3
+      /*
+      function visPris(evt) {
+        let pris = 500;
+        let knapp = evt.target;
+        let rabatt = knapp.getAttribute("data-rabatt");
+        let nyPris = pris * rabatt;
+        print.innerHTML = "Varen koster nå " + nyPris + "kr.<br>";
+      }
+
+      btnRabatt10.onclick = visPris;
+      btnRabatt50.onclick = visPris;
+      */
+
+      // Oppgave 4
+      function visBestilling() {
+        print.innerHTML = "Navn: " + inpNavn.value + ".<br>Tlf: " + inpTlf.value + ".<br>Gjester: " + inpGjester.value + ".<br>Middagsmeny: " + inpMiddagsmeny.value + ".<br><b style='color:" + inpDukfarge.value + "'>Dukfarge</b><br>";
+      }
+
+      inpNavn.onchange = visBestilling;
+      inpTlf.onchange = visBestilling;
+      inpGjester.onchange = visBestilling;
+      inpMiddagsmeny.onchange = visBestilling;
+      inpDukfarge.onchange = visBestilling;
+
+      // Oppgave 5
+      /*
+      inpBredde.onchange = function() {
+        let bredde = inpBredde.value * 100;
+        imgSkilpadde.width = bredde;
+        print.innerHTML = bredde + "px";
+      }
+      */
+    </script>
+  </body>
+</html>

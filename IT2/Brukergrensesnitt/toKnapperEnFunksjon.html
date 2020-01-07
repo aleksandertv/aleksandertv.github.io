@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Katt eller hund</title>
+  </head>
+  <body>
+    <div>
+      <button type="button" id="btnKatt" data-bilde="katt.jpg" data-lyd="kattelyd.mp3">Katt</button>
+      <button type="button" id="btnHund" data-bilde="hund.jpg" data-lyd="hundelyd.mp3">Hund</button>
+    </div>
+    <img id="imgBilde" src="">
+    <audio id="lyd" src="">
+
+    </audio>
+    <script type="text/javascript">
+      const btnKatt = document.querySelector("#btnKatt");
+      const btnHund = document.querySelector("#btnHund");
+      const imgBilde = document.querySelector("#imgBilde");
+
+
+      // Metode 1
+      /*
+      function visBilde(evt) {
+        let knapp = evt.target; // referanse til knappen som ble trukket
+        if (knapp.id === "btnKatt") {
+          imgBilde.src = "Filer/katt.jpg";
+        }
+        else {
+          imgBilde.src = "Filer/hund.jpg";
+        };
+      }
+      */
+
+      //Metode 2
+      function visBilde(evt) {
+        let knapp = evt.target;
+        let bildefil = knapp.getAttribute("data-bilde");
+        let lydfil = knapp.getAttribute("data-lyd");
+        imgBilde.src = "Filer/" + bildefil;
+        lyd.src = "Filer/" + lydfil;
+        lyd.play();
+      }
+
+      btnKatt.onclick = visBilde;
+      btnHund.onclick = visBilde;
+    </script>
+  </body>
+</html>

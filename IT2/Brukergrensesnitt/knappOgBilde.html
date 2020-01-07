@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Knapp og bilde</title>
+  </head>
+  <body>
+    <button type="button" id="btnVisBilde">Vis bilde</button>
+    <div id="divInfo">
+      <!-- her kommer et bilde -->
+    </div>
+    <script type="text/javascript">
+      const btnVisBilde = document.querySelector("#btnVisBilde");
+      const divInfo = document.querySelector("#divInfo");
+
+      btnVisBilde.onclick = function() {
+        divInfo.innerHTML = "<img src='Filer/katt.jpg' width=200'px'>"
+      }
+    </script>
+  </body>
+</html>
