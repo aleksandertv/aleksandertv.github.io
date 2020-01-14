@@ -19,7 +19,7 @@
     <button type="button" id="btnRabatt50" data-rabatt=0.5>50% rabatt</button>
     <p id="print">Varen koster nå 500kr.</p> -->
     <!-- Oppgave 4 -->
-    <input type="text" id="inpNavn" placeholder="Navn" value=""><br>
+<!-- <input type="text" id="inpNavn" placeholder="Navn" value=""><br>
     <input type="text" id="inpTlf" maxlength=8 placeholder="Telefonnummer" value=""><br>
     Gjester: <input type="range" id="inpGjester" min=1 max=10 value=""><br>
     <select type="number" list="middagsmenyer" id="inpMiddagsmeny" min=1 value="" placeholder="Middagsmeny" width="50px">
@@ -30,11 +30,51 @@
     </datalist>
     <input type="color" id="inpDukfarge" value="red"><br><br><br>
     <p><b>Bestilling</b></p>
-    <p id="print"></p>
+    <p id="print"></p> -->
     <!-- Oppgave 5 -->
 <!-- Bredde: <input type="range" id="inpBredde" min=1 max=14 value=7>
     <p id="print">700px</p>
     <img src="Filer/skilpadde.jpg" id="imgSkilpadde" width=700> -->
+    <!-- Oppgave 6 -->
+<!-- <select id="ukedager">
+      <option value="">Velg ukedag</option>
+      <option value="mandag">Mandag</option>
+      <option value="tirsdag">Tirsdag</option>
+      <option value="onsdag">Onsdag</option>
+      <option value="torsdag">Torsdag</option>
+      <option value="fredag">Fredag</option>
+      <option value="lørdag">Lørdag</option>
+      <option value="søndag">Søndag</option>
+    </select>
+    <p id="print"></p> -->
+    <!-- Eksempel, side 140 -->
+<!-- <div>
+      <h1>Velg farge på gullfisken</h1>
+      <label><input type="radio" name="rgbFisk" data-bilde="Roed.jpg" id="red">Rød</label>
+      <label><input type="radio" name="rgbFisk" data-bilde="Gul.jpg" id="yellow">Gul</label>
+      <label><input type="radio" name="rgbFisk" data-bilde="Svart.jpg" id="black">Svart</label>
+    </div>
+    <img src="" id="imgGullfisk" width=450> -->
+    <!-- Oppgave 1, side 144 -->
+<!-- <label><input type="radio" value="ja">Ja</label>
+    <label><input type="radio" value="nei">Nei</label>
+    <button type="button" id="btnReg">Registrer</button>
+    <p id="print"></p> -->
+    <!-- Oppgave 2, side 144 -->
+<h3>Speil</h3>
+    <label><input type="radio" name="gr1" value="Ja">Ja</label>
+    <label><input type="radio" name="gr1" value="Nei">Nei</label>
+    <h3>Vindu</h3>
+    <label><input type="radio" name="gr2" value="Ja">Ja</label>
+    <label><input type="radio" name="gr2" value="Nei">Nei</label>
+    <h3>Tak</h3>
+    <label><input type="radio" name="gr3" value="Ja">Ja</label>
+    <label><input type="radio" name="gr3" value="Nei">Nei</label>
+    <h3>Dører</h3>
+    <label><input type="radio" name="gr4" value="Ja">Ja</label>
+    <label><input type="radio" name="gr4" value="Nei">Nei</label>
+    <button type="button" id="btnReg">Registrer</button>
+    <p id="print"></p>
     <script type="text/javascript">
       const print = document.querySelector("#print");
       const btnTeller = document.querySelector("#btnTeller");
@@ -51,6 +91,16 @@
       const inpDukfarge = document.querySelector("#inpDukfarge");
       const inpBredde = document.querySelector("#inpBredde");
       const imgSkilpadde = document.querySelector("#imgSkilpadde");
+      const ukedager = document.querySelector("#ukedager");
+      const red = document.querySelector("#red");
+      const yellow = document.querySelector("#yellow");
+      const black = document.querySelector("#black");
+      const imgGullfisk = document.querySelector("#imgGullfisk");
+      const btnReg = document.querySelector("#btnReg");
+      const gr1 = document.getElementsByName("gr1");
+      const gr2 = document.getElementsByName("gr2");
+      const gr3 = document.getElementsByName("gr3");
+      const gr4 = document.getElementsByName("gr4");
 
       // Oppgave 1
       /*
@@ -93,6 +143,7 @@
       */
 
       // Oppgave 4
+      /*
       function visBestilling() {
         print.innerHTML = "Navn: " + inpNavn.value + ".<br>Tlf: " + inpTlf.value + ".<br>Gjester: " + inpGjester.value + ".<br>Middagsmeny: " + inpMiddagsmeny.value + ".<br><b style='color:" + inpDukfarge.value + "'>Dukfarge</b><br>";
       }
@@ -102,6 +153,7 @@
       inpGjester.onchange = visBestilling;
       inpMiddagsmeny.onchange = visBestilling;
       inpDukfarge.onchange = visBestilling;
+      */
 
       // Oppgave 5
       /*
@@ -111,6 +163,95 @@
         print.innerHTML = bredde + "px";
       }
       */
+
+      // Oppgave 6
+      /*
+      ukedager.onchange = function() {
+        if (ukedager.value === "") {
+          print.innerHTML = "Du må velge en ukedag.";
+        }
+        else {
+          let indeks = ukedager.selectedIndex;
+          let valgt = ukedager[indeks];
+          print.innerHTML = "Du skal møte opp: " + valgt.innerHTML + ".";
+        };
+      }
+      */
+
+      // Eksempel, side 140
+      /*
+      function skiftBilde(evt) {
+        let rb = evt.target;
+        let fiskebilde = rb.getAttribute("data-bilde");
+        imgGullfisk.src = "Filer/" + fiskebilde;
+      }
+
+      red.onclick = yellow.onclick = black.onclick = skiftBilde;
+      */
+
+      // Oppgave 1, side 144
+      /*
+      function undersoekelse(evt) {
+        let rb = evt.target;
+        if (rb.value === "ja") {
+          print.innerHTML = "Takk for at du vil delta!";
+        }
+        else {
+          print.innerHTML = "Takk for nå!";
+        };
+      }
+
+      btnReg.onclick = undersoekelse;
+      */
+
+      // Oppgave 2, side 144
+      function bil() {
+        let valgt = false;
+        for (let i = 0; i < gr1.length; i++) {
+          if (gr1[i].checked) {
+            print.innerHTML = "Speil: " + gr1[i].value + ". ";
+            valgt = true;
+          };
+        }
+        if (valgt === false) {
+          print.innerHTML = "Du må velge speil.";
+          return;
+        };
+        valgt = false;
+        for (let i = 0; i < gr2.length; i++) {
+          if (gr2[i].checked) {
+            print.innerHTML += "Vinduer: " + gr2[i].value + ". ";
+            valgt = true;
+          };
+        }
+        if (valgt === false) {
+          print.innerHTML = "Du må velge vinduer.";
+          return;
+        };
+        valgt = false;
+        for (let i = 0; i < gr3.length; i++) {
+          if (gr3[i].checked) {
+            print.innerHTML += "Tak: " + gr3[i].value + ". ";
+            valgt = true;
+          };
+        }
+        if (valgt === false) {
+          print.innerHTML = "Du må velge tak.";
+          return;
+        };
+        valgt = false;
+        for (let i = 0; i < gr4.length; i++) {
+          if (gr4[i].checked) {
+            print.innerHTML += "Dører: " + gr4[i].value + ". ";
+            valgt = true;
+          };
+        }
+        if (valgt === false) {
+          print.innerHTML = "Du må velge dører.";
+        };
+      }
+
+      btnReg.onclick = bil;
     </script>
   </body>
 </html>

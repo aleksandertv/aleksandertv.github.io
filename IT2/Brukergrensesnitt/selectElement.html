@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <select id="aldersgrense">
+      <option value="">Velg aldersgrense</option>
+      <option value="syv">7 år</option>
+      <option value="femten">15 år</option>
+      <option value="atten">18 år</option>
+    </select>
+    <p id="info"></p>
+    <script type="text/javascript">
+      const aldersgrense = document.querySelector("#aldersgrense");
+      const info = document.querySelector("#info");
+
+      aldersgrense.onchange = function() {
+        if (aldersgrense.value === "") {
+          info.innerHTML = "Du må velge en aldersgrense.";
+        }
+        else {
+          let indeks = aldersgrense.selectedIndex;
+          let valgt = aldersgrense[indeks];
+          info.innerHTML = "Du har valgt " + valgt.innerHTML + " " + aldersgrense.value;
+        };
+      }
+    </script>
+  </body>
+</html>

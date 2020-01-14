@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>avstander</title>
+  </head>
+  <body>
+    Fra: <select id="lstFra"></select>
+    Til: <select id="lstTil"></select><br>
+    <button type="button" id="btnBeregn">Beregn</button>
+    <p id="utskrift"></p>
+    <script type="text/javascript">
+      const btnBeregn = document.querySelector("#btnBeregn");
+      const utskrift = document.querySelector("#utskrift");
+      const lstFra = document.querySelector("#lstFra");
+      const lstTil = document.querySelector("#lstTil");
+
+      const sted = ["Arendal","Grimstad","Lillesand","Kristiansand","Mandal"];
+      let avstandListe = [];
+      avstandListe[0] = [0,22,41,71,113];
+      avstandListe[1] = [22,0,21,51,93];
+      avstandListe[2] = [41,21,0,30,72];
+      avstandListe[3] = [71,51,30,0,43];
+      avstandListe[4] = [113,93,72,43,0];
+
+      // legger til innhold i select-element
+      for (let i = 0; i < sted.length; i++) {
+        optionText = sted[i];
+        optionValue = i;
+        lstFra.append(new Option(optionText,optionValue));
+        lstTil.append(new Option(optionText,optionValue));
+      }
+
+      // beregner avstand utfra valgte elementer
+      function beregn(){
+        let fraIndex = lstFra.selectedIndex;
+        let tilIndex = lstTil.selectedIndex;
+        let avstand = avstandListe[fraIndex][tilIndex];
+        utskrift.innerHTML = "Avstanden er " + avstand + " kilometer.";
+      }
+
+      btnBeregn.onclick = beregn;
+    </script>
+  </body>
+</html>
