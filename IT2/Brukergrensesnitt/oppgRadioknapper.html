@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppsummerende oppgaver input</title>
+  </head>
+  <body>
+    <!-- Oppgave 1 - Oppsummeringsoppgave brukerinput -->
+    <select id="selMat">
+      <option value="Laks">Laks</option>
+      <option value="Entrecote">Entrecote</option>
+    </select><br>
+    Antall: <input type="range" id="inpAntall" min=1 max=10 value=1><br>
+    Tilbehør: <input type="checkbox" name="gr1" value="Rømme">Rømme
+    <input type="checkbox" name="gr1" value="Ketchup">Ketchup<br>
+    Sted: <input type="radio" name="gr2" value="spise her">Spise her
+    <input type="radio" name="gr2" value="ta med">Ta med<br>
+    Betaling: <input type="radio" name="gr3" value="Kontant">Kontant
+    <input type="radio" name="gr3" value="Kort">Kort<br>
+    <button id="btnBestill">Bestill</button>
+    <p id="print"><br></p>
+    <script type="text/javascript">
+      const selMat = document.querySelector("#selMat");
+      const inpAntall = document.querySelector("#inpAntall");
+      const gr1 = document.getElementsByName("gr1");
+      const gr2 = document.getElementsByName("gr2");
+      const gr3 = document.getElementsByName("gr3");
+      const print = document.querySelector("#print");
+
+      // Oppgave 1 - Oppsummeringsoppgave brukerinput
+      btnBestill.onclick = function() {
+        let pris = 0;
+        let tillegg = 0;
+        let gr1Verdi = "";
+        let gr2Verdi = "";
+        let gr3Verdi = "";
+        let totalt = 0;
+        if (selMat.value == "Laks") {
+          pris = 150;
+        }
+        else if (selMat.value == "Entrecote") {
+          pris = 200;
+        };
+        for (let i = 0; i < gr1.length; i++) {
+          if (gr1[i].checked) {
+            gr1Verdi += gr1[i].value;
+          };
+        }
+        if (gr1Verdi === "") {
+          gr1Verdi = "Ingen";
+        };
+        for (let i = 0; i < gr2.length; i++) {
+          if (gr2[i].checked) {
+            gr2Verdi = gr2[i].value;
+          };
+        }
+        for (let i = 0; i < gr3.length; i++) {
+          if (gr3[i].checked) {
+            gr3Verdi = gr3[i].value;
+          };
+        }
+        if (gr2Verdi == "spise her") {
+          tillegg = 50;
+        };
+        totalt = pris * inpAntall.value + tillegg;
+        print.innerHTML = "Du har valgt " + inpAntall.value + "stk " + selMat.value + " til en pris av " + pris + " pr stk. Av tilbehør har du valgt: " + gr1Verdi + ".<br>Du har valgt å " + gr2Verdi + ". Tillegg: " + tillegg + ". Det blir " + totalt + " kr. totalt.<br>Betaling: " + gr3Verdi + ".";
+      }
+    </script>
+  </body>
+</html>

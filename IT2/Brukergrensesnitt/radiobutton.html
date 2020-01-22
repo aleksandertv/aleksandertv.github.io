@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="radio" id="r1" name="g1" value="20">Te
+    <input type="radio" id="r2" name="g1" value="30">Kaffe
+    <br>
+    <br>
+    <button id="btnReg">Registrer</button>
+    <p id="utskrift"></p>
+    <script type="text/javascript">
+      const r1 = document.querySelector("#r1");
+      const r2 = document.querySelector("#r2");
+      const btnReg = document.querySelector("#btnReg");
+      const utskrift = document.querySelector("#utskrift");
+
+      btnReg.onclick = function() {
+        if (r1.checked) {
+          utskrift.innerHTML = "Du har valgt te. Pris: " + r1.value + ".<br>";
+        }
+        else if (r2.checked) {
+          utskrift.innerHTML = "Du har valgt kaffe. Pris: " + r2.value + ".<br>";
+        }
+        else {
+          utskrift.innerHTML = "Du må velge te eller kaffe.<br>";
+        };
+      }
+    </script>
+  </body>
+</html>
