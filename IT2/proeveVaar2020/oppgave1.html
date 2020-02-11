@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      * {
+        font-size: 14px;
+        font-family: "Georgia",sans-serif;
+      }
+      #divBanner {
+        width: 722px; /* Bredden på himmel.jpg */
+        height: 480px; /* Høyden på himmel.jpg */
+        position: relative;
+      }
+      #imgHimmel {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #btnVideo {
+        position: absolute;
+        left: 50px;
+        top: 50px;
+      }
+      #btnLyd {
+        position: absolute;
+        right: 50px;
+        top: 50px;
+      }
+      #vidEngelsk {
+        position: absolute;
+        left: 191px; /* (722px-340px)/2 */
+        bottom: 125px;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divBanner">
+      <img src="Filer/himmel.jpg" id="imgHimmel">
+      <button type="button" id="btnVideo">Spill video</button>
+      <button type="button" id="btnLyd">Spill lyd</button>
+      <video src="Filer/english_lesson.mp4" id="vidEngelsk"></video> <!-- Velger å ikke ha controls, siden videoen skal settes på pause når den trykkes på -->
+      <audio src="Filer/Banjo.mp3" id="audBanjo" loop></audio> <!-- Trenger ikke ta opacity, for lydfiler vises ikke før de har controls -->
+    </div>
+    <script type="text/javascript">
+      const divBanner = document.querySelector("#divBanner");
+      const imgHimmel = document.querySelector("#imgHimmel");
+      const btnVideo = document.querySelector("#btnVideo");
+      const btnLyd = document.querySelector("#btnLyd");
+      const vidEngelsk = document.querySelector("#vidEngelsk");
+      const audBanjo = document.querySelector("#audBanjo");
+
+      vidEngelsk.onclick = stoppVideo;
+      btnLyd.onclick = function() { // Kjører begge funksjonene for å unngå å ha stoppVideo-javaScripten i banjoLyd-funksjonen også
+        banjoLyd();
+        stoppVideo();
+      }
+
+      btnVideo.onclick = function() {
+        vidEngelsk.style.opacity = "1"; // Av typen string. Fungerer av typen number
+        vidEngelsk.play();
+      }
+
+      function stoppVideo() {
+        vidEngelsk.pause();
+        vidEngelsk.style.opacity = "0";
+      }
+
+      let current = true;
+      function banjoLyd() {
+        if (current === true) {
+          audBanjo.currentTime = 0;
+          audBanjo.play();
+          current = false;
+        }
+        else {
+          audBanjo.pause();
+          current = true;
+        }
+      }
+    </script>
+  </body>
+</html>

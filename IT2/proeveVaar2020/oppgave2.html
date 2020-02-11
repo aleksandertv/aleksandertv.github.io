@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+    <style media="screen">
+      * {
+        font-family: "Georgia",sans-serif;
+      }
+      #divTurer {
+        display: grid;
+        grid-template-columns: repeat(2,250px);
+        grid-gap: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Bestilling av tur</h2>
+    <div id="divTurer">
+      <div id="divNordmarka">
+        <p>Tur 1: I Nordmarka.</p>
+        <p>Pris: Voksen 500 kr, barn 250 kr.</p>
+        <img src="Filer/nordmarkaNy.jpg" width="250px">
+        <label>I Nordmarka <input type="radio" name="gr1" value="i Nordmarka"></label><br>
+        Antall Voksne: <select id="selVoksne">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+        Antall Barn: <select id="selBarn">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div id="divFjellet">
+        <p>Tur 2: På fjellet.</p>
+        <p>Pris: Voksen 700 kr, barn 350 kr.</p>
+        <img src="Filer/fjellturNy.jpg"> <!-- Allerede 250px, siden det er størrelsen på bildet -->
+        <label>På fjellet <input type="radio" name="gr1" value="på Fjellet"></label><br>
+        <select id="selGuide">
+          <option value="Severin Suveren">Severin Suveren</option>
+          <option value="Lars Monsen">Lars Monsen</option>
+        </select><br>
+        <button type="button" id="btnBestill">Bestill tur</button>
+      </div>
+    </div>
+    <p id="print"></p>
+    <script type="text/javascript">
+      const gr1 = document.getElementsByName("gr1");
+      const selVoksne = document.querySelector("#selVoksne");
+      const selBarn = document.querySelector("#selBarn");
+      const selGuide = document.querySelector("#selGuide");
+      const btnBestill = document.querySelector("#btnBestill");
+      const print = document.querySelector("#print");
+
+      btnBestill.onclick = function() {
+        let tur = "";
+        let prisBarn = 0;
+        let prisVoksen = 0;
+        let valgt = false;
+        for (let i = 0; i < gr1.length; i++) {
+          if (gr1[i].checked) {
+            tur = gr1[i].value;
+            valgt = true;
+          };
+        }
+        if (valgt == false) { // Sjekk på om man har valgt en tur
+          print.innerHTML = "Du må velge en tur.";
+        }
+        else if (selVoksne.value == "0" && selBarn.value == "0") { // Sjekk på om man har valgt én eller flere deltakere
+          print.innerHTML = "Det må være minst én turgåer."; // Kunne fylt print-elementet med foreløpige opplysninger og tatt en += i else-delen av javascripten
+        }
+        else { // Trengte ikke en test på om man har valgt en guide, siden det ikke går an å ikke velge noen
+          if (tur === "i Nordmarka") {
+            prisBarn = 250;
+            prisVoksen = 500;
+          }
+          else {
+            prisBarn = 350;
+            prisVoksen = 700;
+          }
+          let totalpris = Number(selBarn.value)*prisBarn+Number(selVoksne.value)*prisVoksen; // Kunne delt på to med barn, men valgte å gjøre det på denne måten
+          print.innerHTML = "<b>Bestilling:</b><br>Du har valgt tur " + tur + ".<br>Antall voksne: " + selVoksne.value + "<br>Antall barn: " + selBarn.value + "<br>Guide: " + selGuide.value + "<br>Total pris: " + totalpris;
+        }
+      }
+    </script>
+  </body>
+</html>
