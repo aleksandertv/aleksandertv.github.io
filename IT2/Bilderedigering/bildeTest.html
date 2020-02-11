@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bilde</title>
+    <style media="screen">
+      #bilde {
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="Filer/katt.jpg" width=125>
+    <img src="Filer/katt.jpg" id="bilde" alt="">
+    <script type="text/javascript">
+      const bilde = document.querySelector("#bilde");
+      bilde.onclick = function() {
+        bilde.style.width = "500px";
+      }
+    </script>
+  </body>
+</html>

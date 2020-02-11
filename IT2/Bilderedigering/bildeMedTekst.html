@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Safari</title>
+    <style media="screen">
+      #divBanner {
+        width: 600px;
+        height: 395px;
+        position: relative;
+      }
+      #imgKatt {
+        width: 600px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+      #tekst {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        color: red;
+        font-size: 60px;
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divBanner">
+      <img src="Filer/katt.jpg" id="imgKatt" alt="">
+      <span id="tekst">Safari</span>
+    </div>
+    <script type="text/javascript">
+      const divBanner = document.querySelector("#divBanner");
+      const imgKatt = document.querySelector("#imgKatt");
+      const tekst = document.querySelector("#tekst");
+
+      imgKatt.onclick = function() {
+        if (tekst.style.display == "none") {
+          //tekst.style.display = "block";
+          tekst.style.display = "initial";
+        }
+        else {
+          tekst.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

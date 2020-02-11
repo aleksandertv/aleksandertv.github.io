@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Video med knapper</title>
+  </head>
+  <body>
+    <h1>Min video</h1>
+    <video src="Filer/english_lesson.mp4" width=640 height=400 poster="Filer/katt.jpg" controls id="minVideo"></video>
+    <div>
+      <button type="button" id="btnPlay">Play</button>
+      <button type="button" id="btnPause">Pause</button>
+      <button type="button" id="btnHalvFart">Halv fart</button>
+      <button type="button" id="btnDobbelFart">Dobbel fart</button>
+      <a href="#" id="lnkStart">Fra start</a>
+      <a href="#" id="lnkSenere">Litt senere</a>
+      <a href="#" id="lnkSenest">Senest</a>
+    </div>
+    <script type="text/javascript">
+      const minVideo = document.querySelector("#minVideo");
+      const btnPlay = document.querySelector("#btnPlay");
+      const btnPause = document.querySelector("#btnPause");
+      const btnHalvFart = document.querySelector("#btnHalvFart");
+      const btnDobbelFart = document.querySelector("#btnDobbelFart");
+      const lnkStart = document.querySelector("#lnkStart");
+      const lnkSenere = document.querySelector("#lnkSenere");
+      const lnkSenest = document.querySelector("#lnkSenest");
+
+      btnPlay.onclick = function() {
+        minVideo.play();
+      }
+
+      btnPause.onclick = function() {
+        minVideo.pause();
+      }
+
+      btnHalvFart.onclick = function() {
+        minVideo.playbackRate = 0.5;
+      }
+
+      btnDobbelFart.onclick = function() {
+        minVideo.playbackRate = 2;
+      }
+
+      lnkStart.onclick = function() {
+        minVideo.currentTime = 0;
+      }
+
+      lnkSenere.onclick = function() {
+        minVideo.currentTime = 100;
+      }
+
+      lnkSenest.onclick = function() {
+        minVideo.currentTime = 300;
+      }
+    </script>
+  </body>
+</html>

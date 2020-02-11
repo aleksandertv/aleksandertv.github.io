@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver bilder og videoer</title>
+    <style media="screen">
+      /* Oppgave 3, video */
+      #inpStart {
+        width: 640px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Oppgave 1, bilde -->
+<!-- <img src="Filer/katt.jpg" id="imgKatt"><br>
+    <button type="button" id="btnGjennomsiktig">Gjør bildet mer gjennomsiktig</button> -->
+    <!-- Oppgave 1, video -->
+<!-- <video src="Filer/english_lesson.mp4" width=640 height=400 poster="Filer/katt.jpg" controls id="minVideo1"></video>
+    <video src="Filer/english_lesson.mp4" width=640 height=400 poster="Filer/katt.jpg" controls id="minVideo2"></video>
+    <div>
+      <button type="button" id="btnPlay1">Spill film 1</button>
+      <button type="button" id="btnPlay2">Spill film 2</button>
+    </div> -->
+    <!-- Oppgave 2, video -->
+<!-- <video src="Filer/english_lesson.mp4" width=320 height=200 controls id="minVideo1"></video>
+    <video src="Filer/english_lesson.mp4" width=320 height=200 controls id="minVideo2"></video>
+    <video src="Filer/english_lesson.mp4" width=320 height=200 controls id="minVideo3"></video>
+    <div>
+      <select id="selFilm">
+        <option value="minVideo1">1</option>
+        <option value="minVideo2">2</option>
+        <option value="minVideo3">3</option>
+      </select>
+    </div> -->
+    <!-- Oppgave 3, video -->
+<!-- <video src="Filer/english_lesson.mp4" width="640px" height=400 controls id="minVideo1"></video><br>
+    <input type="range" id="inpStart" value=0 min=0 max=379> -->
+    <!-- Oppgave 4, video -->
+<!-- <video src="Filer/english_lesson.mp4" width="640px" height=400 controls id="minVideo1"></video><br>
+    <button id="btnPlay1">Start video</button> -->
+    <!-- Oppgave 7, video -->
+    <video src="Filer/english_lesson.mp4" controls id="minVideo1"></video>
+    <script type="text/javascript">
+      const imgKatt = document.querySelector("#imgKatt");
+      const btnGjennomsiktig = document.querySelector("#btnGjennomsiktig");
+      const divBoks = document.querySelector("#divBoks");
+      const minVideo1 = document.querySelector("#minVideo1");
+      const minVideo2 = document.querySelector("#minVideo2");
+      const btnPlay1 = document.querySelector("#btnPlay1");
+      const btnPlay2 = document.querySelector("#btnPlay2");
+      const minVideo3 = document.querySelector("#minVideo3");
+      const selFilm = document.querySelector("#selFilm");
+      const inpStart = document.querySelector("#inpStart");
+
+      // Oppgave 1, bilde
+      /*
+      let gjennomsiktig = 0.5;
+      imgKatt.style.opacity = gjennomsiktig;
+      btnGjennomsiktig.onclick = function() {
+        gjennomsiktig = gjennomsiktig - 0.1;
+        imgKatt.style.opacity = gjennomsiktig;
+      }
+      */
+
+      // Oppgave 1, video
+      /*
+      btnPlay1.onclick = function() {
+        minVideo1.play();
+      }
+
+      btnPlay2.onclick = function() {
+        minVideo2.play();
+      }
+      */
+
+      // Oppgave 2, video
+      /*
+      //funker ikke
+      selFilm.onchange = function() {
+        selFilm.value.play();
+      }
+      */
+
+      // Oppgave 3, video
+      /*
+      inpStart.onchange = function() {
+        minVideo1.currentTime = inpStart.value;
+      }
+      */
+
+      // Oppgave 4, video
+      /*
+      let current = true;
+      btnPlay1.onclick = function() {
+        if (current == true) {
+          minVideo1.play();
+          btnPlay1.innerHTML = "Stopp film";
+          current = false;
+        }
+        else {
+          minVideo1.pause();
+          btnPlay1.innerHTML = "Start film";
+          current = true;
+        };
+      }
+      */
+
+      // Oppgave 7, video
+      minVideo1.onended = function() {
+        let svar = prompt("Vil du se en ny film?","Ja");
+        if (svar.toUpperCase() == "JA") {
+          minVideo1.src = "Filer/english_lesson.mp4";
+          minVideo1.play();
+        };
+      }
+    </script>
+  </body>
+</html>

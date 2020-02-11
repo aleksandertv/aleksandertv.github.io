@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Trykk på et bilde for å se anbefalt filformat og hovedtype for datagrafikk</h3>
+    <img src="bilder/fjell1.jpg" id="imgFjell1" height=221>
+    <img src="bilder/fjell2.jpg" id="imgFjell2" height=221>
+    <img src="bilder/fjell3.jpg" id="imgFjell3" height=221>
+    <p id="print"></p>
+    <script type="text/javascript">
+      const imgFjell1 = document.querySelector("#imgFjell1");
+      const imgFjell2 = document.querySelector("#imgFjell2");
+      const imgFjell3 = document.querySelector("#imgFjell3");
+      const print = document.querySelector("#print");
+
+      imgFjell1.onclick = imgFjell2.onclick = imgFjell3.onclick = visInfo;
+
+      function visInfo(evt) {
+        let bilde = evt.target;
+        if (bilde == imgFjell1) {
+          print.innerHTML = "1";
+        }
+        else if (bilde == imgFjell2) {
+          print.innerHTML = "2";
+        }
+        else if (bilde == imgFjell3) {
+          print.innerHTML = "3";
+        };
+      }
+    </script>
+  </body>
+</html>

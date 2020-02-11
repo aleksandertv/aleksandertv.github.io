@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Video</title>
+  </head>
+  <body>
+    <video src="Filer/english_lesson.mp4" width=640 height=400 controls id="minFilm"></video>
+    <button type="button" id="btnVis">Vis film</button>
+    <script type="text/javascript">
+      const minFilm = document.querySelector("#minFilm");
+      const btnVis = document.querySelector("#btnVis");
+
+      minFilm.onended = videoFerdig;
+      btnVis.onclick = function() {
+        minFilm.style.display = "block";
+      }
+
+      function videoFerdig() {
+        minFilm.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
