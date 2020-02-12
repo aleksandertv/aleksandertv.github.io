@@ -121,8 +121,8 @@
         let parent = snapshot.ref.parent.key;
         let stoerrelser = ``; // stoerrelser må først defineres
         let farger = ``; // farger må først defineres
-        var parentIdStr = `${parentId}`; //parentIdStr (parentId-stringen) skal være lik parentId-en
-        var str = `${id}`; // str (string) skal være lik id-en
+        let parentIdStr = `${parentId}`; //parentIdStr (parentId-stringen) skal være lik parentId-en
+        let str = `${id}`; // str (string) skal være lik id-en
         for (let stoerrelse of klesplagg.stoerrelse) { // La hver størrelse innenfor "stoerrelse" i JSON-filen lagres som et nytt objekt
           stoerrelser += `<option value="${stoerrelse}">${stoerrelse}</option>` // For at alle de forskjellige størrelsene skal få hver sin "option"
         };
@@ -184,28 +184,28 @@
           overmateriale = `Overmaterialer: `; // Hvis lengden arrayen er større enn 1, skal overmateriale være lik "Overmaterialer: "
         };
         if (parentIdStr === `Bukser`) {
-          var res = str.substr(0,5); // Hvis parentIdStr er lik `Bukser`, skal res være lik de 5 første bokstavene av key-en (Sko001, Sko002, osv.), som er "Bukse". Den første bokstaven har posisjon 0, så det er derfor man begynner der
+          let res = str.substr(0,5); // Hvis parentIdStr er lik `Bukser`, skal res være lik de 5 første bokstavene av key-en (Sko001, Sko002, osv.), som er "Bukse". Den første bokstaven har posisjon 0, så det er derfor man begynner der
         }
         else if (parentIdStr === `Gensere`) {
-          var res = str.substr(0,6); // Samme prinsipp som med Bukser, bare at her står det "Genser"
+          let res = str.substr(0,6); // Samme prinsipp som med Bukser, bare at her står det "Genser"
         }
         else if (parentIdStr === `Jakker`) {
-          var res = str.substr(0,5); // Jakke
+          let res = str.substr(0,5); // Jakke
         }
         else if (parentIdStr === `Skjorter`) {
-          var res = str.substr(0,7); // Skjorte
+          let res = str.substr(0,7); // Skjorte
         }
         else if (parentIdStr === `Sko`) {
-          var res = str.substr(0,3); // Sko. Kunne bare skrevet "Sko", men denne løsningen fungerer like bra, og trenger ikke å være redd for skrivefeil
+          let res = str.substr(0,3); // Sko. Kunne bare skrevet "Sko", men denne løsningen fungerer like bra, og trenger ikke å være redd for skrivefeil
         }
         else if (parentIdStr === `Tilbehør`) {
-          var res = `Tilbehør`; // For at det ikke skal stå "Tilbehoer", men "Tilbehør"
+          let res = `Tilbehør`; // For at det ikke skal stå "Tilbehoer", men "Tilbehør"
         }
         else if (parentIdStr === `Tskjorter`) {
-          var res = `T-skjorte`; // For at det skal stå "T-skjorte" istedenfor "Tskjorte"
+          let res = `T-skjorte`; // For at det skal stå "T-skjorte" istedenfor "Tskjorte"
         }
         else { // Siden det bare er 8 ulike parentId-er, så må parentId være lik Undertøy hvis den ikke er lik noen av de tidligere parentId-ene
-          var res = `Undertøy`; // Samme som med Tilbehør
+          let res = `Undertøy`; // Samme som med Tilbehør
         };
         titleProduktinformasjon.innerHTML += `
           ${klesplagg.produktnavn} - ${klesplagg.merkenavn} - ${parentId} - Alveto
@@ -502,9 +502,7 @@
       };
 
       lignendeProdukter(); // Skal kjøres uansett
-      // Åste
       produkterAndreFarger();
-      // Åste
     </script>
   </body>
 </html>
