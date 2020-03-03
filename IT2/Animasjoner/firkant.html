@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Firkant</title>
+    <style media="screen">
+      #firkant {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        left: 50px;
+        top: 50px;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btnStyr">Av/På</button>
+    <button id="btnRetning">Retning</button>
+    <button id="btnFart">Fart</button>
+    <div id="firkant"></div>
+    <script type="text/javascript">
+      const knapper = document.querySelector(".knapper");
+      const btnStyr = document.querySelector("#btnStyr");
+      const btnRetning = document.querySelector("#btnRetning");
+      const btnFart = document.querySelector("#btnFart");
+      const firkant = document.querySelector("#firkant");
+
+      let minAni = firkant.animate([
+                                    {opacity:0,left:"50px",top:"50px",transform:"rotate(0deg)"},
+                                    {opacity:0.5,left:(innerWidth-150)+"px",top:"50px",transform:"rotate(180deg)"},
+                                    {opacity:1,left:(innerWidth-150)+"px",top:(innerHeight-150)+"px",transform:"rotate(360deg)"}],
+                                    {duration:3000,
+                                    iterations:Infinity,
+                                    direction:"alternate"}
+                                  );
+
+      minAni.pause(); // Starter avslått
+      btnStyr.onclick = function() {
+        if (minAni.playState == "paused") {
+          minAni.play();
+        }
+        else {
+          minAni.pause();
+        };
+      }
+
+      btnRetning.onclick = function() {
+        minAni.reverse();
+      }
+
+      minAni.onfinish = aniFerdig;
+      function aniFerdig() {
+        minAni.reverse();
+        minAni.play();
+      }
+
+      btnFart.onclick = function() {
+        if (minAni.playbackRate == 1) {
+          minAni.playbackRate = 5;
+        }
+        else {
+          minAni.playbackRate = 1;
+        };
+      }
+    </script>
+  </body>
+</html>

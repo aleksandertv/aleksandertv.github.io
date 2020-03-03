@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button type="button" id="btnVis">Trykk her</button>
+    <h3 id="tekst"></h3>
+    <script type="text/javascript">
+      const btnVis = document.querySelector("#btnVis");
+      const tekst = document.querySelector("#tekst");
+      btnVis.onclick = function() {
+        tekst.innerHTML = "God morgen alle sammen!";
+        tekst.animate([{opacity:0},{opacity:1}],2000);
+      }
+    </script>
+  </body>
+</html>

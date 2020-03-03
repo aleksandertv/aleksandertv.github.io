@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver</title>
+    <style media="screen">
+      /* Oppgave 1,2 */
+      /*
+      #firkant {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        left: 50px;
+        top: 50px;
+      }
+      */
+
+      /* Oppgave 4 */
+      /*
+      #imgSol {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+      }
+      */
+
+      /* Oppgave 6 */
+
+      #divTrillebaar {
+        position: absolute;
+        width: 848px;
+        height: 565px;
+        left: -424px;
+        top: 100px;
+        background-image: url(Filer/trillebaar.png);
+      }
+      #divHjul {
+        position: absolute;
+        width: 175px;
+        height: 187px;
+        left: 65px;
+        top: 445px;
+        background-image: url(Filer/hjul.png);
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Oppgave 1,2 -->
+<!--  <div id="firkant"></div>  -->
+    <!-- Oppgave 4 -->
+<!--  <img src="Filer/sol.png" id="imgSol" width="100px"> -->
+    <!-- Oppgave 6 -->
+    <div id="divTrillebaar"></div>
+    <div id="divHjul"></div>
+    <script type="text/javascript">
+      const firkant = document.querySelector("#firkant");
+      const divTrillebaar = document.querySelector("#divTrillebaar");
+      const divHjul = document.querySelector("#divHjul");
+
+      // Oppgave 1,2
+      /*
+      firkant.animate([
+                        {left:"50px",top:"50px",background:"blue"},
+                        {left:(innerWidth-150)+"px",top:"50px",background:"red"},
+                        {left:(innerWidth-150)+"px",top:(innerHeight-150)+"px",background:"blue"},
+                        {left:"50px",top:(innerHeight-150)+"px",background:"red"},
+                        {left:"50px",top:"50px",background:"blue"}],
+                        {duration:7000,
+                        iterations:Infinity}
+      );
+      */
+
+      // Oppgave 6
+      divTrillebaar.animate([
+                              {left:"-424px"},
+                              {left:(innerWidth+424)+"px"}],
+                              {duration:5000,
+                              iterations:Infinity,
+                              fill:"backwards"}
+      );
+
+      divHjul.animate([
+                        {left:"65px",transform:"rotate(0deg)"},
+                        {left:(innerWidth+913)+"px",transform:"rotate(360deg)"}],
+                        {duration:5000,
+                        iterations:Infinity,
+                        fill:"backwards"}
+      );
+    </script>
+  </body>
+</html>
