@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eksempel, s. 227</title>
+    <style media="screen">
+      #chart {
+        display: flex;
+        width: 200px;
+        height: 100px;
+        flex-direction: row; /* Ved column må man skrive width defineres i CSS. Da blir stolpene liggende */
+        align-items: flex-end; /* Ved flex-start er stolpe opp-ned */
+      }
+      #chart > div { /* CSS-stil på de fire stolpene */
+        background-color: DarkSeaGreen;
+        margin: 5px;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script type="text/javascript">
+      const chart = document.querySelector("#chart");
+
+      let hoeyde = [30,80,60,40];
+      for (let stolpe of hoeyde) {
+        chart.innerHTML += "<div style='height: " + stolpe + "px'></div>";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eksempel, s. 232</title>
+  </head>
+  <body>
+    <canvas id="chart" width="300" height="300"></canvas>
+    <script type="text/javascript">
+      const chart = document.querySelector("#chart");
+      const ctx = chart.getContext("2d");
+
+      function graderTilRadianer(grader) {
+        return Math.PI * grader / 180;
+      }
+      let favoritter = [
+        {farge: "PeachPuff", antall: 12},
+        {farge: "Peru", antall: 9},
+        {farge: "Salmon", antall: 7}
+      ];
+      let sum = 0;
+      for (let favoritt of favoritter) {
+        sum += favoritt.antall; // sum=sum+favoritt.antall
+      }
+      let startVinkel = -90; // Starter på -90 grader (rett opp)
+      for (let favoritt of favoritter) {
+        let vinkel = favoritt.antall * 360 / sum; // Finner andelen denne kaken skal utgjøre
+        ctx.fillStyle = favoritt.farge; // Setter fillStyle til farge
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.arc(150,150,140,graderTilRadianer(startVinkel),graderTilRadianer(startVinkel + vinkel));
+        ctx.closePath();
+        ctx.fill();
+        startVinkel += vinkel; // Setter startvinkel for neste kakestykke
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prøv selv, s. 240</title>
+    <style media="screen">
+      /* Oppgave 1 */
+      /*
+      #chart > div {
+        height: 15px;
+        margin-bottom: 5px;
+        background-color: DarkSeaGreen;
+        color: white;
+        padding: 5px;
+    }
+    */
+    </style>
+  </head>
+  <body>
+    <!-- Oppgave 1 -->
+<!--  <h3>Antall kilo kasserte druer</h3>
+    <div id="chart"></div>  -->
+    <!-- Oppgave 5a -->
+    <canvas id="chart" width="600" height="300"></canvas>
+    <script type="text/javascript">
+      // Oppgave 1
+      /*
+      const chart = document.querySelector("#chart");
+
+      let druer = [2.1, 1.7, 2.4, 0.2];
+      for (let drue of druer) {
+        chart.innerHTML += "<div style = 'width: " + drue * 345 + "px'>" + "<b>Uke " + (druer.indexOf(drue) + 1) + ":</b> " + drue + "</div>";
+      }
+      */
+
+      // Oppgave 5a
+      const chart = document.querySelector("#chart");
+      const ctx = chart.getContext("2d");
+
+      function graderTilRadianer(grader) {
+        return Math.PI * grader / 180;
+      }
+      let favoritter = [
+        {farge: "blue", antall: 5, dyr: "Hund"},
+        {farge: "green", antall: 8, dyr: "Katt"},
+        {farge: "red", antall: 2, dyr: "Undulat"},
+        {farge: "yellow", antall: 12, dyr: "Ingen"}
+      ];
+      let sum = 0;
+      for (let favoritt of favoritter) {
+        sum += favoritt.antall;
+      }
+      function tegn() {
+        let startVinkel = -90;
+        for (let favoritt of favoritter) {
+          let vinkel = favoritt.antall * 360 / sum;
+          let startPosX = 340;
+          let startPosY = 10;
+          ctx.fillStyle = favoritt.farge;
+          ctx.beginPath();
+          ctx.moveTo(150,150);
+          ctx.arc(150,150,140,graderTilRadianer(startVinkel),graderTilRadianer(startVinkel + vinkel));
+          ctx.moveTo(startPosX,startPosY);
+          ctx.fillRect(startPosX,startPosY,150,chart.height/favoritter.length);
+          ctx.fillText(favoritt.dyr,startPosX + 160,startPosY);
+          ctx.closePath();
+          ctx.fill();
+          startVinkel += vinkel;
+          startPosY += chart.height/favoritter.length;
+        }
+      }
+      tegn();
+    </script>
+  </body>
+</html>

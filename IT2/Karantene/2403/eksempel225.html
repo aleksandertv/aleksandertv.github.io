@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eksempel, s. 225</title>
+    <style media="screen">
+      #chart > div { /* CSS for div-elementer (stolpene) i #chart */
+        height: 15px; /* Alle får samme høyde */
+        margin-bottom: 5px; /* Marg under hver stolpe */
+        background-color: DarkOrange;
+        color: white; /* Hvit skrift */
+        padding: 5px; /* Mellomrom mellom skriften i stolpene og ut til kantene på stolpene */
+      }
+    </style>
+  </head>
+  <body>
+    <p>Temperaturer på Sicilia</p> <!-- Tekst over stolpediagrammet -->
+    <div id="chart"></div>
+    <script type="text/javascript">
+      const chart = document.querySelector("#chart"); // Referanse til div vi skal legge stolper i
+
+      let temperaturer = [16,16,18,21,25,30,33,33,30,25,20,17];
+      for (let temp of temperaturer) {
+        chart.innerHTML += "<div style='width: " + temp * 10 + "px'>" + temp + "</div>";
+      }
+    </script>
+  </body>
+</html>
