@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Arm</title>
+    <style media="screen">
+      #firkant {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        background-color: blue;
+        top: 100px;
+        left: 100px;
+      }
+      #rektangel {
+        position: absolute;
+        width: 250px;
+        height: 50px;
+        background-color: red;
+        top: 200px;
+        left: 300px;
+        transform-origin: 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btnStart">Start</button>
+    <button id="btnStopp">Stopp</button>
+    <div id="firkant"></div>
+    <div id="rektangel"></div>
+    <script type="text/javascript">
+      const btnStart = document.querySelector("#btnStart");
+      const btnStopp = document.querySelector("#btnStopp");
+      const firkant = document.querySelector("#firkant");
+      const rektangel = document.querySelector("#rektangel");
+
+      let minAni1 = firkant.animate([
+        {left:"100px"},
+        {left:(innerWidth-250)+"px"}],
+        {duration: 1500,
+        iterations: Infinity,
+        direction: "alternate"}
+      );
+      let minAni2 = rektangel.animate([
+        {left:"300px",transform:"rotate(-45deg)"},
+        {left:innerWidth+"px",transform:"rotate(45deg)"}],
+        {duration: 1500,
+        iterations: Infinity,
+        direction: "alternate"}
+      );
+      minAni1.pause();
+      minAni2.pause();
+
+      btnStart.onclick = function() {
+        minAni1.play();
+        minAni2.play();
+      }
+
+      btnStopp.onclick = function() {
+        minAni1.pause();
+        minAni2.pause();
+      }
+    </script>
+  </body>
+</html>
